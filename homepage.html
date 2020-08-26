@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakes and Bakes | Homepage</title>
+    <link rel="shortcut icon" type="image/png" href="Images/logo.png">
+    <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="maincss.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&family=Great+Vibes&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
+    <script src="mainjs.js"></script>
+</head>
+<body>
+    <!--Header start-->
+    <div class=header>
+            <table class=headertable cellspacing=0>
+                <tr class=headertr>
+                    <td class=logotd><img class=logoimg src="Images/logo.png" alt=""></td>
+                    <td class=logotexttd>Cakes and Bakes</td>
+                    <td class=searchtd>
+                        <div class=searchdiv>
+                            <form action="">
+                                <input class="searchinput" type="search" placeholder="Search for baked goodies">
+                                <button class="searchicon"><i class="fas fa-search"></i></button>
+                            </form>   
+                        </div>
+                    </td>
+                    <td class=headerlinks onmouseenter="menushow()">Categories</td>
+                    <td class="headerlinks popupmodal" onclick="popup()">Profile</td>
+                    <td class=headerlinks>Contact</td>
+                    <td class=headerlinks>Your Parcel</td>
+                </tr>
+                <tr id=dropdownmenu class=dropdowntr>
+                    <td colspan=3 style="visibility:hidden"></td>
+                    <td colspan=1 class=dropdowntd >
+                        <ul class=dropdownlist onmouseleave="menuhide()">
+                            <li>Cakes</li><hr>
+                            <li>Ocassion Cakes</li><hr>
+                            <li>Cupcakes</li>
+                            <li>Cookies</li><hr>
+                            <li>Macaroons</li><hr>
+                            <li>Snacks</li><hr>
+                            <li>Brownies</li><hr>
+                            <li>Small Delights</li>
+                        </ul>
+                    </td>
+                    <td colspan=3 style="visibility:hidden"></td>
+                </tr>
+            </table>       
+    </div>
+    <!--Header end-->
+
+    <!--Intro start-->
+    <div class=intro>
+        <center class=introcontent>
+            Welcome to <br><h2 class=introhead>Cakes and Bakes.</h2>
+            We specialise in making sweet baked cakes to savoury snacks to complement each other. <br>
+            Explore the wide range of goodies baked with love. Scroll below to see our top sellers and season specials.
+        </center>
+    </div>
+    <!--Intro end-->
+
+    <!--Contents start-->
+    <div class=contents>
+        <center>
+            <table class=contentstable cellspacing=25px>
+                <tr>
+                    <td colspan=5 class=contentsmainheading>Top Sellers of Cakes and Bakes</td>
+                </tr>
+                <tr>
+                    <td><div class=tiles></div></td>
+                    <td><div class=tiles></div></td>
+                    <td><div class=tiles></div></td>
+                    <td><div class=tiles></div></td>
+                    <td><div class=tiles></div></td>
+                </tr>
+                <tr>
+                    <td><div class=tiles></div></td>
+                    <td><div class=tiles></div></td>
+                    <td><div class=tiles></div></td>
+                    <td><div class=tiles></div></td>
+                    <td><div class=tiles></div></td>
+                </tr>
+                <tr>
+                    <td colspan=5 class=contentsmainheading>Season Specials of Cakes and Bakes</td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </center>   
+    </div>
+    <!--Contents end-->
+
+    <!--Popup Sign in start-->
+    <div class=popupdiv id=popupid>
+        <div class="box">
+            <form action="">
+                <h1 class="heading">Sign In</h1><span class="cross" onclick="popupclose()">X</span>
+                <input class=forminput type="email" placeholder="E-mail id" id="email" required>
+                <input class=forminput type="password" placeholder="Password" id="password" required>
+                <br>
+                <button class=popup type="submit">Sign In</button>
+                <div class="small">Don't have an account? <a href="#" onclick="popupsignup()">Create account</a></div>
+            </form> 
+        </div>
+    </div> 
+    <!--Popup Sign in end-->
+
+    <!--Popup Sign up start-->
+    <div class=popupdiv id=popupid2>
+        <div class="box" id=signupbox>
+            <form action="">
+                <h1 class="heading">Sign Up</h1><span class="cross" onclick="popupsignupclose()" id=crosssignup>X</span>
+                <input class=forminput type="text" placeholder="Full Name" id="fullname" required>
+                <input class=forminput type="email" placeholder="E-mail id" id="email" required>
+                <input class=forminput type="password" placeholder="Password" id="password" required>
+                <input class=forminput type="password" placeholder="Confirm Password" id="password" required>
+                <br>
+                <button class=popup type="submit">Sign Up</button>
+                <div class="small">Already have an account? <a href="#" onclick="popup()">Sign In</a></div>
+            </form> 
+        </div>
+    </div>
+    <!--Popup Sign up end--> 
+</body>
+</html>

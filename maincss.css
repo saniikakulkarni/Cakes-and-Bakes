@@ -1,0 +1,259 @@
+*
+{
+    margin:0;
+}
+body
+{
+    height:100%;
+}
+
+/*Header start*/
+.header
+{
+    background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url("Images/background1.jpeg");
+    width:100%;
+    height:55vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.logotd
+{
+    width:4%;
+}
+.logoimg
+{
+    width:55px;
+    height:55px;
+}
+.logotexttd
+{
+    width:15%;
+    color:#fcd5ca;
+    font-weight: 565;
+    font-family: 'Great Vibes', cursive;
+    font-size:28px;
+    letter-spacing: 2.5px;
+}
+.searchtd
+{
+    width:37%;
+}
+.searchdiv
+{
+    width:75%;
+    border-radius:22px;
+    padding:1.5%;
+    background-color:white;
+}
+.searchinput
+{
+    width:92%;
+    border-radius:24px;
+    border:none;
+    padding:1.5%;
+}
+.searchicon
+{
+    border:none;
+    background:white;
+}
+.headertable
+{
+    
+    position:fixed;
+    width:100%;
+}
+.headertr
+{
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+}
+input[type=search]:focus{
+    outline:none;
+}
+button:active
+{
+    outline:none;
+    border:none;
+}
+button:hover{
+    cursor: pointer;
+}
+.headerlinks
+{
+    color:#fcd5ca;
+    font-family: 'Great Vibes';
+    font-weight:550;
+    letter-spacing: 2.5px;
+    width:8%;
+    text-align: center;
+    font-size:24px;
+    cursor:pointer;
+}
+.dropdowntr
+{
+    background:white;
+    visibility: hidden;
+}
+.dropdowntd
+{
+    border-top:5px solid #fcd5ca;
+    padding-right:30px;
+    box-shadow:2px 2px 5px grey;
+}
+.dropdownlist
+{
+    font-size:18px;
+    font-family: 'Baloo Tamma 2', cursive;
+    list-style-type: none;
+}
+/*Header end*/
+
+/*Intro start*/
+.intro
+{
+    margin:15px;
+    height:40vh;
+    color:#865e17;
+    background:white;
+    font-size:27px;
+    font-family: 'Satisfy', cursive;
+    border:2px dashed #865e17;
+}
+.introheading
+{
+    color:#865e17;
+}
+.introcontent
+{
+    margin:2.5%;
+}
+/*Intro end*/
+
+/*Contents start*/
+.tiles
+{
+    border:1px solid grey;
+    width:17vw;
+    height:38vh;
+    border-radius:20px;
+}
+.contents
+{
+    background:#fcd5ca8c;
+}
+.contentsmainheading
+{
+    color:#865e17;
+    text-align:center;
+    padding:20px;
+    font-family: 'Great Vibes', cursive;
+    font-size:34px;
+    font-weight: 700;
+}
+/* Contents end*/
+
+/*Popup start*/
+.popupdiv
+{
+    position:fixed;
+    width: 100%;
+    height:100vh;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.5);
+    visibility:hidden;
+}
+.box
+{
+    margin:10% 33%;
+    padding:2%;
+    width:30%;
+    border-radius:10px;
+    background:#eee;
+    padding-bottom:3%;
+}
+#signupbox
+{
+    margin:3% 33%;
+}
+.heading{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color:rgba(0,0,0,0.7);
+    margin:2%;
+}
+
+.forminput{
+    background:transparent;
+    border:none;
+    border-bottom:1.3px solid rgba(0,0,0,0.3);
+    width:70%;
+    height:100%;
+    margin:4% 10%;
+    padding:3.5%;
+    color:rgba(0,0,0,0.6);
+    font-size:115%;
+}
+
+input[class=forminput]::placeholder{
+    font-size:17px;
+    color:rgba(0,0,0,0.35);
+}
+
+input[class=forminput]:focus{
+    outline:none;
+}
+
+input[class=forminput]::selection{
+    background:transparent;
+}
+
+a:active,a,a:visited{
+    text-decoration: none;
+    color:rgb(47, 167, 236);
+}
+a:hover{
+    text-decoration: underline;
+}
+
+button[class=popup]{
+    background:rgb(40, 156, 233);
+    border:none;
+    padding:2.5%;
+    width:80%;
+    margin:5%;
+    border-radius:10px;
+    margin-left:10%;
+    font-size:100%;
+    color:white;
+}
+
+button[class=popup]:hover{
+    background:rgba(40, 156, 233, 0.753);
+}
+.small{
+    margin-left: 20%;
+    color:rgba(0,0,0,0.4);
+}
+.cross
+{
+    color:rgba(0,0,0,0.35);
+    font-weight:800;
+    position:absolute;
+    font-size:20px;
+    top:23%;
+    left:64.5%;
+    font-family: 'Baloo Tamma 2', cursive;
+    cursor:pointer;
+}
+#crosssignup
+{
+    top:9%;
+    left:64.5%;
+}
+.cross:hover
+{
+    color:black;
+    border-radius: 40px;
+}
