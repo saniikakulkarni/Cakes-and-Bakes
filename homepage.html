@@ -25,15 +25,15 @@
                             </form>   
                         </div>
                     </td>
-                    <td class=headerlinks onmouseenter="menushow()">Categories</td>
+                    <td class=headerlinks onmouseenter="menushow()" onmouseleave="menuhide()">Categories</td>
                     <td class="headerlinks popupmodal" onclick="popup()">Profile</td>
                     <td class=headerlinks>Contact</td>
                     <td class=headerlinks>Your Parcel</td>
                 </tr>
                 <tr id=dropdownmenu class=dropdowntr>
                     <td colspan=3 style="visibility:hidden"></td>
-                    <td colspan=1 class=dropdowntd >
-                        <ul class=dropdownlist onmouseleave="menuhide()">
+                    <td colspan=1 onmouseenter="menushow()" onmouseleave="menuhide()" class=dropdowntd >
+                        <ul class=dropdownlist  >
                             <li>Cakes</li><hr>
                             <li>Ocassion Cakes</li><hr>
                             <li>Cupcakes</li>
