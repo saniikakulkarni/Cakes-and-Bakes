@@ -8,15 +8,7 @@ body
 }
 
 /*Header start*/
-.header
-{
-    background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url("Images/background1.jpeg");
-    width:100%;
-    height:55vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-}
+
 .logotd
 {
     width:4%;
@@ -108,50 +100,6 @@ button:hover{
     list-style-type: none;
 }
 /*Header end*/
-
-/*Intro start*/
-.intro
-{
-    margin:15px;
-    height:40vh;
-    color:#865e17;
-    background:white;
-    font-size:27px;
-    font-family: 'Satisfy', cursive;
-    border:2px dashed #865e17;
-}
-.introheading
-{
-    color:#865e17;
-}
-.introcontent
-{
-    margin:2.5%;
-}
-/*Intro end*/
-
-/*Contents start*/
-.tiles
-{
-    border:1px solid grey;
-    width:17vw;
-    height:38vh;
-    border-radius:20px;
-}
-.contents
-{
-    background:#fcd5ca8c;
-}
-.contentsmainheading
-{
-    color:#865e17;
-    text-align:center;
-    padding:20px;
-    font-family: 'Great Vibes', cursive;
-    font-size:34px;
-    font-weight: 700;
-}
-/* Contents end*/
 
 /*Popup start*/
 .popupdiv
