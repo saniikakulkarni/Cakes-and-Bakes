@@ -1,4 +1,14 @@
 body
 {
-    background:#fcd5ca59;
+    background:#fcd5ca62;
+}
+.headeritemdisplay
+{
+    
+}
+.searchbar
+{
+    width:100%;
+    height:5vh;
+    background:#fcd5cae3;
 }
