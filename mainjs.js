@@ -18,9 +18,17 @@ function popupsignupclose()
 }
 function menushow()
 {
-    document.getElementById('dropdownmenu').style.visibility="visible";
+    document.getElementById('dropdowncat').style.visibility="visible";
 }
 function menuhide()
 {
-    document.getElementById('dropdownmenu').style.visibility="hidden";
+    document.getElementById('dropdowncat').style.visibility="hidden";
+}
+function profileshow()
+{
+    document.getElementById('dropdownprofile').style.visibility="visible";
+}
+function profilehide()
+{
+    document.getElementById('dropdownprofile').style.visibility="hidden";
 }

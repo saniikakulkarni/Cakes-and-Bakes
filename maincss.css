@@ -81,24 +81,52 @@ button:hover{
     font-size:24px;
     cursor:pointer;
 }
-.dropdowntr
-{
-    background:white;
-    visibility: hidden;
-}
 .dropdowntd
 {
-    border-top:5px solid #fcd5ca;
-    padding-right:30px;
-    box-shadow:2px 2px 5px grey;
+    visibility:hidden;
 }
 .dropdownlist
 {
+    
+    border-top:5px solid #fcd5ca;
+    padding-right:30px;
+    background:white;
+    box-shadow:2px 2px 5px grey;
     font-size:18px;
+    cursor: pointer;
     font-family: 'Baloo Tamma 2', cursive;
     list-style-type: none;
 }
+#profileshift
+{
+    position:absolute;
+    top:15.8%;
+    right:17%;
+}
 /*Header end*/
+
+/*Contents start*/
+.contents
+{
+    width:100%;
+    background:#fcd5ca8c;
+}
+.tilesdiv
+{
+    margin:auto;
+    width:80%;
+}
+.tile
+{
+    border:1px solid grey;
+    width:18.5%;
+    height:38vh;
+    margin-bottom:1.5%;
+    margin-left:0.75%;
+    border-radius:10px;
+    display:inline-block;
+}
+/*Contents end*/
 
 /*Popup start*/
 .popupdiv

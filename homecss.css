@@ -28,18 +28,6 @@
 }
 /*Intro end*/
 
-/*Contents start*/
-.tiles
-{
-    border:1px solid grey;
-    width:17vw;
-    height:38vh;
-    border-radius:20px;
-}
-.contents
-{
-    background:#fcd5ca8c;
-}
 .contentsmainheading
 {
     color:#865e17;
