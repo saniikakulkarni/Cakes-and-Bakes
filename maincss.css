@@ -99,8 +99,8 @@ button:hover{
 }
 #profileshift
 {
-    position:absolute;w
-    top:15.8%;
+    position:absolute;
+    top:16%;
     right:17%;
 }
 /*Header end*/
@@ -233,4 +233,3 @@ button[class=popup]:hover{
     border-radius: 40px;
 }
 
-/*Popup end*/

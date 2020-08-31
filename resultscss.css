@@ -1,6 +1,6 @@
 body
 {
-    background:#fcd5ca62;
+    background:#fcd5ca50;
 }
 .headeritemdisplay
 {
@@ -20,7 +20,6 @@ body
 {
     width:75%;
     margin:auto;
-    margin-left:20%;
     display:flex;
 }
 .itemresult
@@ -35,16 +34,10 @@ body
     padding-top:2%;
     padding-bottom:2%;
 }
-.imgresult
-{
-    width:180px;
-    height:180px;
-}
-
 .items{
     border:1px solid grey;
-    width:20%;
-    height:38vh;
+    width:25%;
+    height:45vh;
     margin:1.5%;
     border-radius:10px;
     display:inline-block;
@@ -56,4 +49,13 @@ body
     height:35vh;
     background-size:contain;
     border-radius:10px;
+}
+.itemdesc
+{
+    background:#fcd5ca;
+    height:10vh;
+    padding:4%;
+    width:100%;
+    border-radius:0 0 10px 10px;
+    box-sizing:border-box;
 }
