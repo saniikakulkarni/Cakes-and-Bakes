@@ -89,7 +89,7 @@ button:hover{
 {
     
     border-top:5px solid #fcd5ca;
-    padding-right:30px;
+    padding:0 12%;
     background:white;
     box-shadow:2px 2px 5px grey;
     font-size:14px;
@@ -97,12 +97,29 @@ button:hover{
     font-family: 'Baloo Tamma 2', cursive;
     list-style-type: none;
 }
+
+.drop-items{
+    border-bottom:1px solid #ddd;
+    padding:4% 0%;
+}
+.btm-border-none{
+    border-bottom:none;
+}
+
 #profileshift
 {
-    width:5%;
+    width:8%;
     position:absolute;
-    top:21%;
-    right:16.5%;
+    top:60px;
+    right:17%;
+    padding:0 1%;
+}
+
+#dropdowncat{
+    width:10%;
+    position :absolute;
+    top:60px;
+    right:27%;
 }
 /*Header end*/
 
