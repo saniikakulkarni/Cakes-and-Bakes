@@ -99,8 +99,14 @@ button:hover{
 }
 
 .drop-items{
+    text-align: center;
     border-bottom:1px solid #ddd;
     padding:4% 0%;
+    color:rgba(0,0,0,0.7);
+}
+.drop-items:hover{
+    color:black;
+    font-size:15px;
 }
 .btm-border-none{
     border-bottom:none;
@@ -116,10 +122,10 @@ button:hover{
 }
 
 #dropdowncat{
-    width:10%;
+    width:11%;
     position :absolute;
     top:60px;
-    right:27%;
+    right:26%;
 }
 /*Header end*/
 

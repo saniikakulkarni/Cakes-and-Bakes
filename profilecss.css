@@ -1,9 +1,7 @@
-.headertable
-{
-    height:5%;
+body{
+    background:url('Images/profilebackground.jpeg');
+    background-size:cover;
 }
-
-
 .profilecontents
 {
     margin:auto;
@@ -12,6 +10,39 @@
 }
 .profileedit
 {
-    width:40%;
+    background:rgba(255,255,255,0.9);
+    width:25%;
     margin:auto;
+    margin-bottom:3%;
+    border-radius:10px;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.2);
+    padding:4%;
+    padding-top:3%;
+}
+.profilelabel
+{
+    font-size:20px;
+    font-family: 'Bitter', serif;
+    color:rgba(0,0,0,0.7);
+}
+.profileinput
+{
+    border:0.5px solid rgba(0,0,0,0.4);
+    border-radius:6px;
+    padding:3%;
+    width:100%;
+}
+.profileinput:focus
+{
+    outline-color:rgba(0,0,0,0.4);
+}
+.profileedit-btn
+{
+    padding:2%;
+    background:
+}
+.profileheading
+{
+    font-family: 'Bitter', serif;
+    color:rgba(0,0,0,0.5);
 }
