@@ -3,51 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cakes and Bakes | Results</title>
+    <title>Cakes and Bakes | Item</title>
     <link rel="shortcut icon" type="image/png" href="Images/logo.png">
     <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="maincss.css">
-    <link rel="stylesheet" type="text/css" href="resultscss.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&family=Great+Vibes&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
     <script src="mainjs.js"></script>
 </head>
 <body>
     <!--Header start-->
     <div class=headeritemdisplay>
-            <table class=headertable cellspacing=0>
-                <tr class=headertr>
-                    <td class=logotd><img class=logoimg src="Images/logo.png" alt=""></td>
-                    <td class=logotexttd>Cakes and Bakes</td>
-                    <td class=searchtd>
-                        <div class=searchdiv>
-                            <form action="">
-                                <input class="searchinput" type="search" placeholder="Search for baked goodies">
-                                <button class="searchicon"><i class="fas fa-search"></i></button>
-                            </form>   
-                        </div>
-                    </td>
-                    <td class=headerlinks onmouseenter="menushow()" onmouseleave="menuhide()">Categories</td>
-                    <td class="headerlinks popupmodal" onclick="popup()">Profile</td>
-                    <td class=headerlinks>Contact</td>
-                    <td class=headerlinks>Your Parcel</td>
-                </tr>
-                <tr id=dropdownmenu class=dropdowntr>
-                    <td colspan=3 style="visibility:hidden"></td>
-                    <td colspan=1 onmouseenter="menushow()" onmouseleave="menuhide()" class=dropdowntd >
-                        <ul class=dropdownlist  >
-                            <li>Cakes</li><hr>
-                            <li>Ocassion Cakes</li><hr>
-                            <li>Cupcakes</li>
-                            <li>Cookies</li><hr>
-                            <li>Macaroons</li><hr>
-                            <li>Snacks</li><hr>
-                            <li>Brownies</li><hr>
-                            <li>Small Delights</li>
-                        </ul>
-                    </td>
-                    <td colspan=3 style="visibility:hidden"></td>
-                </tr>
-            </table>       
+        <table class=headertable cellspacing=0>
+            <tr class=headertr>
+                <td class=logotd><img class=logoimg src="Images/logo.png" alt=""></td>
+                <td class=logotexttd>Cakes and Bakes</td>
+                <td class=searchtd>
+                    <div class=searchdiv>
+                        <form action="">
+                            <input class="searchinput" type="search" placeholder="Search for baked goodies">
+                            <button class="searchicon"><i class="fas fa-search"></i></button>
+                        </form>   
+                    </div>
+                </td>
+                <td class=headerlinks onmouseenter=menushow() onmouseleave=menuhide()>Categories</td>
+                <td class="headerlinks popupmodal" onmouseenter=profileshow() onmouseleave=profilehide()>Profile</td>
+                <td class=headerlinks>Contact</td>
+                <td class=headerlinks>Your Parcel</td>
+            </tr>
+            <tr id=dropdownmenu class=dropdowntr>
+                <td colspan=3 style="visibility:hidden"></td>
+                <td id=dropdowncat colspan=1 onmouseenter="menushow()" onmouseleave="menuhide()"class=dropdowntd >
+                    <ul class=dropdownlist>
+                        <li>Cakes</li><hr>
+                        <li>Occassion Cakes</li><hr>
+                        <li>Cupcakes</li>
+                        <li>Cookies</li><hr>
+                        <li>Macaroons</li><hr>
+                        <li>Snacks</li><hr>
+                        <li>Brownies</li><hr>
+                        <li>Small Delights</li>
+                    </ul>
+                </td>
+                <td id=dropdownprofile colspan=1 onmouseenter=profileshow() onmouseleave=profilehide() class=dropdowntd>
+                    <ul class=dropdownlist id=profileshift>
+                        <li onclick=popupsignup(),profilehide()>Sign Up</li><hr>
+                        <li onclick=popup(),profilehide()>Sign In</li>
+                    </ul>
+                </td>
+                <td colspan=2 style="visibility:hidden"></td>
+            </tr>
+        </table>       
     </div>
     <!--Header end-->
 

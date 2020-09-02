@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cakes and Bakes | Results</title>
+    <title>Cakes and Bakes | My Profile</title>
     <link rel="shortcut icon" type="image/png" href="Images/logo.png">
     <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="maincss.css">
-    <link rel="stylesheet" type="text/css" href="resultscss.css">
+    <link rel="stylesheet" type="text/css" href="profilecss.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&family=Great+Vibes&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
     <script src="mainjs.js"></script>
 </head>
@@ -47,8 +47,10 @@
                 </td>
                 <td id=dropdownprofile colspan=1 onmouseenter=profileshow() onmouseleave=profilehide() class=dropdowntd>
                     <ul class=dropdownlist id=profileshift>
-                        <li onclick=popupsignup(),profilehide()>Sign Up</li><hr>
-                        <li onclick=popup(),profilehide()>Sign In</li>
+                        <li onclick=popupsignup(),profilehide()>My Profile</li><hr>
+                        <li onclick=popup(),profilehide()>Track Orders</li><hr>
+                        <li onclick=popup(),profilehide()>My Orders</li><hr>
+                        <li onclick=popup(),profilehide()>Address Book</li>
                     </ul>
                 </td>
                 <td colspan=2 style="visibility:hidden"></td>
@@ -57,57 +59,24 @@
     </div>
     <!--Header end-->
 
-    <!--Search results start-->
-    <div class=searchbar>
-        Results For:
-    </div>
-    <!--Search results end-->
-
     <!--Contents start-->
-    <div class=contents>
-        <div class=itemdiv>
-            <div class="items">
-                <img src="images/cake.jpg" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p>Chocolate Cake</p>
-                    <p>5 stars</p>
-                </div>
-            </div>
-            <div class="items"></div>
-            <div class="items"></div>
-            <div class="items"></div>
-        </div>  
-    </div>
-    <!--Contents end-->
-
-    <!--Popup Sign in start-->
-    <div class=popupdiv id=popupid>
-        <div class="box">
+    <div class=profilecontents>
+        <div class="profileedit">
+            <h1>My Pofile</h1><br>
             <form action="">
-                <h1 class="heading">Sign In</h1><span class="cross" onclick="popupclose()">X</span>
-                <input class=forminput type="email" placeholder="E-mail id" id="email" required>
-                <input class=forminput type="password" placeholder="Password" id="password" required>
-                <br>
-                <button class=popup type="submit">Sign In</button>
-                <div class="small">Don't have an account? <a href="#" onclick="popupsignup()">Create account</a></div>
-            </form> 
-        </div>
-    </div> 
-    <!--Popup Sign in end-->
-
-    <!--Popup Sign up start-->
-    <div class=popupdiv id=popupid2>
-        <div class="box" id=signupbox>
-            <form action="">
-                <h1 class="heading">Sign Up</h1><span class="cross" onclick="popupsignupclose()" id=crosssignup>X</span>
-                <input class=forminput type="text" placeholder="Full Name" id="fullname" required>
-                <input class=forminput type="email" placeholder="E-mail id" id="email" required>
-                <input class=forminput type="password" placeholder="Password" id="password" required>
-                <input class=forminput type="password" placeholder="Confirm Password" id="password" required>
-                <br>
-                <button class=popup type="submit">Sign Up</button>
-                <div class="small">Already have an account? <a href="#" onclick="popup()">Sign In</a></div>
-            </form> 
+                <input type="text" value="Sanika Kulkarni" placeholder="Full Name"><br><br>
+                <input type="email" value="sanika.k.goa@gmaill.com" placeholder="Email-Id"><br><br>
+                <label class="profilelabel">Birth Date</label><br>
+                <input type="date"><br><br>
+                <label class="profilelabel">Anniversary Date</label><br>
+                <input type="date"><br><br>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Address"></textarea><br><br>
+                <input type="text" placeholder="City"><br><br>
+                <input type="text" placeholder="Pincode"><br><br>
+                <button>Save</button>
+            </form>
         </div>
     </div>
-    <!--Popup Sign up end--> 
+        
+</body>
+</html>
