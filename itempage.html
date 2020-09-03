@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cakes and Bakes | Item</title>
+    <title>Cakes and Bakes | Item Page</title>
     <link rel="shortcut icon" type="image/png" href="Images/logo.png">
     <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="maincss.css">
+    <link rel="stylesheet" type="text/css" href="itemcss.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&family=Great+Vibes&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500&display=swap" rel="stylesheet">
     <script src="mainjs.js"></script>
 </head>
 <body>
@@ -46,8 +48,10 @@
                 </td>
                 <td id=dropdownprofile colspan=1 onmouseenter=profileshow() onmouseleave=profilehide() class=dropdowntd>
                     <ul class=dropdownlist id=profileshift>
-                        <li onclick=popupsignup(),profilehide() class="drop-items">Sign Up</li>
-                        <li onclick=popup(),profilehide() class="drop-items btm-border-none">Sign In</li>
+                        <li onclick=popupsignup(),profilehide() class="drop-items">My Profile</li>
+                        <li onclick=popup(),profilehide() class="drop-items">Track Orders</li>
+                        <li onclick=popup(),profilehide() class="drop-items">My Orders</li>
+                        <li onclick=popup(),profilehide() class="drop-items btm-border-none">Address Book</li>
                     </ul>
                 </td>
                 <td colspan=2 style="visibility:hidden"></td>
@@ -56,34 +60,24 @@
     </div>
     <!--Header end-->
 
-    <!--Popup Sign in start-->
-    <div class=popupdiv id=popupid>
-        <div class="box">
-            <form action="">
-                <h1 class="heading">Sign In</h1><span class="cross" onclick="popupclose()">X</span>
-                <input class=forminput type="email" placeholder="E-mail id" id="email" required>
-                <input class=forminput type="password" placeholder="Password" id="password" required>
-                <br>
-                <button class=popup type="submit">Sign In</button>
-                <div class="small">Don't have an account? <a href="#" onclick="popupsignup()">Create account</a></div>
-            </form> 
-        </div>
-    </div> 
-    <!--Popup Sign in end-->
+    <!--Contents start-->
+    <div class=itemcontents>
+        <div class="itempicdesc">
+            <div class="itempic">
+                <div class="smallpic">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                
+            </div>
+            <div class="itemdesc">
 
-    <!--Popup Sign up start-->
-    <div class=popupdiv id=popupid2>
-        <div class="box" id=signupbox>
-            <form action="">
-                <h1 class="heading">Sign Up</h1><span class="cross" onclick="popupsignupclose()" id=crosssignup>X</span>
-                <input class=forminput type="text" placeholder="Full Name" id="fullname" required>
-                <input class=forminput type="email" placeholder="E-mail id" id="email" required>
-                <input class=forminput type="password" placeholder="Password" id="password" required>
-                <input class=forminput type="password" placeholder="Confirm Password" id="password" required>
-                <br>
-                <button class=popup type="submit">Sign Up</button>
-                <div class="small">Already have an account? <a href="#" onclick="popup()">Sign In</a></div>
-            </form> 
+            </div>
+           
         </div>
     </div>
-    <!--Popup Sign up end--> 
+        
+</body>
+</html>

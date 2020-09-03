@@ -63,22 +63,24 @@
     <!--Contents start-->
     <div class=profilecontents>
         <div class="profileedit">
-            <center><h1 class=profileheading>My Profile</h1><br></center>
+            <center><h1 class=profileheading>My Profile</h1><br><p class=profileheading>*These details will be used by default for your orders</p><br></center>
             <form action="">
-                <label class="profilelabel">First Name</label><br><br>
-                <input class="profileinput" type="text" value="Sanika Kulkarni" placeholder="Full Name"><br><br>
-                <label class="profilelabel">Email-id</label><br><br>
-                <input class="profileinput" type="email" value="sanika.k.goa@gmaill.com" placeholder="Email-Id"><br><br>
+                <label class="profilelabel">First Name*</label><br><br>
+                <input class="profileinput" type="text" value="Sanika Kulkarni" placeholder="Full Name" required><br><br>
+                <label class="profilelabel">Email-id*</label><br><br>
+                <input class="profileinput" type="email" value="sanika.k.goa@gmaill.com" placeholder="Email-Id" required><br><br>
+                <label class="profilelabel">Contact Number*</label><br><br>
+                <input class="profileinput" type="number" value="9921950055" placeholder="Default Contact Number" required><br><br>
                 <label class="profilelabel">Birth Date</label><br><br>
                 <input class="profileinput" type="date"><br><br>
                 <label class="profilelabel">Anniversary Date</label><br><br>
                 <input class="profileinput" type="date"><br><br>
-                <label class="profilelabel">Address</label><br><br>
-                <textarea class="profileinput" name="" id="" cols="37" rows="10" placeholder="Default Address"></textarea><br><br>
-                <label class="profilelabel">City</label><br><br>
-                <input class="profileinput" type="text" placeholder="City"><br><br>
-                <label class="profilelabel">Pincode</label><br><br>
-                <input class="profileinput" type="text" placeholder="Pincode"><br><br>
+                <label class="profilelabel">Address*</label><br><br>
+                <textarea class="profileinput" name="" id="" cols="37" rows="5" placeholder="Default Address" required></textarea><br><br>
+                <label class="profilelabel">City*</label><br><br>
+                <input class="profileinput" type="text" placeholder="City"  required><br><br>
+                <label class="profilelabel">Pincode*</label><br><br>
+                <input class="profileinput" type="text" placeholder="Pincode" required><br><br>
                 <button class="profileedit-btn">Save</button>
             </form>
         </div>
