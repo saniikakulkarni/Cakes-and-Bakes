@@ -1,0 +1,50 @@
+.itemcontents
+{
+    margin:auto;
+    margin-top:9.9vh;
+    width:100%;
+}
+.itempicdesc
+{
+    width:100%;
+    display:flex;
+}
+.itempic
+{
+    width:45%;
+    display:flex;
+    margin:2%;
+    margin-right:0;
+    margin-left:6%;
+}
+.smallpicdiv
+{
+    text-align:center;
+    width:15%;
+    margin:2%;
+}
+.bigpicdiv
+{
+    text-align:center;
+    background-size:cover;
+    width:80%;
+    margin:2%;
+}
+.smallpic
+{
+    width:80px;
+    height:80px;
+    margin:2px;
+    border:1px solid rgba(0,0,0,0.4);
+}
+.itemdesc
+{
+    width:55%;
+    margin:2%;
+    padding:1%;
+    margin-left:1%;
+}
+.item-name
+{
+    font-family: 'Bitter', serif;
+}
