@@ -9,6 +9,11 @@ body
 
 /*Header start*/
 
+.headeritemdisplay
+{
+    width:100%;
+}
+
 .logotd
 {
     width:4%;
@@ -54,6 +59,9 @@ body
 {
     position:fixed;
     width:100%;
+    height:8vh;
+    z-index:100;
+    height:
 }
 .headertr
 {
@@ -257,8 +265,3 @@ button[class=popup]:hover{
     border-radius: 40px;
 }
 
-.headeritemdisplay
-{
-    width:100%;
-    height:9.99vh;
-}
