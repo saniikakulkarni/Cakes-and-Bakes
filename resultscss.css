@@ -11,7 +11,7 @@ body
     font-family: 'Poppins', sans-serif;
     background:white;
     box-shadow:1px 1px 5px rgba(0,0,0,0.5);
-    z-index: 100;
+    z-index:1;
     position:fixed;
     top:8.4vh;
 }

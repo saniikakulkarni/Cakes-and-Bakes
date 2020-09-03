@@ -1,0 +1,49 @@
+.current-page{
+    margin:1% 10%;
+    margin-top:5%;
+    font-family: 'Poppins', sans-serif;
+    color:rgba(0,0,0,0.6)
+}
+
+.order-heading{
+    margin:1% 18%; 
+    font-family: 'Poppins', sans-serif;
+}
+
+.active{
+    color:rgb(245, 155, 149);
+}
+.orders{
+    background:#ccc;
+    width:80%;
+    height:200vh;
+    margin:1% auto;
+    padding:2%;
+}
+.order{
+    background:#ddd;
+    width:80%;
+    height:35vh;
+    margin:2% auto;
+    display:flex;
+}
+
+.orderimgdiv{
+    height:100%;
+    width:25%;
+    background:white;
+    background-size: cover;
+}
+
+.orderimg{
+    height:95%;
+    width:95%;
+    margin:2%;
+    display:inline;
+}
+
+.orderdesc{
+    background:#eee;
+    width:75%;
+}
+

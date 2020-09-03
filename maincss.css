@@ -59,9 +59,9 @@ body
 {
     position:fixed;
     width:100%;
+    top:0;
     height:8vh;
-    z-index:100;
-    height:
+    z-index:2;
 }
 .headertr
 {
@@ -104,6 +104,7 @@ button:hover{
     cursor: pointer;
     font-family: 'Baloo Tamma 2', cursive;
     list-style-type: none;
+    z-index:4;
 }
 
 .drop-items{
@@ -170,6 +171,7 @@ button:hover{
     left:0;
     background:rgba(0,0,0,0.5);
     visibility:hidden;
+    z-index: 100;
 }
 .box
 {
