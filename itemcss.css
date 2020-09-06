@@ -64,10 +64,7 @@
     margin-bottom:2%;
     color:#865e17;
 }
-.pricedesc
-{
-    
-}
+
 .rating{
     font-family: 'Roboto Condensed', sans-serif;
     font-size:14px;
@@ -201,14 +198,16 @@
     height:70vh;
     margin:0 auto;
 }
+
+
 .reviewstile
 {
     width:28%;
     height:40vh;
-    display:inline-block;
+    float:left;
     background:#eee;
     padding:2%;
-    margin:0 2%;
+    margin:1% 2%;
     box-sizing: border-box;
 }
 .desclist{
@@ -234,4 +233,6 @@
     font-family:'Ubuntu', sans-serif;
     font-size:20px;
     margin-bottom:3%;
+
 }
+

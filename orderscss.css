@@ -21,7 +21,6 @@ body{
 }
 .orders{
     width:80%;
-    height:200vh;
     margin:1% auto;
     padding:0 2% ;
 }
@@ -30,6 +29,7 @@ body{
     width:80%;
     height:24vh;
     margin:2% auto;
+    padding:0.5%;
     display:flex;
     border-radius: 15px;
     font-family: 'Noto Sans', sans-serif;
@@ -40,7 +40,6 @@ body{
     height:100%;
     width:20%;
     background-size: cover;
-    
 }
 
 .orderimg{
@@ -87,6 +86,13 @@ body{
     font-size:15px;
     color:#6f3317e6;
     font-family: 'Roboto', sans-serif;
+}
+
+.cancelorder:focus,.detail-btn:focus{
+    outline:none;
+}
+.cancelorder:hover,.detail-btn:hover{
+    background:#ce806873;
 }
 
 

@@ -1,0 +1,93 @@
+.current-page{
+    margin:1% 20%;
+    margin-top:5%;
+    font-family: 'Poppins', sans-serif;
+    color:rgba(0,0,0,0.6)
+}
+
+.order-heading{
+    margin:1% 30%; 
+    font-size:35px;
+    color:#865d17c7;
+    font-family: 'Satisfy', cursive;
+}
+
+.carticon{
+    height:40px;
+    width:50px;
+    margin:0 1% -1% 0;
+}
+
+.orders{
+    width:60%;
+    margin:1% auto;
+    padding:0 2% ;
+}
+
+.order{
+    background:white;
+    width:70%;
+    height:20vh;
+    margin:2% auto;
+    display:flex;
+    border-radius: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    box-shadow:2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.orderimg{
+    height: 80%;
+    width: 84%;
+    margin:8% auto;
+    display:block;
+    border-radius: 10px;
+}
+
+.orderdesc{
+    width:50%;
+    padding:2% 1%;
+}
+
+.ordername{
+    color:#744d0bda;
+}
+
+.deliver-details{
+    padding:2%;
+    width:30%;
+}
+
+.cancelorder,.detail-btn{
+    display:block;
+    margin:10% 2%;
+    width:90%;
+    padding:5% 10%; 
+}
+
+.cost{
+    font-size:24px;
+    color:rgba(158, 27, 27, 0.7);
+    font-weight: 600;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.proceed{
+    margin:2%;
+    display:block;
+    width:15%;
+    margin:2% auto;
+    padding:0.8% 1.5%;
+    font-size:20px;
+    border-radius:5px;
+    background:#ffa03a73;
+    color:#8b5a03ee;
+    border:none;
+}
+
+.proceed:hover{
+    background:#df8d3577;
+}
+
+.btn-div{
+    margin:2%;
+}
