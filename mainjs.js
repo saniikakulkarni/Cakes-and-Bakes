@@ -41,3 +41,15 @@ function picboxdisplay(smallpicid1,smallpicid2,smallpicid3,smallpicid4)
     document.getElementById(smallpicid4).style.border="none";
     document.getElementById('bigpicdiv').style.backgroundImage="url('"+sourceimg+"')";
 }
+
+function displaycontent(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3,navid4)
+{
+    document.getElementById(navid1).style.borderBottom="3px solid rgb(235, 105, 127)";
+    document.getElementById(navid2).style.borderBottom="none";
+    document.getElementById(navid3).style.borderBottom="none";
+    document.getElementById(navid4).style.borderBottom="none";
+    document.getElementById(blockid1).style.display="block";
+    document.getElementById(blockid2).style.display="none";
+    document.getElementById(blockid3).style.display="none";
+    document.getElementById(blockid4).style.display="none";
+}

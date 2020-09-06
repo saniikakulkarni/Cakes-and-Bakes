@@ -5,15 +5,10 @@ body{
 {
     background:white;
     margin:auto;
-    width:42%;
-    border:1px solid black;
+    width:80%;
     border-radius:10px;
     margin-bottom:2%;
     box-shadow:1px 1px 5px rgba(0,0,0,0.3);
-}
-.paymentback
-{
-    width:25%;
 }
 .selectaddress,.selectpayment
 {
@@ -143,4 +138,41 @@ body{
 }
 .selectexpiry:focus{
     outline:none;
+}
+/*merged*/
+.paymentpageback{
+    width:55%;
+    margin:auto;
+    margin-top:1%;
+    background:whitesmoke;
+    padding:2%;
+}
+.paymentcontent
+{
+    width:100%;
+    height:70vh;
+    overflow:auto;
+}
+.paymentmainnav
+{
+    display:flex;
+    justify-content:stretch;
+    width:98%;
+    margin:auto;
+    margin-bottom:2%;
+    background:white;
+    
+}
+.addressnav{
+    border-bottom:3px solid rgb(235, 105, 127);
+}
+.addressnav,.paymentnav,.ordersummarynav,.ordersuccessnav
+{
+    padding:1%;
+    width:98%;
+    text-align:center;
+}
+.paymentback,.ordersummaryback,.ordersuccessback
+{
+    display:none;
 }

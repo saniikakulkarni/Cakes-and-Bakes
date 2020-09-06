@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="Images/logo.png">
+    <link rel="stylesheet" href="ordercss.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Roboto&display=swap" rel="stylesheet">
+    <script src="mainjs.js"></script>
+    <title>Cakes and Bakes | Payment</title>
+</head>
+<body>
+    <div class="paymentpageback">
+        <div class=paymentmainnav>
+            <div class=addressnav id=navaddress>
+                Select an Address
+            </div>
+            <div class=paymentnav id=navpayment>
+                Select a Payment Method
+            </div>
+            <div class=ordersummarynav id=navsummary>
+                Order Summary
+            </div>
+            <div class=ordersuccessnav id=navsuccess>
+                Order Success
+            </div>
+        </div>
+
+        <div class="paymentcontent">
+            <div class=addressback id=backaddress>
+                <center><h1 class=addressheading>Select an Address</h1></center>
+                <form onsubmit="displaycontent('backpayment','backaddress','backsummary','backsuccess','navpayment','navaddress','navsummary','navsuccess')" action="#">
+                    <div class=selectaddress>
+                        <div class=radioaddressdiv><center><input type="radio" id="address1" name="address" value="" required></center></div>
+                        <div class=paymentdiv>
+                            <label for="address1">
+                                <h2 class=custname>Sanika Kulkarni</h2>
+                                <p class=addresscontent>Models Millenium Vistas Caranzalem, Panjim Goa</p>
+                                <p class=addresscontact>9921950055</p>
+                            </label><br>
+                        </div>
+                    </div>
+                    <div class=selectaddress>
+                        <div class=radioaddressdiv><center><input type="radio" id="address2" name="address" value="" required></center></div>
+                        <div class=paymentdiv>
+                            <label for="address2">
+                                <h2 class=custname>Sanika Kulkarni</h2>
+                                <p class=addresscontent>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque sunt id, saepe dignissimos impedit dicta consectetur veniam quam, unde libero consequatur numquam iure recusandae repellendus! Consequatur labore fugiat libero voluptates.</p>
+                                <p class=addresscontact>9921950055</p>
+                            </label><br>
+                        </div>
+                    </div>
+                    <div class=selectaddress>
+                        <div class=radioaddressdiv><center><input type="radio" id="address3" name="address" value="" required></center></div>
+                        <div class=paymentdiv>
+                            <label for="address3">
+                                <h2 class=custname>Sanika Kulkarni</h2>
+                                <p class=addresscontent>Models Millenium Vistas Caranzalem, Panjim Goa</p>
+                                <p class=addresscontact>9921950055</p>
+                            </label>
+                        </div>    
+                    </div>
+                    <div class=nextdiv>
+                        <center><button class=next-btn>Next</button></center>
+                    </div>    
+                </form>  
+            </div>
+
+            <div class=paymentback id=backpayment>
+                <center><h1 class=addressheading>Select a Payment Method</h1></center>
+                <form onsubmit="displaycontent('backsummary','backaddress','backpayment','backsuccess','navsummary','navaddress','navpayment','navsuccess')" action="#">
+                    <div class=selectpayment>
+                        <div class=radiopaymentdiv><center><input type="radio" id="cod" name="Payment" value="Cash on Delivery" required></center></div>
+                        <div class=paymentdiv>
+                            <label for="cod">
+                                Cash On Delivery
+                            </label><br>
+                        </div>
+                    </div>
+                    <div class=selectpayment>
+                        <div class=radiopaymentdiv><center><input type="radio" id="creditcard" name="Payment" value="Credit Card" required></center></div>
+                        <div class=paymentdiv>
+                            <label for="creditcard">
+                                Credit Card
+                            </label><br>
+                        </div>
+                    </div>
+                    <div class=selectpayment>
+                        <div class=radiopaymentdiv><center><input type="radio" id="debitcard" name="Payment" value="Debit Card" required></center></div>
+                        <div class=paymentdiv>
+                            <label for="debitcard">
+                                Debit Card
+                            </label>
+                        </div>    
+                    </div>
+                    <div class=nextdiv>
+                        <center><button class=next-btn>Next</button></center>
+                    </div>    
+                </form>  
+            </div>
+            <div class="ordersummaryback" id=backsummary>
+                <form onsubmit="displaycontent('backsuccess','backaddress','backsummary','backpayment','navsuccess','navaddress','navsummary','navpayment')" action="#">
+
+                </form>
+
+            </div>
+            <div class="ordersuccessback" id=backsuccess>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
