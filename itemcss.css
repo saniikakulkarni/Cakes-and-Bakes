@@ -172,8 +172,34 @@
     margin:1.5% 0;
 }
 .reviews{
-    height:80vh;
+    height:65vh;
 }
+
+.review-inline{
+    display:flex;
+}
+
+.profile-small{
+    height:60px;
+    width:60px;
+    border-radius:50px;
+    display:block;
+}
+
+.reviewname
+{
+    font-family:'Ubuntu', sans-serif;
+    font-size:20px;
+    margin:5%;
+    font-weight: 600;
+    color:#6f3317e6;
+}
+
+.reviewcontent{
+    padding:4% 2%;
+    font-family: 'Roboto', sans-serif;
+}
+
 .alsolikeback
 {
     width:90%;
@@ -195,7 +221,6 @@
 }
 .reviewsback{
     width:80%;
-    height:70vh;
     margin:0 auto;
 }
 
@@ -203,12 +228,13 @@
 .reviewstile
 {
     width:28%;
-    height:40vh;
+    height:35vh;
     float:left;
-    background:#eee;
+    background:#fcd5ca50;
     padding:2%;
     margin:1% 2%;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 .desclist{
     padding:0;
@@ -228,11 +254,5 @@
     font-size:34px;
     font-weight: 700;
 }
-.reviewname
-{
-    font-family:'Ubuntu', sans-serif;
-    font-size:20px;
-    margin-bottom:3%;
 
-}
 
