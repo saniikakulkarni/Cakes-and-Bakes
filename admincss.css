@@ -1,0 +1,144 @@
+body{
+    background:#fcd5ca50;
+}
+.contentbox
+{
+    display:flex;
+    width:80%;
+    background: white;
+    border-radius:10px;
+    box-shadow:2px 3px 3px rgba(0,0,0,0.3);
+    margin:15% auto;
+}
+.navtiles
+{
+    width: 30%;
+    padding:1%;
+    margin:2%;
+    color:white;
+    font-family: 'Great Vibes';
+    background:linear-gradient(to right,rgb(202, 90, 90),pink);
+    border-radius:10px;
+    text-align:center;
+    font-size:28px;
+    font-weight:500;
+    letter-spacing: 2px;
+}
+.navtiles:hover{
+    transform: scale(1.03,1.03);
+    cursor: pointer;
+}
+
+.additemsback
+{
+    padding:2%;
+    background:white;
+    border-radius:10px;
+    width:50%;
+    margin:7% auto;
+    box-shadow:2px 3px 3px rgba(0,0,0,0.3);
+}
+tr{
+    font-size:20px;
+}
+select{
+    padding:3%;
+}
+input{
+    width:135%;
+    padding:3%;
+    
+}
+
+.addimgdiv{
+    height:15vh;
+    width:30vh;
+    padding:5%;
+    background:#ddd;
+    margin:5% auto;
+    text-align: center;
+    font-size:22px;
+    border-radius:4px;
+    outline:1px dashed #aaa ;
+    outline-offset: 5px;
+}
+
+.previews{
+    margin:10% auto;
+    margin-bottom:0;
+    width:100%;
+    text-align:center;
+}
+
+#uploadImage{
+    display:none;
+}
+
+.fa-camera{
+    font-size:80px;
+    margin-bottom:3%;
+}
+
+#uploadimglabel{
+    color:rgba(0,0,0,0.4);
+}
+#uploadimglabel:hover{
+    color:rgba(0,0,0,0.7);
+}
+
+.preview{
+    display:inline-block;
+    margin:0.5%;
+    height:100px;
+    width:100px;
+    background-size:cover;
+}
+
+.previewimg{
+    margin:0;
+    height:100px;
+    width:100px;
+}
+
+
+.removebtn{
+    transform:translate(35px,-100px);
+    background:rgb(250, 102, 102);
+    border-radius:2px;
+    border:none;
+    color:white;
+    font-size:110%;
+}
+
+.removebtn:hover{
+    background:rgb(230, 109, 109);
+    color:white;
+}
+
+.removebtn:focus{
+    border-style:none;
+    border:none;
+    outline:none;
+}
+label{
+    color:#865e17;
+}
+.additemheading
+{
+    font-size:30px;
+    font-family: 'Satisfy', cursive;
+    color:#865e17;
+}
+.add-item-btn
+{
+    padding: 0.5%;
+    background: pink;
+    color: rgb(235, 105, 127);
+    font-weight: 500;
+    font-size: 18px;
+    border: 1.5px solid rgb(235, 105, 127);
+    border-radius: 5px;
+    outline: none;
+    width: 25%;
+    cursor: pointer;
+}

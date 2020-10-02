@@ -53,3 +53,37 @@ function displaycontent(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3
     document.getElementById(blockid3).style.display="none";
     document.getElementById(blockid4).style.display="none";
 }
+
+function adddesc()
+{
+    var storedesc=document.getElementById('desc');
+    storedesc.insertAdjacentHTML("beforeend",`<input type=text><span onclick='adddesc()'>+</span><br>`);
+}
+var i=0;
+var filesList={};
+function PreviewImage() {
+    if(i!=4)
+    {
+        var oFReader = new FileReader();
+        var item = document.getElementById("uploadImage").files[0];
+        filesList[i] = item;
+        oFReader.readAsDataURL(item);
+    
+        
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").insertAdjacentHTML("afterend",
+            `<div id="${i}" class="preview">
+                <img  style="width: 100px; height: 100px;" src="${oFREvent.target.result}" class="previewimg"><button onclick="removeimage('${i}')"class="removebtn">X</button>
+            </div>`);
+        };
+        i=i+1;
+        console.log(filesList);
+    }    
+};
+
+function removeimage(i)
+{
+    document.getElementById(i).remove();
+    delete filesList[i];
+    console.log(filesList);
+}
