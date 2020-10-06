@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cakes and Bakes | My Profile</title>
+    
     <link rel="shortcut icon" type="image/png" href="Images/logo.png">
     <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="maincss.css">
@@ -50,8 +50,6 @@
                     <ul class=dropdownlist id=profileshift>
                         <li onclick=popupsignup(),profilehide() class="drop-items">My Profile</li>
                         <li onclick=popup(),profilehide() class="drop-items">Track Orders</li>
-                        <li onclick=popup(),profilehide() class="drop-items">My Orders</li>
-                        <li onclick=popup(),profilehide() class="drop-items btm-border-none">Address Book</li>
                     </ul>
                 </td>
                 <td colspan=2 style="visibility:hidden"></td>
@@ -63,20 +61,12 @@
     <!--Contents start-->
     <div class=profilecontents>
         <div class="profileedit">
-            <center><h1 class=profileheading>My Profile</h1><br><p class=profileheading>*These details will be used by default for your orders</p><br></center>
+            <center><h1 class=profileheading>My Profile</h1><br><p class=profileheading>*These can not be left empty</p><br></center>
             <form action="">
-                <label class="profilelabel">First Name*</label><br><br>
+                <label class="profilelabel">Full Name*</label><br><br>
                 <input class="profileinput" type="text" value="Sanika Kulkarni" placeholder="Full Name" required><br><br>
-                <label class="profilelabel">Email-id*</label><br><br>
-                <input class="profileinput" type="email" value="sanika.k.goa@gmaill.com" placeholder="Email-Id" required><br><br>
-                <label class="profilelabel">Contact Number*</label><br><br>
-                <input class="profileinput" type="number" value="9921950055" placeholder="Default Contact Number" required><br><br>
-                <label class="profilelabel">Birth Date</label><br><br>
-                <input class="profileinput" type="date"><br><br>
-                <label class="profilelabel">Anniversary Date</label><br><br>
-                <input class="profileinput" type="date"><br><br>
-                <label class="profilelabel">Address*</label><br><br>
-                <textarea class="profileinput" name="" id="" cols="37" rows="5" placeholder="Default Address" required></textarea><br><br>
+                <label class="profilelabel">Email-id (cannot be changed)</label><br><br>
+                <input class="profileinput" type="email" disabled value="sanika.k.goa@gmaill.com" placeholder="Email-Id" required><br><br>
                 <button class="profileedit-btn">Save</button>
             </form>
         </div>
