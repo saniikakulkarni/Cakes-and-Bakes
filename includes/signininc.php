@@ -30,6 +30,9 @@ if(isset($_POST['signin-btn'])){
                 $_SESSION['userid'] = $row['userid'];
                 $_SESSION['email'] = $row['email'];
                 
+                if($_SESSION['userid']==2)
+                header("Location: ../adminhome.php?login=success");
+                else
                 header("Location: ../homepage.php?login=success");
                 exit();
 

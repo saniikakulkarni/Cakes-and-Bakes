@@ -11,28 +11,9 @@
     <title>Cakes and Bakes | Add Items</title>
 </head>
 <body>
-    <!--Header start-->
-    <div class=headeritemdisplay>
-        <table class=headertable cellspacing=0>
-            <tr class=headertr>
-                <td class=logotd><img class=logoimg src="Images/logo.png" alt=""></td>
-                <td class=logotexttd>Cakes and Bakes</td>
-                <td class=searchtd>
-                    <div class=searchdiv>
-                        <form action="">
-                            <input class="searchinput" type="search" placeholder="Search for baked goodies">
-                            <button class="searchicon"><i class="fas fa-search"></i></button>
-                        </form>   
-                    </div>
-                </td>
-                <td class=headerlinks onmouseenter=menushow() onmouseleave=menuhide()>Add</td>
-                <td class="headerlinks popupmodal" onmouseenter=profileshow() onmouseleave=profilehide()>Modify</td>
-                <td class=headerlinks>Season Specials</td>
-                <td class=headerlinks>Order Status</td>
-            </tr>
-        </table>       
-    </div>
-    <!--Header end-->
+    <?php
+        require "headeradmin.php";
+    ?>
 
     <!--Content start-->
     <div class='additemsback'>
@@ -67,7 +48,7 @@
                     </tr>
                     <tr>
                         <td><label class='additemlabel' for="description">Description</label></td>
-                        <td id='desc'><input type="text"><span onclick=adddesc()>+</span><br></td>
+                        <td id='desc'><input type="text"></td>
                     </tr>
                     <tr>
                         <td><label class='additemlabel' for="availability">Availability</label></td>
