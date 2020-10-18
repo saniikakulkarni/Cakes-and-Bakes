@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +22,13 @@
     <script src="mainjs.js"></script>
 </head>
 <body>
-    <?php 
-        require "header.php"
+    <?php
+        if($_SESSION['userid']=='2')
+        require "headeradmin.php";
+        else
+        require "header.php";
+        require "../includes/dbhinc.php";
+        $category=$_GET['category'];
     ?>
     <!--Popup Sign in start-->
     <div class=popupdiv id=popupid>

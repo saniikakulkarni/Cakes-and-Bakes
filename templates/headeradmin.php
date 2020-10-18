@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +18,7 @@
         <table class=headertable cellspacing=0>
             <tr class=headertr>
                 <td class=logotd><img class=logoimg src="Images/logo.png" alt=""></td>
-                <td class=logotexttd><a href="adminhome.php" >Cakes and Bakes</a></td>
+                <td class=logotexttd><a href="homepage.php" >Cakes and Bakes</a></td>
                 <td class=searchtd>
                     <div class=searchdiv>
                         <form action="">
@@ -39,14 +36,14 @@
                     <td colspan=3 style="visibility:hidden"></td>
                     <td id=dropdowncat colspan=1 onmouseenter="menushow()" onmouseleave="menuhide()"class=dropdowntd >
                         <ul class=dropdownlist>
-                            <li class="drop-items"><a href="">Cakes</a></li>
-                            <li class="drop-items"><a href="">Occassion Cakes</a></li>
-                            <li class="drop-items"><a href="">Cupcakes</a></li>
-                            <li class="drop-items"><a href="">Cookies</a></li>
-                            <li class="drop-items"><a href="">Macaroons</a></li>
-                            <li class="drop-items"><a href="">Snacks</a></li>
-                            <li class="drop-items"><a href="">Brownies</a></li>
-                            <li class="drop-items btm-border-none"><a href="">Delights</a></li>
+                            <li class="drop-items"><a href="results.php?category=Cakes">Cakes</a></li>
+                            <li class="drop-items"><a href="results.php?category=Occasion Cakes">Occassion Cakes</a></li>
+                            <li class="drop-items"><a href="results.php?category=Cupcakes">Cupcakes</a></li>
+                            <li class="drop-items"><a href="results.php?category=Cookies">Cookies</a></li>
+                            <li class="drop-items"><a href="results.php?category=Macaroons">Macaroons</a></li>
+                            <li class="drop-items"><a href="results.php?category=Snacks">Snacks</a></li>
+                            <li class="drop-items"><a href="results.php?category=Brownies">Brownies</a></li>
+                            <li class="drop-items btm-border-none"><a href="results.php?category=Delights">Delights</a></li>
                         </ul>
                     </td>
                     <td colspan=3 style="visibility:hidden"></td>

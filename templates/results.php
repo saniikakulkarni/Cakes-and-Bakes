@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,7 @@
     <title>Cakes and Bakes | Results</title>
     <link rel="shortcut icon" type="image/png" href="Images/logo.png">
     <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="orderscss.css">
     <link rel="stylesheet" type="text/css" href="maincss.css">
     <link rel="stylesheet" type="text/css" href="resultscss.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&family=Great+Vibes&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
@@ -16,235 +20,72 @@
     <script src="mainjs.js"></script>
 </head>
 <body>
-    <?php 
-        require "header.php"
+    <?php
+        if($_SESSION['userid']=='2')
+        require "headeradmin.php";
+        else
+        require "header.php";
+        require "../includes/dbhinc.php";
+        $category=$_GET['category'];
     ?>
-
     <!--Search results start-->
     <div class=searchbar>
-        Results For  <span class="resultcat">"Cookies"</span>
+        Results For  <span class="resultcat">"<?php echo $category;?>"</span>
     </div>
     <!--Search results end-->
-
     <!--Contents start-->
     <div class=contents>
         <div class=itemdiv>
-            <div class="items">
-                <img src="images/cake.jpg" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400 (1/2kg)</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
+        <?php
+            
+            $sql="SELECT * FROM item where category=?";
+            $stmt = mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt,$sql))
+            {
+                if($_SESSIO['userid']=='2')
+                header("Location: ./adminhome.php?error=sqlerror");
+                else
+                header("Location: ./homepage.php?error=sqlerror");
+                exit();
+            }
+            else
+            {
+                mysqli_stmt_bind_param($stmt,"s",$category);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                while($row = mysqli_fetch_assoc($result)){
+                $name=$row['name'];
+                $quantityprice=$row['quantityprice'];
+                $qp=explode("\n",$quantityprice);
+                $qp=explode(":",$qp[0]);
+                $quantity=$qp[0];
+                $price=$qp[1];
+                $rating=$row['rating'];
+                $star=3;
+                echo "<a href='itempage.php?itemname=$name'><div class='items'>
+                <img src='./Images/chococake1.1.png' class='item-img'>
+                <div class='itemdesc'>
+                    <p class='item-name'>$name</p>
+                    <span class='item-price'>$price</span>
+                    <span class='quantity'><span class='label'>Quantity :</span>$quantity</span>
+                    <p class='rating'>";
+                    for($i=1;$i<=$star;$i++)
+                    {
+                        echo "<i class='fa fa-star' aria-hidden='true'></i>";
+                    }
+                    for($i=1;$i<=5-$star;$i++)
+                    {
+                        echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
+                    }
+                    echo "$rating
                     </p>
                 </div>
-            </div>
-            <div class="items">
-                <img src="images/cake2.png" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-            <div class="items">
-                <img src="images/cake3.jpg" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-            <div class="items">
-                <img src="images/cake4.jpg" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-            <div class="items">
-                <img src="images/cake.jpg" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-            <div class="items">
-                <img src="images/cake2.png" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-            <div class="items">
-                <img src="images/cake3.jpg" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-            <div class="items">
-                <img src="images/cake4.jpg" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-            <div class="items">
-                <img src="images/cake.jpg" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-            <div class="items">
-                <img src="images/cake2.png" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-            <div class="items">
-                <img src="images/cake3.jpg" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-            <div class="items">
-                <img src="images/cake4.jpg" alt="" class="item-img">
-                <div class="itemdesc">
-                    <p class=item-name>Chocolate Cake</p>
-                    <p class="item-price">₹ 400</p>
-                    <p class="rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star star-null" aria-hidden="true"></i>
-                        21 ratings
-                    </p>
-                </div>
-            </div>
-        </div>  
-    </div>
+            </div></a>";
+                }
+            }
+            mysqli_stmt_close($stmt);
+            mysqli_close($conn);
+        ?>        
     <!--Contents end-->
-
-    <!--Popup Sign in start-->
-    <div class=popupdiv id=popupid>
-        <div class="box">
-            <form action="">
-                <h1 class="heading">Sign In</h1><span class="cross" onclick="popupclose()">X</span>
-                <input class=forminput type="email" placeholder="E-mail id" id="email" required>
-                <input class=forminput type="password" placeholder="Password" id="password" required>
-                <br>
-                <button class=popup type="submit">Sign In</button>
-                <div class="small">Don't have an account? <a href="#" onclick="popupsignup()">Create account</a></div>
-            </form> 
-        </div>
-    </div> 
-    <!--Popup Sign in end-->
-
-    <!--Popup Sign up start-->
-    <div class=popupdiv id=popupid2>
-        <div class="box" id=signupbox>
-            <form action="">
-                <h1 class="heading">Sign Up</h1><span class="cross" onclick="popupsignupclose()" id=crosssignup>X</span>
-                <input class=forminput type="text" placeholder="Full Name" id="fullname" required>
-                <input class=forminput type="email" placeholder="E-mail id" id="email" required>
-                <input class=forminput type="password" placeholder="Password" id="password" required>
-                <input class=forminput type="password" placeholder="Confirm Password" id="password" required>
-                <br>
-                <button class=popup type="submit">Sign Up</button>
-                <div class="small">Already have an account? <a href="#" onclick="popup()">Sign In</a></div>
-            </form> 
-        </div>
-    </div>
-    <!--Popup Sign up end--> 
-
-
     </body>
 </html>

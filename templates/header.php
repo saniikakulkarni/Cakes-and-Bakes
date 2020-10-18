@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +17,7 @@
             <table class=headertable cellspacing=0>
                 <tr class=headertr>
                     <td class=logotd><img class=logoimg src="Images/logo.png" alt=""></td>
-                    <td class=logotexttd><a href="adminhome.php" class=homelink>Cakes and Bakes</a></td>
+                    <td class=logotexttd><a href="homepage.php" class=homelink>Cakes and Bakes</a></td>
                     <td class=searchtd>
                         <div class=searchdiv>
                             <form action="">
