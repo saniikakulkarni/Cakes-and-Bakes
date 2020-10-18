@@ -60,6 +60,7 @@
                         mysqli_stmt_execute($stmt);
                         $result = mysqli_stmt_get_result($stmt);
                         if($row = mysqli_fetch_assoc($result)){
+                        $itemid = $row['itemid'];
                         $name=$row['name'];
                         $quantityprice=$row['quantityprice'];
                         $description=$row['description'];
@@ -79,7 +80,15 @@
                         $maxdate=date("Y-m-d",strtotime("+7 day"));
                     echo "<div class='itemdesc'>
                             <div class='itemdescstart'>
-                            <h1 class=item-name>$name</h1>
+                            <div class='inline-data'>
+                                <h1 class=item-name>$name</h1>";
+                    if($_SESSION['email'] == "admin@gmail.com")
+                    {
+                        echo  "<a href='adminmodifyitems.php?itemname=$name' class=editicon><i class='fas fa-edit'></i></a>";
+                    }
+                    echo   "
+                            </div>
+                            
                             <p class='rating'>";
                                 for($i=1;$i<=$star;$i++)
                                 {
@@ -130,6 +139,7 @@
                     ?> 
                             </ul>
                         </div>
+                        
                     </div>  
                 </div>
                 <div class="reviews">

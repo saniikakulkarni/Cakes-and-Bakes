@@ -148,7 +148,7 @@ button:hover{
     width:8%;
     position:absolute;
     top:60px;
-    right:17%;
+    right:12%;
     padding:0 1%;
 }
 
@@ -289,3 +289,6 @@ button[class=popup]:hover{
     border-radius: 40px;
 }
 
+.inline-data{
+    display:flex;
+}
