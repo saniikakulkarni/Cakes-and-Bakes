@@ -70,7 +70,7 @@
                         $quantity=[];
                         for($j=0;$j<$qplen;$j++)
                         {
-                            list($quantity[$i],$price[$i])=explode(":",$qp[$j]);
+                            list($quantity[$j],$price[$j])=explode(":",$qp[$j]);
                         }
                         $n=sizeof($qp);
                         $rating=$row['rating'];
