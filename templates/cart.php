@@ -26,8 +26,6 @@
     
     <!--Javascript-->
     <script src="mainjs.js"></script>
-
-
 </head>
 <body>
 

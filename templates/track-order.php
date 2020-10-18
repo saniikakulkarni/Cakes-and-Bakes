@@ -28,7 +28,6 @@
         else
         require "header.php";
         require "../includes/dbhinc.php";
-        $category=$_GET['category'];
     ?>
     <!--Popup Sign in start-->
     <div class=popupdiv id=popupid>

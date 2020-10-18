@@ -26,7 +26,6 @@
         else
         require "header.php";
         require "../includes/dbhinc.php";
-        $category=$_GET['category'];
     ?>
     <!--Contents start-->
     <div class=itemcontents>

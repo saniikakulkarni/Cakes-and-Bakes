@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="profilecss.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&family=Great+Vibes&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500&display=swap" rel="stylesheet">
-    
     <script src="mainjs.js"></script>
 
     <style>
@@ -27,7 +26,6 @@
     <?php
         require "header.php"
     ?>
-
     <div class=popupaddressdiv id=popupaddress>
         <div class="addressbox">
             <form method="POST" action="../includes/addressadd.php">
