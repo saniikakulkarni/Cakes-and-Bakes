@@ -4,20 +4,20 @@ body{
 }
 .profilecontents
 {
-    margin-top:10%;
-    width:100%;
-    margin:10% 1%;
+    width:85%;
+    height:80vh;
+    margin:4% 10%;
     display:flex;
 }
 .profileedit
 {
     background:rgba(255,255,255,0.9);
-    width:29%;
-    margin:auto;
-    margin-bottom:3%;
+    height:40vh;
+    width:100%;
+    margin:5% 3%;
     border-radius:10px;
     box-shadow:1px 1px 5px rgba(0,0,0,0.2);
-    padding:4%;
+    padding:3%;
     padding-top:3%;
 }
 .profilelabel
@@ -57,4 +57,170 @@ body{
 {
     font-family: 'Bitter', serif;
     color:rgba(0,0,0,0.5);
+}
+/* ADDRESS BOOK */
+
+
+/*heading*/
+
+.address-block{
+    width:100%;
+    padding: 0% 5%;
+}
+
+.inline-data{
+    display:flex;
+}
+
+.custname
+{
+    font-size: 20px;
+    color:rgba(0,0,0,0.8);
+    font-family: 'Kufam', cursive;
+    font-weight:400;
+}
+
+.addressheader{
+    padding:2%;
+}
+
+#addresshead{
+    font-size:28px;
+    color:rgba(0,0,0,0.7);
+    margin:2%;
+}
+
+.add-btn{
+    background:#ffdcd6;
+    color:#865e17;
+    font-size:24px;
+    outline:none;
+    border:none;
+    border-radius:20px;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.3);
+}
+
+
+/* address popup */
+
+.popupaddressdiv
+{
+    position:fixed;
+    width: 100%;
+    height:100vh;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.5);
+    visibility:hidden;
+    z-index: 100;
+}
+.addressbox
+{
+    margin:10% 33%;
+    padding:2%;
+    width:30%;
+    border-radius:10px;
+    background:#eee;
+    padding-bottom:3%;
+}
+
+.save-btn{
+    background:#ffdcd6;
+    color:#865e17;
+    font-size:16px;
+    border:none;
+    display:block;
+    margin:3% auto;
+    border-radius:5px;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.3);
+    padding:2%;
+}
+
+
+/* address popup end */
+
+/*back*/
+.addressback,.paymentback
+{
+    background:white;
+    margin:10% 8%;
+    width:80%;
+    height:70%;
+    overflow:scroll;
+    border-radius:10px;
+    margin-bottom:2%;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.3);
+    padding:1%;
+}
+
+
+/*select*/
+.selectaddress,.selectpayment
+{
+    display: flex;
+    border-bottom:1px solid rgba(0,0,0,0.4);
+}
+/*div*/
+.addressdiv,.paymentdiv
+{
+    font-size:18px;
+}
+.paymentdiv{
+    margin:2%;
+    height:14vh;
+    width:40vw;
+    margin-bottom: 0;
+}
+
+
+.custname{
+    margin-bottom:0;
+}
+
+.addresscontent
+{
+    height:7vh;
+    overflow:auto;
+    font-family: 'Roboto', sans-serif;
+    width:95%;
+    margin:5px 0;
+    font-size:15px;
+}
+
+.addresscontact
+{
+    font-family: 'Roboto', sans-serif;
+    color:rgb(40, 156, 233);
+    font-size:15px;
+    padding:2% 3%;
+}
+
+.nextdiv
+{
+    padding:2%;
+    height:8vh;
+}
+.next-btn,.back-btn
+{
+    padding:0.5%;
+    background:pink;
+    color:rgb(235, 105, 127);
+    font-weight:500;
+    font-size:18px;
+    border:1.5px solid rgb(235, 105, 127);
+    border-radius:5px;
+    outline:none;
+    width:25%;
+    margin:2% 3%;
+    cursor: pointer;
+}
+.next-btn:focus{
+    box-shadow:1px 1px 5px rgb(235, 105, 127);
+}
+
+.paymentdiv2{
+    height:5vh;
+    width:100%;
+    padding:3% 0;
+    font-size:22px;
 }

@@ -32,6 +32,15 @@ body
     font-size:28px;
     letter-spacing: 2.5px;
 }
+
+a.homelink:visited{
+    color:#fcd5ca;
+    text-decoration: none;
+}
+td.logotexttd>a:visited,td.logotexttd>a:hover,a.homelink:hover{
+    color:#fcd5ca;
+    text-decoration: none;
+}
 .searchtd
 {
     width:37%;
@@ -89,6 +98,12 @@ button:hover{
     font-size:24px;
     cursor:pointer;
 }
+
+.headerlinks>a:visited,.headerlinks>a:hover{
+    color:#fcd5ca;
+    text-decoration: none;
+}
+
 .dropdowntd
 {
     visibility:hidden;

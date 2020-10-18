@@ -21,7 +21,7 @@
         <table class=headertable cellspacing=0>
             <tr class=headertr>
                 <td class=logotd><img class=logoimg src="Images/logo.png" alt=""></td>
-                <td class=logotexttd><a href="adminhome.php" style="color:white;  text-decoration:none;">Cakes and Bakes</a></td>
+                <td class=logotexttd><a href="adminhome.php" >Cakes and Bakes</a></td>
                 <td class=searchtd>
                     <div class=searchdiv>
                         <form action="">

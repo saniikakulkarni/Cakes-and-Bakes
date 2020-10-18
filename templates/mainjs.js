@@ -86,3 +86,16 @@ function goback(blockid1,blockid2,blockid3,blockid4,blockid5,navid1,navid2,navid
 function cleardata(){
     document.getElementById("creditform").reset();
 }
+
+
+/* poup address form */ 
+
+function popupaddressclose()
+{
+    document.getElementById('popupaddress').style.visibility="hidden";
+}
+
+function popupAddress()
+{
+    document.getElementById('popupaddress').style.visibility="visible";
+}
