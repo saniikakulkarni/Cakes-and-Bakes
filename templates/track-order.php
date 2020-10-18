@@ -23,8 +23,13 @@
 </head>
 <body>
     <?php
-        if($_SESSION['userid']=='2')
-        require "headeradmin.php";
+        if(isset($_SESSION['userid']))
+        {
+            if($_SESSION['userid']=='2')
+            require "headeradmin.php";
+            else
+            require "header.php";
+        }
         else
         require "header.php";
         require "../includes/dbhinc.php";

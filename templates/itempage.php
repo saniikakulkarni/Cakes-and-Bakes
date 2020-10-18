@@ -21,11 +21,17 @@
 </head>
 <body>
     <?php
-        if($_SESSION['userid']=='2')
-        require "headeradmin.php";
+        if(isset($_SESSION['userid']))
+        {
+            if($_SESSION['userid']=='2')
+            require "headeradmin.php";
+            else
+            require "header.php";
+        }
         else
         require "header.php";
         require "../includes/dbhinc.php";
+        $name=$_GET['itemname'];
     ?>
     <!--Contents start-->
     <div class=itemcontents>
@@ -40,10 +46,40 @@
                 <div id=bigpicdiv>
                 </div>
             </div>
-            <?php
+                <?php
+                    $sql="SELECT * FROM item where name=?";
+                    $stmt = mysqli_stmt_init($conn);
+                    if(!mysqli_stmt_prepare($stmt,$sql))
+                    {
+                        header("Location: ./homepage.php?error=sqlerror");
+                        exit();
+                    }
+                    else
+                    {
+                        mysqli_stmt_bind_param($stmt,"s",$name);
+                        mysqli_stmt_execute($stmt);
+                        $result = mysqli_stmt_get_result($stmt);
+                        if($row = mysqli_fetch_assoc($result)){
+                        $name=$row['name'];
+                        $quantityprice=$row['quantityprice'];
+                        $description=$row['description'];
+                        $availability=$row['availability'];
+                        $qp=explode("\n",$quantityprice);
+                        $qplen=sizeof($qp);
+                        $price=[];
+                        $quantity=[];
+                        for($j=0;$j<$qplen;$j++)
+                        {
+                            list($quantity[$i],$price[$i])=explode(":",$qp[$j]);
+                        }
+                        $n=sizeof($qp);
+                        $rating=$row['rating'];
+                        $star=3;
+                        $todaydate=date("Y-m-d");
+                        $maxdate=date("Y-m-d",strtotime("+7 day"));
                     echo "<div class='itemdesc'>
                             <div class='itemdescstart'>
-                            <h1 class=item-name></h1>
+                            <h1 class=item-name>$name</h1>
                             <p class='rating'>";
                                 for($i=1;$i<=$star;$i++)
                                 {
@@ -51,27 +87,31 @@
                                 }
                                 for($i=1;$i<=5-$star;$i++)
                                 {
-                                    echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>
+                                    echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
                                 }
-                                $rating
+                                echo "$rating
                             </p>
                             <h2 class=pricedesc></h2>
                             <form class=orderform>
                                 <h3 class=upgradeheading>Select an Upgrade</h3>
-                                <select name=upgrade id=upgrade>
-                                    <option value="halfkg">0.5 Kg</option>
-                                </select>
-                                <h4 class=pincodeline>Enter correct Pincode for hassle free timely delivery.</h4><br>
+                                <select name=upgrade id=upgrade>";
+                                    for($j=0;$j<=$qplen;$j++)
+                                    {
+                                        echo "<option>$quantity[$j]</option>";
+                                    }
+                                 echo "   
+                                </select>";
+                        }
+                    }
+                               echo "<h4 class=pincodeline>Enter correct Pincode for hassle free timely delivery.</h4><br>
                                 <div class=pindate>
                                     <div class=pincodediv>
                                         <h3 class=pincodeheading>Availability</h3>
-                                        <p class=pincodeinput>Accepting Orders</p>
+                                        <p class=pincodeinput>$availability</p>
                                     </div>
                                     <div class=datediv>
                                         <h3 class=dateheading>Delivery Date</h3>
-                                        <select name=upgrade class=dateinput>
-                                            <option value=""></option>
-                                        </select>
+                                        <input type='date' min=$todaydate max=$maxdate>
                                     </div>
                                 </div>
                                 <button class=addtocart-btn><i class='fas fa-shopping-cart'></i> Add to Cart</button><button class=ordernow-btn><i class='fas fa-bolt'></i> Order Now</button>
@@ -80,13 +120,18 @@
                         </div>
                         <div class='itemdescend'>
                             <h2 class=descheading>Description</h2>
-                            <ul class=desclist>
-                                <li class=descitems><i class='fas fa-check-circle'></i> Cake Flavour- Chocolate</li>
+                            <ul class=desclist>";
+                                $descrows=explode("\n",$description);
+                                $desclen=sizeof($descrows);
+                                for($i=0;$i<$desclen;$i++)
+                                {
+                                    echo "<li class=descitems><i class='fas fa-check-circle'></i>$descrows[$i]</li>";
+                                }
+                    ?> 
                             </ul>
                         </div>
                     </div>  
-                </div>";
-                ?>
+                </div>
                 <div class="reviews">
                     <div class="reviewsback">
                         <center><h1 class=reviewsheading>Customers Who Bought This Say...</h1></center>
@@ -129,10 +174,6 @@
                 <div class=alsoliketile></div>
                 <div class=alsoliketile></div>
             </div>
-        </div>
-    
-        
+        </div>      
 </body>
-<script>
-</script>
 </html>

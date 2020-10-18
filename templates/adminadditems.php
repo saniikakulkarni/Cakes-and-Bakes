@@ -56,8 +56,8 @@
                         <td><label class='additemlabel' for="availability">Availability</label></td>
                         <td>
                             <select name="availability" required>
-                                <option value="accepting">Accepting Orders</option>
-                                <option value="not accepting">Currently Not Accepting Orders</option>
+                                <option value="Accepting">Accepting Orders</option>
+                                <option value="Not Accepting">Currently Not Accepting Orders</option>
                             </select>
                         </td>
                     </tr>

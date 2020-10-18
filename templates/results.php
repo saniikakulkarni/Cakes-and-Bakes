@@ -21,8 +21,13 @@
 </head>
 <body>
     <?php
-        if($_SESSION['userid']=='2')
-        require "headeradmin.php";
+        if(isset($_SESSION['userid']))
+        {
+            if($_SESSION['userid']=='2')
+            require "headeradmin.php";
+            else
+            require "header.php";
+        }
         else
         require "header.php";
         require "../includes/dbhinc.php";
@@ -42,9 +47,6 @@
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql))
             {
-                if($_SESSIO['userid']=='2')
-                header("Location: ./adminhome.php?error=sqlerror");
-                else
                 header("Location: ./homepage.php?error=sqlerror");
                 exit();
             }

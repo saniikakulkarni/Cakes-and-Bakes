@@ -29,6 +29,8 @@
         {
             if($_SESSION['userid']=='2')
             require "headeradmin.php";
+            else
+            require "header.php";
         }
         else
         require "header.php";

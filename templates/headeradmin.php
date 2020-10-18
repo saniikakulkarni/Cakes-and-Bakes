@@ -28,7 +28,7 @@
                     </div>
                 </td>
                 <td class=headerlinks onmouseenter=menushow() onmouseleave=menuhide()>Categories</td>
-                <td class=headerlinks onmouseenter=menushow() onmouseleave=menuhide()><a href="adminadditems.php">Add Items</a></td>
+                <td class=headerlinks><a href="adminadditems.php">Add Items</a></td>
                 <td class=headerlinks><a href="../includes/signoutinc.php">Logout</a></td>
                 <td class=headerlinks><a href="adminorders.php">Orders</a></td>
             </tr>
