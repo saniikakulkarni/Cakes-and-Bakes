@@ -30,7 +30,8 @@
                         </div>
                     </td>
                     <td class=headerlinks onmouseenter=menushow() onmouseleave=menuhide()>Categories</td>
-                    <td class="headerlinks popupmodal" onmouseenter=profileshow() onmouseleave=profilehide()>Profile</td>aa
+                    <td class="headerlinks popupmodal" onmouseenter=profileshow() onmouseleave=profilehide()>Profile</td>
+                    <td class=headerlinks>Help</td>
                     <td class=headerlinks>Your Cart</td>
                 </tr>
                 <tr id=dropdownmenu class=dropdowntr>

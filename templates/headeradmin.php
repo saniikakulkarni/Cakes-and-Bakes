@@ -31,7 +31,8 @@
                     </div>
                 </td>
                 <td class=headerlinks onmouseenter=menushow() onmouseleave=menuhide()>Categories</td>
-                <td class=headerlinks>Profile</td>
+                <td class=headerlinks onmouseenter=menushow() onmouseleave=menuhide()><a href="adminadditems.php">Add Items</a></td>
+                <td class=headerlinks><a href="../includes/signoutinc.php">Logout</a></td>
                 <td class=headerlinks><a href="adminorders.php">Orders</a></td>
             </tr>
             <tr id=dropdownmenu class=dropdowntr>
@@ -48,14 +49,7 @@
                             <li class="drop-items btm-border-none">Delights</li>
                         </ul>
                     </td>
-                    <td id=dropdownprofile colspan=1 onmouseenter=profileshow() onmouseleave=profilehide() class=dropdowntd id=profileshift>
-                    <ul class=dropdownlist>
-                            <li class="drop-items"><a href="adminadditems.php">Add Items</a></li>
-                            <li class="drop-items"><a href="adminmodifyitems.php">Modify Items</a></li>
-                            <li class="drop-items btm-border-none"><a href="../includes/signoutinc.php">Logout</a></li>
-                        </ul>
-                    </td>          
-                    <td colspan=1 style="visibility:hidden"></td>
+                    <td colspan=3 style="visibility:hidden"></td>
             </tr>
         </table>       
     </div>
