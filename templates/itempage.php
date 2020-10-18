@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +21,12 @@
 </head>
 <body>
     <?php
+        if($_SESSION['userid']=='2')
+        require "headeradmin.php";
+        else
         require "header.php";
+        require "../includes/dbhinc.php";
+        $category=$_GET['category'];
     ?>
     <!--Contents start-->
     <div class=itemcontents>
