@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="admincss.css">
     <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="maincss.css">
+    <link rel="stylesheet" type="text/css" href="homecss.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&family=Great+Vibes&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
     <script src="mainjs.js"></script>
     <title>Cakes and Bakes | Add Items</title>
@@ -30,8 +31,7 @@
                     </div>
                 </td>
                 <td class=headerlinks onmouseenter=menushow() onmouseleave=menuhide()>Categories</td>
-                <td class=headerlinks><a href="adminadditems.php">Add</a></td>
-                <td class="headerlinks popupmodal" onmouseenter=profileshow() onmouseleave=profilehide()><a href="adminmodifyitems.php">Modify</a></td>
+                <td class=headerlinks>Profile</td>
                 <td class=headerlinks><a href="adminorders.php">Orders</a></td>
             </tr>
             <tr id=dropdownmenu class=dropdowntr>
@@ -48,7 +48,14 @@
                             <li class="drop-items btm-border-none">Delights</li>
                         </ul>
                     </td>
-                    <td colspan=4 style="visibility:hidden"></td>
+                    <td id=dropdownprofile colspan=1 onmouseenter=profileshow() onmouseleave=profilehide() class=dropdowntd id=profileshift>
+                    <ul class=dropdownlist>
+                            <li class="drop-items"><a href="adminadditems.php">Add Items</a></li>
+                            <li class="drop-items"><a href="adminmodifyitems.php">Modify Items</a></li>
+                            <li class="drop-items btm-border-none"><a href="../includes/signoutinc.php">Logout</a></li>
+                        </ul>
+                    </td>          
+                    <td colspan=1 style="visibility:hidden"></td>
             </tr>
         </table>       
     </div>

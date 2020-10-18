@@ -9,7 +9,7 @@ if(isset($_POST['signup-btn']))
 
    if($password!==$confirmpassword)
    {
-      header("Location:../homepage.php?error=passwordcheck&fullname=".$fullname."&email=".$email);
+      header("Location:../templates/homepage.php?error=passwordcheck&fullname=".$fullname."&email=".$email);
       exit();
    }
    else
@@ -18,7 +18,7 @@ if(isset($_POST['signup-btn']))
       $stmt=mysqli_stmt_init($conn);
       if(!mysqli_stmt_prepare($stmt,$sql))
       {
-         header("Location:../homepage.php?error=sqlerror");
+         header("Location:../templates/homepage.php?error=sqlerror");
          exit();
       }
       else
@@ -29,7 +29,7 @@ if(isset($_POST['signup-btn']))
          $resultCheck=mysqli_stmt_num_rows($stmt);
          if($resultCheck>0)
          {
-            header("Location:../homepage.php?error=emailtaken&fullname=".$fullname);
+            header("Location:../templates/homepage.php?error=emailtaken&fullname=".$fullname);
             exit();
          }
          else
@@ -38,7 +38,7 @@ if(isset($_POST['signup-btn']))
                $stmt=mysqli_stmt_init($conn);
                if(!mysqli_stmt_prepare($stmt,$sql))
                {
-                  header("Location:../homepage.php?error=sqlerror");
+                  header("Location:../templates/homepage.php?error=sqlerror");
                   exit();
                }
                else
@@ -46,7 +46,7 @@ if(isset($_POST['signup-btn']))
                   $hashedPwd=password_hash($password, PASSWORD_DEFAULT);
                   mysqli_stmt_bind_param($stmt,"sss",$fullname,$email,$hashedPwd);
                   mysqli_stmt_execute($stmt);
-                  header("Location:../homepage.php?signup=success");
+                  header("Location:../templates/homepage.php?signup=success");
                   exit();
                }
           }
@@ -57,6 +57,7 @@ if(isset($_POST['signup-btn']))
    mysqli_close($conn);
 }
 else{
-   header("Location:../homepage.php");
+   header("Location:../templates/homepage.php");
    exit();
 }
+?>

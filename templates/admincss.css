@@ -34,7 +34,7 @@ body{
     padding:2%;
     background:white;
     border-radius:10px;
-    width:50%;
+    width:60%;
     margin:7% auto;
     box-shadow:2px 3px 3px rgba(0,0,0,0.3);
 }
@@ -141,4 +141,10 @@ label{
     outline: none;
     width: 25%;
     cursor: pointer;
+}
+
+.additemsform
+{
+    width:90%;
+
 }

@@ -8,7 +8,7 @@ if(isset($_POST['signin-btn'])){
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql))
     {
-        header("Location: ../homepage.php?error=sqlerror");
+        header("Location: ../templates/homepage.php?error=sqlerror");
         exit();
     }
     else
@@ -21,7 +21,7 @@ if(isset($_POST['signin-btn'])){
             $pwdCheck = password_verify($password,$row['password']);
             if($pwdCheck == false)
             {
-                header("Location: ../homepage.php?error=wrongpwd");
+                header("Location: ../templates/homepage.php?error=wrongpwd");
                 exit();
             }
             else if($pwdCheck == true)
@@ -31,27 +31,27 @@ if(isset($_POST['signin-btn'])){
                 $_SESSION['email'] = $row['email'];
                 
                 if($_SESSION['userid']==2)
-                header("Location: ../adminhome.php?login=success");
+                header("Location: ../templates/adminhome.php?login=success");
                 else
-                header("Location: ../homepage.php?login=success");
+                header("Location: ../templates/homepage.php?login=success");
                 exit();
 
             }
             else
             {
-                header("Location: ../homepage.php?error=wrongpwd");
+                header("Location: ../templates/homepage.php?error=wrongpwd");
                 exit();
             }
         }
         else
         {
-            header("Location: ../homepage.php?error=nouser");
+            header("Location: ../templates/homepage.php?error=nouser");
             exit();
         }
     }
 }   
 else{
-    header("Location:../homepage.php");
+    header("Location:../templates/homepage.php");
     exit();
  }
 ?>

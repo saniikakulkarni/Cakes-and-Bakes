@@ -54,7 +54,7 @@
                                 {
                                     echo "<li  class='drop-items'><a href='profile.php'>My Profile</a></li>
                                     <li  class='drop-items'><a href='track-order.php'>Track Order</a></li>
-                                    <li class='drop-items btm-border-none'><a href='./includes/signoutinc.php'>Logout</a></li>";
+                                    <li class='drop-items btm-border-none'><a href='../includes/signoutinc.php'>Logout</a></li>";
                                 }
                                 else
                                 {
@@ -65,7 +65,7 @@
                             ?>
                         </ul>
                     </td>
-                    <td colspan=2 style="visibility:hidden"></td>
+                    <td colspan=1 style="visibility:hidden"></td>
                 </tr>
             </table>       
     </div>
@@ -74,7 +74,7 @@
     <!--Popup Sign in start-->
     <div class=popupdiv id=popupid>
         <div class="box">
-            <form method="POST" action="includes/signininc.php">
+            <form method="POST" action="../includes/signininc.php">
                 <h1 class="heading">Sign In</h1><span class="cross" onclick="popupclose()">X</span>
                 <input class=forminput type="email" placeholder="E-mail id" id="email" name="email" required >
                 <input class=forminput type="password" placeholder="Password" id="password" name="pwd" required>
@@ -89,7 +89,7 @@
     <!--Popup Sign up start-->
     <div class=popupdiv id=popupid2>
         <div class="box" id=signupbox>
-            <form action="includes/signupinc.php" method="POST">
+            <form action="../includes/signupinc.php" method="POST">
                 <h1 class="heading">Sign Up</h1><span class="cross" onclick="popupsignupclose()" id=crosssignup>X</span>
                 <input class=forminput type="text" placeholder="Full Name" id="fullname" name="fullname" pattern="[a-zA-Z ]*" title="Must contain only letters" required>
                 <input class=forminput type="email" placeholder="E-mail id" id="email" name="email" required>
