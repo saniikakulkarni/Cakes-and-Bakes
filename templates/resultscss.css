@@ -39,9 +39,9 @@ body
 }
 .contents
 {
-    background:transparent;
     padding-top:2%;
     padding-bottom:2%;
+    background:#fcd5ca50;
 }
 .items{
     width:21.6%;

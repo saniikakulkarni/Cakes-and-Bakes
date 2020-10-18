@@ -128,10 +128,17 @@ button:hover{
     padding:4% 0%;
     color:rgba(0,0,0,0.7);
 }
+
+.drop-items>a:link,.drop-items>a:visited,.drop-items>a:hover{
+    text-decoration: none;
+    color:rgba(0,0,0,0.7);
+}
+
 .drop-items:hover{
     color:black;
     font-size:15px;
 }
+
 .btm-border-none{
     border-bottom:none;
 }

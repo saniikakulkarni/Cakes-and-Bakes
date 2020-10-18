@@ -21,14 +21,14 @@
                 <td class=logotexttd><a href="homepage.php" >Cakes and Bakes</a></td>
                 <td class=searchtd>
                     <div class=searchdiv>
-                        <form action="">
+                        <form action="javascrip:void(0)">
                             <input class="searchinput" type="search" placeholder="Search for baked goodies">
                             <button class="searchicon"><i class="fas fa-search"></i></button>
                         </form>   
                     </div>
                 </td>
                 <td class=headerlinks onmouseenter=menushow() onmouseleave=menuhide()>Categories</td>
-                <td class=headerlinks><a href="adminadditems.php">Add Items</a></td>
+                <td class=headerlinks ><a href="adminadditems.php">Add Items</a></td>
                 <td class=headerlinks><a href="../includes/signoutinc.php">Logout</a></td>
                 <td class=headerlinks><a href="adminorders.php">Orders</a></td>
             </tr>
