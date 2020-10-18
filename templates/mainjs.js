@@ -99,3 +99,8 @@ function popupAddress()
 {
     document.getElementById('popupaddress').style.visibility="visible";
 }
+
+function changePrice(price)
+{
+    document.getElementById('pricedisplay').innerHTML=`${price}`;
+}

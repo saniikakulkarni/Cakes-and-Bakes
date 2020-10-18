@@ -75,8 +75,8 @@
                         $n=sizeof($qp);
                         $rating=$row['rating'];
                         $star=3;
-                        $todaydate=date("Y-m-d");
-                        $maxdate=date("Y-m-d",strtotime("+7 day"));
+                        $todaydate=date("Y-m-d",strtotime("+1 day"));
+                        $maxdate=date("Y-m-d",strtotime("+8 day"));
                     echo "<div class='itemdesc'>
                             <div class='itemdescstart'>
                             <h1 class=item-name>$name</h1>
@@ -91,13 +91,15 @@
                                 }
                                 echo "$rating
                             </p>
-                            <h2 class=pricedesc></h2>
+                            <h2 class=pricedesc id='pricedisplay'>$price[0]</h2>
                             <form class=orderform>
                                 <h3 class=upgradeheading>Select an Upgrade</h3>
-                                <select name=upgrade id=upgrade>";
-                                    for($j=0;$j<=$qplen;$j++)
+                                <select name=upgrade id=upgrade >";
+                                    for($j=0;$j<$qplen;$j++)
                                     {
-                                        echo "<option>$quantity[$j]</option>";
+                                        echo "<option onclick='<script>
+                                        changePrice($quality[$j])
+                                        </script>';>$quantity[$j]</option>";
                                     }
                                  echo "   
                                 </select>";
