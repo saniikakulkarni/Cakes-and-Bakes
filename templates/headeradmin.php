@@ -39,14 +39,14 @@
                     <td colspan=3 style="visibility:hidden"></td>
                     <td id=dropdowncat colspan=1 onmouseenter="menushow()" onmouseleave="menuhide()"class=dropdowntd >
                         <ul class=dropdownlist>
-                            <li class="drop-items">Cakes</li>
-                            <li class="drop-items">Occassion Cakes</li>
-                            <li class="drop-items">Cupcakes</li>
-                            <li class="drop-items">Cookies</li>
-                            <li class="drop-items">Macaroons</li>
-                            <li class="drop-items">Snacks</li>
-                            <li class="drop-items">Brownies</li>
-                            <li class="drop-items btm-border-none">Delights</li>
+                            <li class="drop-items"><a href="">Cakes</a></li>
+                            <li class="drop-items"><a href="">Occassion Cakes</a></li>
+                            <li class="drop-items"><a href="">Cupcakes</a></li>
+                            <li class="drop-items"><a href="">Cookies</a></li>
+                            <li class="drop-items"><a href="">Macaroons</a></li>
+                            <li class="drop-items"><a href="">Snacks</a></li>
+                            <li class="drop-items"><a href="">Brownies</a></li>
+                            <li class="drop-items btm-border-none"><a href="">Delights</a></li>
                         </ul>
                     </td>
                     <td colspan=3 style="visibility:hidden"></td>

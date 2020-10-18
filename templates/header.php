@@ -38,14 +38,14 @@
                     <td colspan=3 style="visibility:hidden"></td>
                     <td id=dropdowncat colspan=1 onmouseenter="menushow()" onmouseleave="menuhide()"class=dropdowntd >
                         <ul class=dropdownlist>
-                            <li class="drop-items">Cakes</li>
-                            <li class="drop-items">Occassion Cakes</li>
-                            <li class="drop-items">Cupcakes</li>
-                            <li class="drop-items">Cookies</li>
-                            <li class="drop-items">Macaroons</li>
-                            <li class="drop-items">Snacks</li>
-                            <li class="drop-items">Brownies</li>
-                            <li class="drop-items btm-border-none">Delights</li>
+                        <li class="drop-items"><a href="results.php?category=Cakes">Cakes</a></li>
+                            <li class="drop-items"><a href="results.php?category=Occasion Cakes">Occassion Cakes</a></li>
+                            <li class="drop-items"><a href="results.php?category=Cupcakes">Cupcakes</a></li>
+                            <li class="drop-items"><a href="results.php?category=Cookies">Cookies</a></li>
+                            <li class="drop-items"><a href="results.php?category=Macaroons">Macaroons</a></li>
+                            <li class="drop-items"><a href="results.php?category=Snacks">Snacks</a></li>
+                            <li class="drop-items"><a href="results.php?category=Brownies">Brownies</a></li>
+                            <li class="drop-items btm-border-none"><a href="results.php?category=Delights">Delights</a></li>
                         </ul>
                     </td>
                     <td id=dropdownprofile colspan=1 onmouseenter=profileshow() onmouseleave=profilehide() class=dropdowntd id=profileshift>
