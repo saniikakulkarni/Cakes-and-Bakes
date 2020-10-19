@@ -10,12 +10,7 @@
             $quantity=$qp[0];
             $pricetemp=explode("₹",$qp[1]);
             $price=intval($pricetemp[1]);
-            echo $itemid;
-            echo $userid;
-            echo $quantity;
-            echo print_r($pricetemp);
-            echo $price;
-            /*$sql="INSERT INTO cart (userid,itemid,quantity,price) VALUES(?,?,?,?)";
+            $sql="INSERT INTO cart (userid,itemid,quantity,price) VALUES(?,?,?,?)";
             $stmt=mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql))
             {
@@ -30,15 +25,15 @@
                 exit();
             }
             mysqli_stmt_close($stmt);
-            mysqli_close($conn);*/
+            mysqli_close($conn);
         }
-        /*else if($_SESSION['email']=='admin@gmail.com')
+        else if($_SESSION['email']=='admin@gmail.com')
         {
             header("Location:../templates/homepage.php?error=Admin cannot access this page");
             exit();
-        }*/
+        }
     }
-    /*else if(!(isset($_SESSION['email'])))
+    else if(!(isset($_SESSION['email'])))
     {
         header("Location:../templates/homepage.php?error=Login First");
         exit();
@@ -47,5 +42,5 @@
     {
         header("Location:../templates/homepage.php?error=First Select Item to Add");
         exit();
-    } */
+    } 
 ?>
