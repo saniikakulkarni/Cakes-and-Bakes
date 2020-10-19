@@ -13,7 +13,7 @@ body{
 .profileedit
 {
     background:rgba(255,255,255,0.9);
-    height:55%;
+    height:58%;
     width:100%;
     margin:5% 3%;
     border-radius:10px;
@@ -52,8 +52,9 @@ body{
     color:#865e17;
     box-shadow:1px 1px 5px rgba(0,0,0,0.3);
     display:block;
-    margin:auto;
+    margin:3% auto;
 }
+
 .profileheading
 {
     font-family: 'Bitter', serif;
@@ -135,6 +136,11 @@ body{
     border-radius:5px;
     box-shadow:1px 1px 5px rgba(0,0,0,0.3);
     padding:2%;
+}
+
+.text-address{
+    width:100%;
+    height:10vh;
 }
 
 

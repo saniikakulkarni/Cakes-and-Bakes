@@ -58,7 +58,7 @@
                     <input class=profileinput type="text" placeholder="Customer Name" id="custname" name="custname" required >
                     <input class=profileinput type="number" placeholder="Contact Number" id="contactnum" name="contactnum" required>
                 </div><br>
-                <textarea name="address" id="address" cols="60" rows="5"  placeholder="Add address "></textarea>
+                <textarea name="address" id="address" class=text-address  placeholder="Add address "></textarea>
                 <br>
                 <button  type="submit" class=save-btn name="save-address">Add address</button>
             </form> 
