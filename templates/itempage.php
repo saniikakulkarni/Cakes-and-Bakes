@@ -87,7 +87,7 @@
                             <div class='itemdescstart'>
                             <div class='inline-data'>
                                 <h1 class=item-name>$name</h1>";
-                    if($_SESSION['email']=== "admin@gmail.com")
+                    if($_SESSION['email']=="admin@gmail.com")
                     {
                         echo  "<a href='adminmodifyitems.php?itemname=$name' class=editicon><i class='fas fa-edit'></i></a>";
                     }

@@ -6,10 +6,10 @@
             require "../includes/dbhinc.php";
             $itemid=$_GET['itemid'];
             $userid=$_SESSION['userid'];
-            $qp=explode(":",$_POST['upgrade']);
+            $qp=explode(": ",$_POST['upgrade']);
             $quantity=$qp[0];
             $pricetemp=explode("₹",$qp[1]);
-            $price=intval($pricetemp[1]);
+            $price=intval($pricetemp[0]);
             $sql="INSERT INTO cart (userid,itemid,quantity,price) VALUES(?,?,?,?)";
             $stmt=mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql))
@@ -19,7 +19,7 @@
             }
             else
             {
-                mysqli_stmt_bind_param($stmt,"ssss",$itemid,$userid,$quantity,$price);
+                mysqli_stmt_bind_param($stmt,"sssi",$itemid,$userid,$quantity,$price);
                 mysqli_stmt_execute($stmt);
                 header("Location:../templates/cart.php?successfully added item");
                 exit();
