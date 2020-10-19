@@ -18,12 +18,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <script src="mainjs.js"></script>
+    <style>
+    body{
+        background:white;
+    }
+    </style>
 </head>
 <body>
     <?php
-        if(isset($_SESSION['userid']))
+        if(isset($_SESSION['email']))
         {
-            if($_SESSION['userid']=='2')
+            if($_SESSION['email']=='admin@gmail.com')
             require "headeradmin.php";
             else
             require "header.php";
@@ -82,7 +87,7 @@
                             <div class='itemdescstart'>
                             <div class='inline-data'>
                                 <h1 class=item-name>$name</h1>";
-                    if($_SESSION['email'] == "admin@gmail.com")
+                    if($_SESSION['email']=== "admin@gmail.com")
                     {
                         echo  "<a href='adminmodifyitems.php?itemname=$name' class=editicon><i class='fas fa-edit'></i></a>";
                     }
@@ -101,7 +106,7 @@
                                 echo "$rating
                             </p>
                             <h2 class=pricedesc id='pricedisplay'>$price[0]</h2>
-                            <form class=orderform>
+                            <form class=orderform method='POST' action='addtocart.php?itemid='$itemid'>
                                 <h3 class=upgradeheading>Select an Upgrade</h3>
                                 <select name=upgrade id=upgrade >";
                                     for($j=0;$j<$qplen;$j++)
@@ -122,10 +127,10 @@
                                     </div>
                                     <div class=datediv>
                                         <h3 class=dateheading>Delivery Date</h3>
-                                        <input type='date' min=$todaydate max=$maxdate>
+                                        <input  type='date' min=$todaydate max=$maxdate name='date'>
                                     </div>
                                 </div>
-                                <button class=addtocart-btn><i class='fas fa-shopping-cart'></i> Add to Cart</button><button class=ordernow-btn><i class='fas fa-bolt'></i> Order Now</button>
+                                <button class=addtocart-btn><i class='fas fa-shopping-cart' name='addtocart-btn'></i> Add to Cart</button><button class=ordernow-btn><i class='fas fa-bolt'></i> Order Now</button>
                             </form>
                             <hr>
                         </div>

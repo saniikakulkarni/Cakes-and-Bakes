@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_POST['additem-btn']) && $_SESSION['userid']=='2')
+    if(isset($_POST['additem-btn']) && $_SESSION['email']=='admin@gmail.com')
     {
         require "dbhinc.php";
         $category=$_POST['category'];
@@ -20,13 +20,13 @@
         {
             mysqli_stmt_bind_param($stmt,"sssss",$category,$name,$quantityprice,$description,$availability);
             mysqli_stmt_execute($stmt);
-            header("Location:../templates/adminadditems.php?success=item added successfully");
+            header("Location:../templates/results.php?category=$category");
             exit();
         }
         mysqli_stmt_close($stmt);
         mysqli_close($conn);
     }
-    else if($_SESSION['userid']=='2')
+    else if($_SESSION['email']=='admin@gmail.com')
     {
         header("Location:../templates/adminadditems.php?error=additem to access this page");
         exit();

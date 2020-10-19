@@ -1,0 +1,45 @@
+<?php
+    session_start();
+    if(isset($_POST['addtocart-btn']) && isset($_SESSION['email']) )
+    {
+        if($_SESSION['email']!='admin@gmail.com'){
+            require "dbhinc.php";
+            $itemid=$_GET['itemid'];
+            $quantity=$_POST['upgrade'];
+            $price="₹400";
+            $userid=$_SESSION['userid'];
+
+            $sql="INSERT INTO cart (itemid,userid,quantity,price) VALUES(?,?,?,?)";
+            $stmt=mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt,$sql))
+            {
+                header("Location:../templates/homapage.php?error=sqlerror");
+                exit();
+            }
+            else
+            {
+                mysqli_stmt_bind_param($stmt,"ssss",$itemid,$userid,$quantity,$price);
+                mysqli_stmt_execute($stmt);
+                header("Location:../templates/cart.php");
+                exit();
+            }
+            mysqli_stmt_close($stmt);
+            mysqli_close($conn);
+        }
+        else if($_SESSION['email']=='admin@gmail.com')
+        {
+            header("Location:../templates/homepage.php?error=Admin cannot access this page");
+            exit();
+        }
+        else if(!isset($_SESSION['email']))
+        {
+            header("Location:../templates/homepage.php?error=Login First");
+            exit();
+        }
+    }
+    else if(!isset($_POST['addtocart-btn']))
+    {
+        header("Location:../templates/homepage.php?error=First Select Item to Add");
+        exit();
+    } 
+?>

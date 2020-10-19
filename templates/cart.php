@@ -83,52 +83,6 @@
                 <button class="cancelorder">Cancel </button>
             </div>
         </div>
-
-        <div class="order">
-            <div class="orderimgdiv">
-                <img src="images/chococake1.1.PNG" alt="" class="orderimg">
-            </div>
-            <div class="orderdesc">
-                <h2 class="ordername">Cream drop cake</h2>
-                <p class="cost">₹ 400</p>
-                <p class="quantity"><span class="label">Quantity :</span> 2Kg</p>
-            </div>
-            <div class="deliver-details">
-                <button class="detail-btn">View Details</button>  
-                <button class="cancelorder">Cancel </button>
-            </div>
-        </div>
-
-        <div class="order">
-            <div class="orderimgdiv">
-                <img src="images/cake5.jpg" alt="" class="orderimg">
-            </div>
-            <div class="orderdesc">
-                <h2 class="ordername">Chocolate Cake</h2>
-                <p class="cost">₹ 400</p>
-                <p class="quantity"><span class="label">Quantity :</span> 1Kg</p>
-            </div>
-            <div class="deliver-details">
-                <button class="detail-btn">View Details</button>  
-                <button class="cancelorder">Cancel </button>
-            </div>
-        </div>
-
-        <div class="order">
-            <div class="orderimgdiv">
-                <img src="images/cake6.jpg" alt="" class="orderimg">
-            </div>
-            <div class="orderdesc">
-                <h2 class="ordername">White forest cake</h2>
-                <p class="cost">₹ 400</p>
-                <p class="quantity"><span class="label">Quantity :</span> 1Kg</p>
-            </div>
-            <div class="deliver-details">
-                <button class="detail-btn">View Details</button>  
-                <button class="cancelorder">Cancel </button>
-            </div>
-        </div> 
-    </div>
     <div class=btn-div>
         <button class="proceed">Proceed to pay <i class="fas fa-coins"></i></button>
     </div>

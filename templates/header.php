@@ -28,8 +28,8 @@
                     </td>
                     <td class=headerlinks onmouseenter=menushow() onmouseleave=menuhide()>Categories</td>
                     <td class="headerlinks popupmodal" onmouseenter=profileshow() onmouseleave=profilehide()>Profile</td>
-                    <td class=headerlinks>Help</td>
-                    <td class=headerlinks>Your Cart</td>
+                    <td class=headerlinks><a href="">Help</a></td>
+                    <td class=headerlinks><a href="cart.php">Your Cart</a></td>
                 </tr>
                 <tr id=dropdownmenu class=dropdowntr>
                     <td colspan=3 style="visibility:hidden"></td>
