@@ -74,7 +74,7 @@
                             </div>";
                         }
                     }
-                    if ($result=='\0')
+                    if (isset($result))
                     {
                         echo "<div class=btn-div>
                         <button class='proceed'>Proceed to pay <i class='fas fa-coins'></i></button>
