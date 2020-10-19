@@ -3,13 +3,14 @@
     if(isset($_POST['addtocart-btn']) && isset($_SESSION['email']) )
     {
         if($_SESSION['email']!='admin@gmail.com'){
-            require "dbhinc.php";
+            require "../includes/dbhinc.php";
             $itemid=$_GET['itemid'];
-            $quantity=$_POST['upgrade'];
-            $price="₹400";
             $userid=$_SESSION['userid'];
-
-            $sql="INSERT INTO cart (itemid,userid,quantity,price) VALUES(?,?,?,?)";
+            $qp=explode(":",$_POST['upgrade']);
+            $quantity=$qp[0];
+            $pricetemp=explode("₹",$qp[1]);
+            $price=intval($pricetemp[1]);
+            $sql="INSERT INTO cart (userid,itemid,quantity,price) VALUES(?,?,?,?)";
             $stmt=mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql))
             {
@@ -20,7 +21,7 @@
             {
                 mysqli_stmt_bind_param($stmt,"ssss",$itemid,$userid,$quantity,$price);
                 mysqli_stmt_execute($stmt);
-                header("Location:../templates/cart.php");
+                header("Location:../templates/cart.php?successfully added item");
                 exit();
             }
             mysqli_stmt_close($stmt);
@@ -31,11 +32,11 @@
             header("Location:../templates/homepage.php?error=Admin cannot access this page");
             exit();
         }
-        else if(!isset($_SESSION['email']))
-        {
-            header("Location:../templates/homepage.php?error=Login First");
-            exit();
-        }
+    }
+    else if(!(isset($_SESSION['email'])))
+    {
+        header("Location:../templates/homepage.php?error=Login First");
+        exit();
     }
     else if(!isset($_POST['addtocart-btn']))
     {

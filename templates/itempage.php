@@ -105,15 +105,12 @@
                                 }
                                 echo "$rating
                             </p>
-                            <h2 class=pricedesc id='pricedisplay'>$price[0]</h2>
-                            <form class=orderform method='POST' action='addtocart.php?itemid='$itemid'>
+                            <form class=orderform method='POST' action='addtocart.php?itemid=$itemid'>
                                 <h3 class=upgradeheading>Select an Upgrade</h3>
-                                <select name=upgrade id=upgrade >";
+                                <select name=upgrade id=upgrade>";
                                     for($j=0;$j<$qplen;$j++)
                                     {
-                                        echo "<option onclick='<script>
-                                        changePrice($quality[$j])
-                                        </script>';>$quantity[$j]</option>";
+                                        echo "<option>$quantity[$j] : $price[$j]</option>";
                                     }
                                  echo "   
                                 </select>";
@@ -130,7 +127,7 @@
                                         <input  type='date' min=$todaydate max=$maxdate name='date'>
                                     </div>
                                 </div>
-                                <button class=addtocart-btn><i class='fas fa-shopping-cart' name='addtocart-btn'></i> Add to Cart</button><button class=ordernow-btn><i class='fas fa-bolt'></i> Order Now</button>
+                                <button class=addtocart-btn name='addtocart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</button><button class=ordernow-btn><i class='fas fa-bolt'></i> Order Now</button>
                             </form>
                             <hr>
                         </div>
