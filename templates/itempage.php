@@ -23,6 +23,13 @@
         background:white;
     }
     </style>
+
+    <script>
+         function changePrice(n){
+            document.getElementById('pricedisplay').innerHTML = `${n}`;
+        }
+    </script>
+
 </head>
 <body>
     <?php
@@ -105,12 +112,20 @@
                                 }
                                 echo "$rating
                             </p>
+<<<<<<< Updated upstream
+=======
+                            <h2 class=pricedesc id='pricedisplay'>$price[0]</h2>
+>>>>>>> Stashed changes
                             <form class=orderform method='POST' action='addtocart.php?itemid=$itemid'>
                                 <h3 class=upgradeheading>Select an Upgrade</h3>
                                 <select name=upgrade id=upgrade>";
                                     for($j=0;$j<$qplen;$j++)
                                     {
+<<<<<<< Updated upstream
                                         echo "<option>$quantity[$j] : $price[$j]</option>";
+=======
+                                        echo "<option onchange='changePrice($price[$j])';>$quantity[$j]</option>";
+>>>>>>> Stashed changes
                                     }
                                  echo "   
                                 </select>";
@@ -127,7 +142,11 @@
                                         <input  type='date' min=$todaydate max=$maxdate name='date'>
                                     </div>
                                 </div>
+<<<<<<< Updated upstream
                                 <button class=addtocart-btn name='addtocart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</button><button class=ordernow-btn><i class='fas fa-bolt'></i> Order Now</button>
+=======
+                                <button class=addtocart-btn name='addtocart-btn'><i class='fas fa-shopping-cart' ></i> Add to Cart</button><button class=ordernow-btn><i class='fas fa-bolt'></i> Order Now</button>
+>>>>>>> Stashed changes
                             </form>
                             <hr>
                         </div>
