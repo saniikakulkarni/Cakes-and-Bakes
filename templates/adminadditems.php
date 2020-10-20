@@ -20,7 +20,7 @@
     <!--Content start-->
     <div class='additemsback'>
         <center>
-            <form class=additemsform action="../includes/additemsinc.php" method="POST">
+            <form class=additemsform action="../includes/additemsinc.php" method="POST" enctype="multipart/form-data">
                 <table cellpadding=15px;>
                     <tr>
                         <td colspan=2 class='additemheading'>
@@ -62,13 +62,13 @@
                         </td>
                     </tr>
                 </table>
-               <!--<div class="image-input">
+               <div class="image-input">
                     <div class="addimgdiv">
-                        <input id="uploadImage" type="file" accept="image/*" onchange="PreviewImage();" multiple />
-                        <label id=uploadimglabel for="uploadImage"><i class="fas fa-camera"></i> &nbsp; <br>Add a Image</label>
+                        <input id="uploadImage" type="file" name="itemimages[]" accept="image/*" onchange="PreviewImage();" multiple/>
+                        <label id=uploadimglabel for="uploadImage">&nbsp; <br>Add Images</label>
                     </div>
                     <div class="previews"><img id="uploadPreview" style="width: 100px; height: 100px; display:none;" ></div>
-                </div>-->
+                </div>
                 <button class=add-item-btn name="additem-btn" type=submit>Add Item</button>
             </form>    
         </center>  

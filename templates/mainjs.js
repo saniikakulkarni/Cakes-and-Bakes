@@ -100,7 +100,29 @@ function popupAddress()
     document.getElementById('popupaddress').style.visibility="visible";
 }
 
-function changePrice(price)
+var i=0;
+var filesList={};
+function PreviewImage() {
+
+    var oFReader = new FileReader();
+    var item = document.getElementById("uploadImage").files[0];
+    filesList[i] = item;
+    oFReader.readAsDataURL(item);
+
+    
+    oFReader.onload = function (oFREvent) {
+        document.getElementById("uploadPreview").insertAdjacentHTML("afterend",
+        `<div id="${i}" class="preview">
+            <img  style="width: 100px; height: 100px;" src="${oFREvent.target.result}" class="previewimg"><button onclick="removeimage('${i}')"class="removebtn">X</button>
+        </div>`);
+    };
+    i=i+1;
+    console.log(filesList);
+};
+
+function removeimage(i)
 {
-    document.getElementById('pricedisplay').innerHTML=`${price}`;
+    document.getElementById(i).remove();
+    delete filesList[i];
+    console.log(filesList);
 }

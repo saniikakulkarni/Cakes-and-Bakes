@@ -211,7 +211,7 @@ button:hover{
 .heading{
     text-align: center;
     font-family: 'Open Sans', sans-serif;
-    color:rgba(0,0,0,0.7);
+    color:#865e17;
     margin:2%;
 }
 
@@ -242,14 +242,16 @@ input[class=forminput]::selection{
 
 a:active,a,a:visited{
     text-decoration: none;
-    color:rgb(47, 167, 236);
+    color:#865e17;
 }
 a:hover{
     text-decoration: underline;
 }
 
 button[class=popup]{
-    background:rgb(40, 156, 233);
+    background:#ffdcd6;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.3);
+    color:#865e17;
     border:none;
     padding:2.5%;
     width:80%;
@@ -257,11 +259,10 @@ button[class=popup]{
     border-radius:10px;
     margin-left:10%;
     font-size:100%;
-    color:white;
 }
 
 button[class=popup]:hover{
-    background:rgba(40, 156, 233, 0.753);
+    background:#ffdcd6;
 }
 .small{
     margin-left: 20%;

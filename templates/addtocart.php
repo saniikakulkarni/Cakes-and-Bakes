@@ -2,7 +2,8 @@
     session_start();
     if(isset($_POST['addtocart-btn']) && isset($_SESSION['email']) )
     {
-        if($_SESSION['email']!='admin@gmail.com'){
+        if($_SESSION['email']!='admin@gmail.com')
+        {
             require "../includes/dbhinc.php";
             $itemid=$_GET['itemid'];
             $userid=$_SESSION['userid'];
@@ -19,7 +20,7 @@
             }
             else
             {
-                mysqli_stmt_bind_param($stmt,"sssi",$itemid,$userid,$quantity,$price);
+                mysqli_stmt_bind_param($stmt,"ssss",$userid,$itemid,$quantity,$price);
                 mysqli_stmt_execute($stmt);
                 header("Location:../templates/cart.php?successfully added item");
                 exit();

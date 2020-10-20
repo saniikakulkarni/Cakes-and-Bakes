@@ -48,16 +48,6 @@
     <!--Contents start-->
     <div class=itemcontents>
         <div class="itempicdesc">
-            <div class="itempic">
-                <div class="smallpicdiv">
-                    <img  src="Images/chococake1.1.PNG" alt="" onmouseenter="picboxdisplay('smallpicid1','smallpicid2','smallpicid3','smallpicid4')" id=smallpicid1 class=smallpic>
-                    <img  src="Images/chococake1.2.PNG" alt="" onmouseenter="picboxdisplay('smallpicid2','smallpicid1','smallpicid3','smallpicid4')" id=smallpicid2 class=smallpic>
-                    <img  src="Images/chococake1.3.PNG" alt="" onmouseenter="picboxdisplay('smallpicid3','smallpicid2','smallpicid1','smallpicid4')" id=smallpicid3 class=smallpic>
-                    <img  src="Images/chococake1.4.PNG" alt="" onmouseenter="picboxdisplay('smallpicid4','smallpicid2','smallpicid3','smallpicid1')" id=smallpicid4 class=smallpic>
-                </div>
-                <div id=bigpicdiv>
-                </div>
-            </div>
                 <?php
                     $sql="SELECT * FROM item where name=?";
                     $stmt = mysqli_stmt_init($conn);
@@ -72,6 +62,10 @@
                         mysqli_stmt_execute($stmt);
                         $result = mysqli_stmt_get_result($stmt);
                         if($row = mysqli_fetch_assoc($result)){
+                        $img1=$row['img1'];
+                        $img2=$row['img2'];
+                        $img3=$row['img3'];
+                        $img4=$row['img4'];
                         $itemid = $row['itemid'];
                         $name=$row['name'];
                         $quantityprice=$row['quantityprice'];
@@ -90,16 +84,32 @@
                         $star=3;
                         $todaydate=date("Y-m-d",strtotime("+1 day"));
                         $maxdate=date("Y-m-d",strtotime("+8 day"));
-                    echo "<div class='itemdesc'>
+                    ?>
+                    <div class='itempic'>
+                        <div class='smallpicdiv'>
+                            <img  src="<?php echo "./itemimages/".$img1; ?>" onmouseenter='picboxdisplay("smallpicid1","smallpicid2","smallpicid3","smallpicid4")' id=smallpicid1 class=smallpic>
+                            <img  src="<?php echo "./itemimages/".$img2; ?>" onmouseenter='picboxdisplay("smallpicid2","smallpicid1","smallpicid3","smallpicid4")' id=smallpicid2 class=smallpic>
+                            <img  src="<?php echo "./itemimages/".$img3; ?>" onmouseenter='picboxdisplay("smallpicid3","smallpicid2","smallpicid1","smallpicid4")' id=smallpicid3 class=smallpic>
+                            <img  src="<?php echo "./itemimages/".$img4; ?>" onmouseenter='picboxdisplay("smallpicid4","smallpicid2","smallpicid3","smallpicid1")' id=smallpicid4 class=smallpic>
+                        </div>
+                    <div id=bigpicdiv style='background:url("<?php echo "./itemimages/".$img1; ?>")'>
+                    </div>
+                </div>
+                    
+                        <div class='itemdesc'>
                             <div class='itemdescstart'>
                             <div class='inline-data'>
-                                <h1 class=item-name>$name</h1>";
-                    if($_SESSION['email']=="admin@gmail.com")
-                    {
-                        echo  "<a href='adminmodifyitems.php?itemname=$name' class=editicon><i class='fas fa-edit'></i></a>";
-                    }
-                    echo   "
-                            </div>
+                        <?php
+                            echo "<h1 class=item-name>$name</h1>";
+                            if(isset($_SESSION['email']))
+                            {
+                                if($_SESSION['email']=='admin@gmail.com')
+                                {
+                                    echo"<a href='adminmodifyitems.php?itemname=$name' class=editicon><i class='fas fa-edit'></i></a>";
+                                }
+                            }
+                            
+                        echo "</div>
                             
                             <p class='rating'>";
                                 for($i=1;$i<=$star;$i++)
@@ -112,30 +122,48 @@
                                 }
                                 echo "$rating
                             </p>
-                            <h2 class=pricedesc id='pricedisplay'>$price[0]</h2>
-                            <form class=orderform method='POST' action='addtocart.php?itemid=$itemid'>
-                                <h3 class=upgradeheading>Select an Upgrade</h3>
+                            <form class=orderform method='POST' action='addtocart.php?itemid=$itemid'>";
+                            if($availability=='Accepting')
+                            {
+                                echo "<h3 class=upgradeheading>Select an Upgrade</h3>
                                 <select name=upgrade id=upgrade>";
                                     for($j=0;$j<$qplen;$j++)
                                     {
-                                        echo "<option onchange='changePrice($price[$j])';>$quantity[$j]</option>";
+                                        echo "<option>$quantity[$j] : $price[$j]</option>";
                                     }
                                  echo "   
                                 </select>";
+                            }
+                                
                         }
                     }
-                               echo "<h4 class=pincodeline>Enter correct Pincode for hassle free timely delivery.</h4><br>
-                                <div class=pindate>
+                               echo "<div class=pindate>
                                     <div class=pincodediv>
-                                        <h3 class=pincodeheading>Availability</h3>
-                                        <p class=pincodeinput>$availability</p>
+                                        <h3 class=pincodeheading>Orders</h3>";
+                                        if($availability=='Accepting')
+                                        {
+                                           echo " <p class=pincodeinput style='color:green'>$availability</p>";
+                                        }
+                                        else
+                                        {
+                                            echo " <p class=pincodeinput style='color:red'>$availability</p>";
+                                        }
+                                        echo "
                                     </div>
-                                    <div class=datediv>
-                                        <h3 class=dateheading>Delivery Date</h3>
-                                        <input  type='date' min=$todaydate max=$maxdate name='date'>
+                                    <div class=datediv>";
+                                        if($availability=='Accepting')
+                                        {
+                                            echo "<h3 class=dateheading>Delivery Date</h3><input  type='date' min=$todaydate max=$maxdate name='date'>";
+                                        }
+                                        echo"
                                     </div>
-                                </div>
-                                <button class=addtocart-btn name='addtocart-btn'><i class='fas fa-shopping-cart' ></i> Add to Cart</button><button class=ordernow-btn><i class='fas fa-bolt'></i> Order Now</button>
+                                </div>";
+                                if($availability=='Accepting')
+                                {
+                                    echo "<button class='addtocart-btn' name='addtocart-btn'><i class='fas fa-shopping-cart'></i>Add to Cart</button>
+                                    <button class='ordernow-btn' name='ordernow-btn'><i class='fas fa-bolt'></i>Order Now</button>";
+                                }
+                                echo "
                             </form>
                             <hr>
                         </div>
@@ -154,7 +182,7 @@
                         
                     </div>  
                 </div>
-                <div class="reviews">
+                <<div class="reviews">
                     <div class="reviewsback">
                         <center><h1 class=reviewsheading>Customers Who Bought This Say...</h1></center>
                         <div class="review-container">
