@@ -52,7 +52,7 @@
     ?>
     <div class=popupaddressdiv id=popupaddress>
         <div class="addressbox">
-            <form method="POST" action="../includes/addressaddinc.php">
+            <form autocomplete="off" method="POST" action="../includes/addressaddinc.php">
                 <h1 class="heading">Address</h1><span class="cross" onclick="popupaddressclose()">X</span>
                 <div class="inline-data">
                     <input class=profileinput type="text" placeholder="Customer Name" id="custname" name="custname" required >

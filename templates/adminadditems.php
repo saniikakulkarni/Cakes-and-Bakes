@@ -20,7 +20,7 @@
     <!--Content start-->
     <div class='additemsback'>
         <center>
-            <form class=additemsform action="../includes/additemsinc.php" method="POST" enctype="multipart/form-data">
+            <form autocomplete="off" class=additemsform action="../includes/additemsinc.php" method="POST" enctype="multipart/form-data">
                 <table cellpadding=15px;>
                     <tr>
                         <td colspan=2 class='additemheading'>

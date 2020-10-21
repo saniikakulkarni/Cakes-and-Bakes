@@ -16,21 +16,18 @@
                 if(isset($_FILES['itemimages']['name'][$i]))
                 {
                     $itemimg=$name."_".$category."_".$i.$_FILES['itemimages']['name'][$i];
+                    if(!(move_uploaded_file($_FILES['itemimages']['tmp_name'][$i],'../templates/itemimages/'.$itemimg)))
+                    {
+                        $_SESSION['error-message'] = "Failed to uplaod";
+                        header("Location:../templates/adminadditems.php?error6");
+                        exit();
+                   }
                 }
                else
                {
-                    $itemimg=$name."_".$category."_".$i.'default.png';
+                    $itemimg="default.png";
                }
-              if(!(move_uploaded_file($_FILES['itemimages']['tmp_name'][$i],'../templates/itemimages/'.$itemimg)))
-                {
-                    $_SESSION['error-message'] = "Failed to uplaod";
-                    header("Location:../templates/adminadditems.php?error6");
-                    exit();
-               }
-               else
-               {
-                   array_push($imgarray,$itemimg);
-               }
+                array_push($imgarray,$itemimg);
             }
         }
         

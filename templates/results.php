@@ -21,9 +21,9 @@
 </head>
 <body>
     <?php
-        if(isset($_SESSION['userid']))
+        if(isset($_SESSION['email']))
         {
-            if($_SESSION['userid']=='2')
+            if($_SESSION['email']=='admin@gmail.com')
             require "headeradmin.php";
             else
             require "header.php";
@@ -56,6 +56,7 @@
                 mysqli_stmt_execute($stmt);
                 $result = mysqli_stmt_get_result($stmt);
                 while($row = mysqli_fetch_assoc($result)){
+                $img1=$row['img1'];
                 $name=$row['name'];
                 $quantityprice=$row['quantityprice'];
                 $qp=explode("\n",$quantityprice);
@@ -66,7 +67,7 @@
                 $star=3;
                 echo "<a href='itempage.php?itemname=$name'>
                         <div class='items'>
-                            <img src='./Images/chococake1.1.png' class='item-img'>
+                            <img src='./itemimages/$img1' class='item-img'>
                             <div class='itemdesc'>
                                 <p class='item-name'>$name</p>
                                 <span class='item-price'>$price</span>

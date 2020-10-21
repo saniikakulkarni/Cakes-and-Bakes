@@ -68,7 +68,7 @@
                         while($row = mysqli_fetch_assoc($result))
                         {
                             $flag=1;
-                            $itemname="SELECT name FROM item WHERE itemid=?";
+                            $itemname="SELECT * FROM item WHERE itemid=?";
                             $stmt= mysqli_stmt_init($conn);
                             if(!mysqli_stmt_prepare($stmt,$itemname))
                             {
@@ -85,9 +85,10 @@
                                     $quantity=$row['quantity'];
                                     $price=$row['price'];
                                     $itemname=$row2['name'];
+                                    $img1=$row2['img1'];
                                     echo "<div class='order'>
                                             <div class='orderimgdiv'>
-                                                <img src='images/cake6.jpg' class='orderimg'>
+                                                <img src='./itemimages/$img1' class='orderimg'>
                                             </div>
                                             <div class='orderdesc'>
                                                 <h2 class='ordername'>$itemname</h2>

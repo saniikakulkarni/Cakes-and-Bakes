@@ -182,7 +182,7 @@
                         
                     </div>  
                 </div>
-                <<div class="reviews">
+                <div class="reviews">
                     <div class="reviewsback">
                         <center><h1 class=reviewsheading>Customers Who Bought This Say...</h1></center>
                         <div class="review-container">
