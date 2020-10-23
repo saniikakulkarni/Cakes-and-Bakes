@@ -68,14 +68,14 @@
                         </div>    
                     </div>
                     <div class=nextdiv>
-                        <center><button class=next-btn>Next</button></center>
+                        <center><button class=next-btn type="submit">Next</button></center>
                     </div>    
                 </form>  
             </div>
 
             <div class=paymentback id=backpayment>
                 <center><h1 class=addressheading>Select a Payment Method</h1></center>
-                <form onsubmit="displaycredits('backsummary','backaddress','backsuccess','backpayment','backcredit','navsummary','navaddress','navsuccess','navpayment')" action="javascript:void(0)">
+                <form action="javascript:void(0)">
                     <div class=selectpayment>
                         <div class=radiopaymentdiv><center><input type="radio" id="cod" name="Payment" value="Cash on Delivery" required></center></div>
                         <div class=paymentdiv2>
@@ -102,8 +102,9 @@
                     </div>
                     <div class=nextdiv>
                         <center>
-                            <button class=back-btn onclick="goback('backaddress','backsummary','backsuccess','backpayment','backcredit','navaddress','navsummary','navsuccess','navpayment')" action="javascript:void(0)">Back</button>
-                            <button class=next-btn >Next</button>
+                            <button class=back-btn onclick="goback('backaddress','backsummary','backsuccess','backpayment','backcredit','navaddress','navsummary','navsuccess','navpayment');">Back</button>
+
+                            <input type="submit" value="Next" class=next-btn onclick="displaycredits('backsummary','backaddress','backsuccess','backpayment','backcredit','navsummary','navaddress','navsuccess','navpayment')" action="javascript:void(0)">
                         </center>
                     </div>   
                 </form>  
@@ -145,7 +146,7 @@
                     </select>
                     <input class=textcarddetails type="text" placeholder="CVV" required>
                     <center>
-                        <input type="button" value="Back" class=back-btn onclick="goback('backpayment','backcredit','backaddress','backsummary','backsuccess','navpayment','navaddress','navsummary','navsuccess');cleardata()">
+                        <input type="button" value="Back" class=back-btn onclick="goback('backpayment','backcredit','backaddress','backsummary','backsuccess','navpayment','navaddress','navsummary','navsuccess');cleardata();">
                         <input type="submit" value="Proceed" class="next-btn" >
                     </center>
                 </form>   
@@ -155,7 +156,8 @@
                 <form  action="javascript:void(0)">
                     <center>
                         <button class=back-btn onclick="goback('backpayment','backaddress','backsummary','backsuccess','backcredit','navpayment','navaddress','navsummary','navsuccess')">Back</button>
-                        <input type="submit" value="Confirm Order" class="next-btn"  onclick="displaycontent('backsuccess','backaddress','backsummary','backpayment','backcredit','navsuccess','navaddress','navsummary','navpayment')" action="javascript:void(0)"
+
+                        <input type="submit" value="Confirm Order" class="next-btn"  onclick="confirmDetails()" action="javascript:void(0)"
                         >
                     </center>
                 </form>

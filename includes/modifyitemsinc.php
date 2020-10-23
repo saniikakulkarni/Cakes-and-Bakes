@@ -5,7 +5,6 @@ if(isset($_POST['modify'])){
     require "dbhinc.php";
 
     $itemid = $_GET['itemid'];
-
     $category = $_POST['category'];
     $name = $_POST['name'];
     $qp = $_POST['quantityprice'];

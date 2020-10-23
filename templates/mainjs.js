@@ -64,8 +64,12 @@ function displaycredits(blockid1,blockid2,blockid3,blockid4,blockid5,navid1,navi
         console.log(p);
         document.getElementById('backcredit').style.display="block";
         document.getElementById('backpayment').style.display="none";
+        document.getElementById('backaddress').style.display="none";
+        document.getElementById('backsummary').style.display="none";
+        document.getElementById('backsuccess').style.display="none";
     }
     else{
+        console.log("success!");
         displaycontent(blockid1,blockid2,blockid3,blockid4,blockid5,navid1,navid2,navid3,navid4);
     } 
 }
@@ -81,6 +85,17 @@ function goback(blockid1,blockid2,blockid3,blockid4,blockid5,navid1,navid2,navid
     document.getElementById(blockid3).style.display="none";
     document.getElementById(blockid4).style.display="none";
     document.getElementById(blockid5).style.display="none";
+}
+
+function confirmDetails()
+{
+    var answer = confirm("Are you sure you want to place order?");
+    if(answer){
+        displaycontent('backsuccess','backaddress','backsummary','backpayment','backcredit','navsuccess','navaddress','navsummary','navpayment');
+    }
+    else{
+        displaycontent('backsummary','backsuccess','backaddress','backpayment','backcredit','navsummary','navsuccess','navaddress','navpayment');
+    }
 }
 
 function cleardata(){
