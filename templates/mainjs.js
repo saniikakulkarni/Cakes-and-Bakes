@@ -151,3 +151,15 @@ function removeimage(i)
     delete filesList[i];
     console.log(filesList);
 }
+
+/* CONFIRM DELETE ADDRESS */ 
+
+function confirmDeleteAddress(addressid){
+    var confirm = confirm("Are You sure You want to delete the selected address?");
+    if(confrim){
+        document.getElementById('deladdress').setAttribute('href','../includes/deleteaddressinc.php?recipientid='+addressid);
+    }
+    else{
+        document.getElementById('deladdress').setAttribute('href','profile.php');
+    }
+}

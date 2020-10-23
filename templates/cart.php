@@ -67,6 +67,7 @@
                         $result = mysqli_stmt_get_result($stmt);
                         while($row = mysqli_fetch_assoc($result))
                         {
+                            $itemid=$row['itemid'];
                             $flag=1;
                             $itemname="SELECT * FROM item WHERE itemid=?";
                             $stmt= mysqli_stmt_init($conn);
@@ -82,6 +83,7 @@
                                 $result2= mysqli_stmt_get_result($stmt);
                                 if($row2 = mysqli_fetch_assoc($result2))
                                 {
+                                    $cartid=$row['cartid'];
                                     $quantity=$row['quantity'];
                                     $price=$row['price'];
                                     $itemname=$row2['name'];
@@ -96,8 +98,10 @@
                                                 <p class='quantity'><span class='label'>Quantity :</span> $quantity</p>
                                             </div>
                                             <div class='deliver-details'>
-                                                <button class='detail-btn'>View Details</button>  
-                                                <button class='cancelorder'>Cancel </button>
+                                                <form action='itempage.php?itemname=$itemname' method='POST'>
+                                                    <button class='detail-btn' type='submit'>View Details</button>  
+                                                    <button class='cancelorder' type='submit' formaction='../includes/deletecartitem.php?cartid=$cartid' name=cancel-item>Cancel </button>
+                                                </form>
                                             </div>
                                         </div>";
                                 }

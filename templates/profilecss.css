@@ -194,6 +194,16 @@ body{
     font-size:15px;
 }
 
+.fa-pen{
+    color:rgba(0,0,0,0.5);
+    margin:5px;
+}
+
+.fa-trash-alt{
+    color:#fd775f;
+    margin:5px;
+}
+
 .addresscontact
 {
     font-family: 'Roboto', sans-serif;
@@ -201,6 +211,12 @@ body{
     font-size:15px;
     padding:2% 3%;
 }
+
+.space-btw{
+    display:flex;
+    justify-content: space-between;
+}
+
 
 .nextdiv
 {

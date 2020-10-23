@@ -103,6 +103,7 @@
                             mysqli_stmt_execute($stmt);
                             $result = mysqli_stmt_get_result($stmt);
                             while($row = mysqli_fetch_assoc($result)){
+                                $addressid = $row['recipientid'];
                                 $custname = $row['fullname'];
                                 $cn = $row['contactnumber'];
                                 $address = $row['address'];
@@ -110,9 +111,12 @@
                                         <div class=selectaddress>
                                                 <div class=paymentdiv>
                                                     <label for='address1'>
-                                                        <div class='inline-data'>
-                                                            <h2 class=custname>$custname</h2>
-                                                            <p class=addresscontact>$cn</p>
+                                                        <div class='space-btw'>
+                                                            <div class='inline-data' style='width:75%;'>
+                                                                <h2 class=custname>$custname</h2>
+                                                                <p class=addresscontact>$cn</p> 
+                                                            </div>
+                                                            <a id=deladdress href='../includes/deleteaddressinc.php?recipientid=$addressid'><i class='fas fa-trash-alt'></i></a>                                                         
                                                         </div>
                                                         <p class=addresscontent>$address</p>
                                                     </label><br>
