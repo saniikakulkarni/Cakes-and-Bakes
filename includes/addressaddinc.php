@@ -13,6 +13,7 @@
         $stmt=mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt,$sql))
         {
+            $_SESSION['error-message'] = "Error!";
             header("Location:../templates/profile.php?error=sqlerror");
             exit();
         }
@@ -20,7 +21,8 @@
         {
             mysqli_stmt_bind_param($stmt,"ssis",$userid,$custname,$contactnum,$address);
             mysqli_stmt_execute($stmt);
-            header("Location:../templates/profile.php?success=address added successfully");
+            $_SESSION['success-message'] = "Address added successfully!";
+            header("Location:../templates/profile.php?success=address&added");
             exit();
         }
         mysqli_stmt_close($stmt);
@@ -28,6 +30,7 @@
     }
     else
     {
+        $_SESSION['error-message'] = "Login required";
         header("Location:../templates/homepage.php?error=login first");
         exit();
     }

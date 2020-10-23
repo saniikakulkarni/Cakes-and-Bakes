@@ -19,12 +19,13 @@ if(isset($_POST['edit-profile'])){
     {
         mysqli_stmt_bind_param($stmt,"ss",$name,$userid);
         mysqli_stmt_execute($stmt);      
-        $_SESSION['success-message']="Item updated successfully!";
+        $_SESSION['success-message']="Profile updated successfully!";
         header("Location: ../templates/profile.php?success=profileupdated");
         exit();
     }
 }
 else{
+    $_SESSION['error-message'] = "Error!";
     header("Location:../templates/homepage.php");
     exit();
  }

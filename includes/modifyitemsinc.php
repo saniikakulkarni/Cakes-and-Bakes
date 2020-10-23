@@ -29,6 +29,7 @@ if(isset($_POST['modify'])){
     }
 }
 else{
+    $_SESSION['error-message'] = "Error!";
     header("Location:../adminmodifyitems.php");
     exit();
  }

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,12 @@
     <link rel="stylesheet" type="text/css" href="homecss.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&family=Great+Vibes&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
     <script src="mainjs.js"></script>
+    <script>
+        setTimeout(() => {
+            let msg = document.querySelector(".msg-outerbox");
+            msg.remove();
+        }, 3000);
+    </script>
 </head>
 <body>
     <!--Header start-->
@@ -50,3 +57,29 @@
         </table>       
     </div>
     <!--Header end-->
+
+    <!-- MESSAGE -->
+
+    <?php if(isset($_SESSION['error-message'])): ?>
+        <div class='msg-outerbox'>
+            <center><div class='msg-container danger'>
+                <i class="fas fa-times-circle"></i>
+                <?php 
+                    echo $_SESSION['error-message'];
+                    unset($_SESSION['error-message']);
+                ?>
+            </div></center>
+        </div>
+        <?php elseif(isset($_SESSION['success-message'])): ?>
+            <div class='msg-outerbox'>
+                <center><div class='msg-container success'>
+                    <i class="fas fa-check-circle"></i>
+                    <?php 
+                        echo $_SESSION['success-message'];
+                        unset($_SESSION['success-message']);
+                    ?>   
+                </div></center>
+            </div> 
+        <?php endif; ?>
+
+    <!-- MESSAGE END --> 

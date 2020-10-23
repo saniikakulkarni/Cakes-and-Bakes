@@ -15,6 +15,7 @@
             $stmt=mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql))
             {
+                $_SESSION['error-message'] = "Error!";
                 header("Location:../templates/homapage.php?error=sqlerror");
                 exit();
             }
@@ -22,7 +23,8 @@
             {
                 mysqli_stmt_bind_param($stmt,"ssss",$userid,$itemid,$quantity,$price);
                 mysqli_stmt_execute($stmt);
-                header("Location:../templates/cart.php?successfully added item");
+                $_SESSION['success-message'] = "Item succefully added to My Cart";
+                header("Location:../templates/cart.php?success=item&added&to&cart");
                 exit();
             }
             mysqli_stmt_close($stmt);
@@ -30,17 +32,20 @@
         }
         else if($_SESSION['email']=='admin@gmail.com')
         {
+            $_SESSION['error-message'] = "Admin cannot access this page";
             header("Location:../templates/homepage.php?error=Admin cannot access this page");
             exit();
         }
     }
     else if(!(isset($_SESSION['email'])))
     {
+        $_SESSION['error-message'] = "Login Required";
         header("Location:../templates/homepage.php?error=Login First");
         exit();
     }
     else if(!isset($_POST['addtocart-btn']))
     {
+        $_SESSION['error-message'] = "Select the Item first to Add";
         header("Location:../templates/homepage.php?error=First Select Item to Add");
         exit();
     } 

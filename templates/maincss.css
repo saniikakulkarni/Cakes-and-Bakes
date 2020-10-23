@@ -211,7 +211,7 @@ button:hover{
 .heading{
     text-align: center;
     font-family: 'Open Sans', sans-serif;
-    color:#865e17;
+    color:#8d6552;
     margin:2%;
 }
 
@@ -251,7 +251,7 @@ a:hover{
 button[class=popup]{
     background:#ffdcd6;
     box-shadow:1px 1px 5px rgba(0,0,0,0.3);
-    color:#865e17;
+    color:#8d6552;
     border:none;
     padding:2.5%;
     width:80%;
@@ -293,3 +293,47 @@ button[class=popup]:hover{
 .inline-data{
     display:flex;
 }
+/* Message Start*/
+
+.msg-container{
+    padding:1.5%;
+    text-align: center;
+    display:inline-block;
+    margin:0% auto;
+    border-radius: 5px;
+    position:fixed;
+    top:78px;
+    left:32%;
+    right:32%;
+    z-index:10;
+}
+
+.fa-check-circle
+{
+    color: rgb(76, 224, 101);
+    margin:1% 2%;
+    font-size:24px;
+}
+.success{
+    background:rgb(255, 255, 255);
+    color:rgba(0,0,0,0.6);
+    font-size: 20px;
+    border-bottom:4px solid rgb(76, 224, 101);
+}
+
+
+.fa-times-circle
+{
+    color: rgb(253, 103, 98);
+    margin:1% 2%;
+    font-size:24px;
+}
+.danger{
+    background:rgb(255, 253, 253);
+    color:rgba(0,0,0,0.6);
+    font-size: 20px;
+    border-bottom:4px solid rgb(253, 103, 98);
+}
+
+/* Message End */
+

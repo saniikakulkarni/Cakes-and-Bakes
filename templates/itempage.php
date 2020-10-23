@@ -144,11 +144,13 @@
                                         <h3 class=pincodeheading>Orders</h3>";
                                         if($availability=='Accepting')
                                         {
-                                           echo " <p class=pincodeinput style='color:green'>$availability</p>";
+                                           echo "  <i class='fas fa-check' style='color:green;'></i>
+                                                    <span class=pincodeinput style='color:green;font-size:20px'>$availability</span>";
                                         }
                                         else
                                         {
-                                            echo " <p class=pincodeinput style='color:red'>$availability</p>";
+                                            echo " <i class='fas fa-times-circle'></i>
+                                                    <span class=pincodeinput style='color:red;font-size:20px'>$availability</span>";
                                         }
                                         echo "
                                     </div>

@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 if(isset($_POST['signin-btn'])){
     require "dbhinc.php";
     $email = $_POST['email'];
@@ -8,6 +11,7 @@ if(isset($_POST['signin-btn'])){
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql))
     {
+        $_SESSION['error-message'] = "Error!";
         header("Location: ../templates/homepage.php?error=sqlerror");
         exit();
     }
@@ -21,6 +25,7 @@ if(isset($_POST['signin-btn'])){
             $pwdCheck = password_verify($password,$row['password']);
             if($pwdCheck == false)
             {
+                $_SESSION['error-message'] = "Wrong Password";
                 header("Location: ../templates/homepage.php?error=wrongpwd");
                 exit();
             }
@@ -29,25 +34,28 @@ if(isset($_POST['signin-btn'])){
                 session_start();
                 $_SESSION['userid'] = $row['userid'];
                 $_SESSION['email'] = $row['email'];
-            
+                $_SESSION['success-message'] = "Logged in successfully!";
                 header("Location: ../templates/homepage.php?login=success");
                 exit();
 
             }
             else
             {
+                $_SESSION['error-message'] = "Wrong password";
                 header("Location: ../templates/homepage.php?error=wrongpwd");
                 exit();
             }
         }
         else
         {
+            $_SESSION['error-message'] = "Error!";
             header("Location: ../templates/homepage.php?error=nouser");
             exit();
         }
     }
 }   
 else{
+    $_SESSION['error-message'] = "Error!";
     header("Location:../templates/homepage.php");
     exit();
  }
