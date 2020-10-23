@@ -15,7 +15,7 @@
     <script src="mainjs.js"></script>
     <style>
             .headeritemdisplay{
-                background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url("Images/background1.jpeg");
+                background-image:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url("Images/background1.jpg");
                 width:100%;
                 height:55vh;
                 background-repeat: no-repeat;
