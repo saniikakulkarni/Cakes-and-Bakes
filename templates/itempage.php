@@ -186,46 +186,44 @@
                 </div>
                 <div class="reviews">
                     <div class="reviewsback">
-                        <center><h1 class=reviewsheading>Customers Who Bought This Say...</h1></center>
+                        <center><h1 class=reviewsheading>Top Ratings and Reviews</h1></center>
                         <div class="review-container">
                             <div class=reviewstile>
-                                <div class="review-inline">
-                                    <img src="images/profilebackground.jpeg" alt="" class=profile-small>
-                                    <p class=reviewname>Sanika Kulkarni</p>
-                                </div>
-                                <p class=reviewcontent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam accusantium magnam, ut commodi nemo totam voluptatibus aut debitis ipsam excepturi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, ea. </p>
+                                <p class=reviewname>Sanika Kulkarni</p>
+                                <p class=reviewcontent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam accusantium magnam, ut commodi nemo totam voluptatibus aut debitis ipsam excepturi. </p>
                             </div>
-        
                             <div class=reviewstile>
-                                <div class="review-inline">
-                                    <img src="images/profilebackground.jpeg" alt="" class=profile-small>
-                                    <p class=reviewname>Sanika Kulkarni</p>
-                                </div>
-                                <p class=reviewcontent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam accusantium magnam, ut commodi nemo totam voluptatibus aut debitis ipsam excepturi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, ea. </p>
-                            </div>
-        
+                                <p class=reviewname>Sanika Kulkarni</p>
+                                <p class=reviewcontent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam accusantium magnam, ut commodi nemo totam voluptatibus aut debitis ipsam excepturi. </p>
+                            </div> 
                             <div class=reviewstile>
-                                <div class="review-inline">
-                                    <img src="images/profilebackground.jpeg" alt="" class=profile-small>
-                                    <p class=reviewname>Sanika Kulkarni</p>
-                                </div>
-                                <p class=reviewcontent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam accusantium magnam, ut commodi nemo totam voluptatibus aut debitis ipsam excepturi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, ea. </p>
+                                <p class=reviewname>Sanika Kulkarni</p>
+                                <p class=reviewcontent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam accusantium magnam, ut commodi nemo totam voluptatibus aut debitis ipsam excepturi. </p>
                             </div>
-        
-                           
+                            <p style="float:right"><a href=reviews.php>See all reviews</a></p>                   
                         </div>
                     </div>
+                    <div><center><button class='addreview-btn' onclick=reviewpopup()>Give a Review</button></center></div>
                 </div>
             
         <div class="alsolike">
             <center><h1 class=alsolikeheading>You May Also Like</h1></center>
             <div class=alsolikeback>
                 <div class=alsoliketile></div>
-                <div class=alsoliketile></div>
-                <div class=alsoliketile></div>
-                <div class=alsoliketile></div>
-                <div class=alsoliketile></div>
             </div>
-        </div>      
+        </div>
+        
+        <div class=popupreviewdiv id=popupreview>
+            <div class="reviewbox">
+                <form autocomplete="off" method="POST" action="../includes/addreviewinc.php">
+
+                    <h1 class="heading">Review</h1><span class="cross" onclick="popupreviewclose()">X</span>
+                    <textarea name="review" id="review" class=text-review  placeholder="Add Review"></textarea>
+                    <br>
+                    <button  type="submit" class=save-btn name="save-review">Add Review</button>
+                </form> 
+            </div>
+        </div> 
+    </div> 
 </body>
 </html>

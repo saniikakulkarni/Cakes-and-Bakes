@@ -115,6 +115,16 @@ function popupAddress()
     document.getElementById('popupaddress').style.visibility="visible";
 }
 
+function reviewpopup()
+{
+    document.getElementById('popupreview').style.visibility="visible";
+}
+
+function popupreviewclose()
+{
+    document.getElementById('popupreview').style.visibility="hidden";
+}
+
 var i=0;
 var filesList={};
 function PreviewImage() {
