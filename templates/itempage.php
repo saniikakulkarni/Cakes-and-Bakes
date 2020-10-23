@@ -78,6 +78,8 @@
                         for($j=0;$j<$qplen;$j++)
                         {
                             list($quantity[$j],$price[$j])=explode(":",$qp[$j]);
+                            $quantity[$j]=trim($quantity[$j]);
+                            $price[$j]=trim($price[$j]);
                         }
                         $n=sizeof($qp);
                         $rating=$row['rating'];

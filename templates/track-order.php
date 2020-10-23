@@ -23,9 +23,9 @@
 </head>
 <body>
     <?php
-        if(isset($_SESSION['userid']))
+        if(isset($_SESSION['email']))
         {
-            if($_SESSION['userid']=='2')
+            if($_SESSION['email']=='admin@gmail.com')
             require "headeradmin.php";
             else
             require "header.php";

@@ -108,7 +108,7 @@
                         if ($flag==1)
                         {
                             echo "<div class=btn-div>
-                            <button class='proceed'>Proceed to pay <i class='fas fa-coins'></i></button>
+                            <button class='proceed'><a href='payment.php'>Proceed to pay</a><i class='fas fa-coins'></i></button>
                             </div>";
                         }
                         else

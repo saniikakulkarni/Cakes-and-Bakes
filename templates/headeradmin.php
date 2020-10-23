@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakes and Bakes | Homepage</title>
     <link rel="shortcut icon" type="image/png" href="Images/logo.png">
-    <link rel="stylesheet" href="admincss.css">
     <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="maincss.css">
     <link rel="stylesheet" type="text/css" href="homecss.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&family=Great+Vibes&family=Open+Sans&family=Satisfy&display=swap" rel="stylesheet">
     <script src="mainjs.js"></script>
-    <title>Cakes and Bakes | Add Items</title>
 </head>
 <body>
     <!--Header start-->
