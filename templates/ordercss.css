@@ -8,6 +8,7 @@ body
 {
     font-family: 'Kufam', cursive;
     font-weight:400;
+    padding:1%;
 }
 
 /*back*/
@@ -90,7 +91,7 @@ body
 }
 .next-btn,.back-btn
 {
-    padding:0.5%;
+    padding:1%;
     background:pink;
     color:rgb(235, 105, 127);
     font-weight:500;
@@ -98,7 +99,7 @@ body
     border:1.5px solid rgb(235, 105, 127);
     border-radius:5px;
     outline:none;
-    width:25%;
+    width:40%;
     margin:2% 3%;
     cursor: pointer;
 }
@@ -185,4 +186,43 @@ body
     padding:1%;
     width:98%;
     text-align:center;
+}
+.datebox
+{
+    width:30%;
+    padding:1%;
+    font-size:20px;
+}
+
+.popupconfirmorderdiv
+{
+    position:fixed;
+    width: 100%;
+    height:100vh;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.5);
+    visibility:hidden;
+    z-index: 100;
+}
+.conformorderbox
+{
+    margin:10% 33%;
+    padding:2%;
+    width:30%;
+    border-radius:10px;
+    background:#eee;
+    padding-bottom:3%;
+}
+
+.save-btn{
+    background:#ffdcd6;
+    color:#865e17;
+    font-size:16px;
+    border:none;
+    display:block;
+    margin:3% auto;
+    border-radius:5px;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.3);
+    padding:2%;
 }

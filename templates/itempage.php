@@ -84,8 +84,6 @@
                         $n=sizeof($qp);
                         $rating=$row['rating'];
                         $star=3;
-                        $todaydate=date("Y-m-d",strtotime("+1 day"));
-                        $maxdate=date("Y-m-d",strtotime("+8 day"));
                     ?>
                     <div class='itempic'>
                         <div class='smallpicdiv'>
@@ -154,18 +152,10 @@
                                         }
                                         echo "
                                     </div>
-                                    <div class=datediv>";
-                                        if($availability=='Accepting')
-                                        {
-                                            echo "<h3 class=dateheading>Delivery Date</h3><input  type='date' min=$todaydate max=$maxdate name='date'>";
-                                        }
-                                        echo"
-                                    </div>
                                 </div>";
                                 if($availability=='Accepting')
                                 {
-                                    echo "<button class='addtocart-btn' name='addtocart-btn'><i class='fas fa-shopping-cart'></i>Add to Cart</button>
-                                    <button class='ordernow-btn' name='ordernow-btn'><i class='fas fa-bolt'></i>Order Now</button>";
+                                    echo "<button class='addtocart-btn' name='addtocart-btn'><i class='fas fa-shopping-cart'></i>Add to Cart</button>";
                                 }
                                 echo "
                             </form>
