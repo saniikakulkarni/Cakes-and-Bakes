@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,36 +34,58 @@
             <div class=addressback id=backaddress>
                 <center><h1 class=addressheading>Select an Address</h1></center><hr>
                 <form onsubmit="displaycontent('backpayment','backaddress','backsummary','backsuccess','backcredit','navpayment','navaddress','navsummary','navsuccess')" action="javascript:void(0)">
-                    <div class=selectaddress>
-                        <div class=radioaddressdiv><center><input type="radio" id="address1" name="address" value="" required></center></div>
-                        <div class=paymentdiv>
-                            <label for="address1">
-                                <h2 class=custname>Sanika Kulkarni</h2>
-                                <p class=addresscontent>Models Millenium Vistas Caranzalem, Panjim Goa</p>
-                                <p class=addresscontact>9921950055</p>
-                            </label><br>
-                        </div>
-                    </div>
-                    <div class=selectaddress>
-                        <div class=radioaddressdiv><center><input type="radio" id="address2" name="address" value="" required></center></div>
-                        <div class=paymentdiv>
-                            <label for="address2">
-                                <h2 class=custname>Sanika Kulkarni</h2>
-                                <p class=addresscontent>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque sunt id, saepe dignissimos impedit dicta consectetur veniam quam, unde libero consequatur numquam iure recusandae repellendus! Consequatur labore fugiat libero voluptates.</p>
-                                <p class=addresscontact>9921950055</p>
-                            </label><br>
-                        </div>
-                    </div>
-                    <div class=selectaddress>
-                        <div class=radioaddressdiv><center><input type="radio" id="address3" name="address" value="" required></center></div>
-                        <div class=paymentdiv>
-                            <label for="address3">
-                                <h2 class=custname>Sanika Kulkarni</h2>
-                                <p class=addresscontent>Models Millenium Vistas Caranzalem, Panjim Goa Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class=addresscontact>9921950055</p>
-                            </label>
-                        </div>    
-                    </div>
+                    <?php
+                        session_start();
+                        require "../includes/dbhinc.php";
+                        if(isset($_GET['proceedtopay']) && isset($_SESSION['email']) )
+                        {
+                            if($_SESSION['email']!='admin@gmail.com')
+                            {
+                                $sql="SELECT * FROM recipientdetails where userid=?";
+                                $stmt = mysqli_stmt_init($conn);
+                                if(!mysqli_stmt_prepare($stmt,$sql))
+                                {
+                                    header("Location: ./homepage.php?error=sqlerror");
+                                    exit();
+                                }
+                                else
+                                {
+                                    mysqli_stmt_bind_param($stmt,"s",$_SESSION['userid']);
+                                    mysqli_stmt_execute($stmt);
+                                    $result = mysqli_stmt_get_result($stmt);
+                                    while($row = mysqli_fetch_assoc($result))
+                                    {
+                                        $name=$row['fullname'];
+                                        $contactnumber=$row['contactnumber'];
+                                        $address=$row['address'];
+                                        $recipientid=$row['recipientid'];
+                                        echo "<div class=selectaddress>
+                                                <div class=radioaddressdiv><center><input type='radio' id='$recipientid' name='address'required></center></div>
+                                                    <div class=paymentdiv>
+                                                        <label for='$recipientid'>
+                                                            <h2 class=custname>$name</h2>
+                                                            <p class=addresscontent>$address</p>
+                                                            <p class=addresscontact>$contactnumber</p>
+                                                        </label><br>
+                                                    </div>
+                                                </div>";
+                                    }
+                                }
+                            }
+                            else if($_SESSION['email']=='admin@gmail.com')
+                            {
+                                $_SESSION['error-message'] = "Admin cannot access this page";
+                                header("Location:../templates/homepage.php?error=Admin cannot access this page");
+                                exit();
+                            }
+                        }
+                        else if(!(isset($_SESSION['email'])))
+                        {
+                            $_SESSION['error-message'] = "Login Required";
+                            header("Location:../templates/homepage.php?error=Login First");
+                            exit();
+                        }
+                    ?>
                     <div class=nextdiv>
                         <center><button class=next-btn type="submit">Next</button></center>
                     </div>    
@@ -155,16 +174,97 @@
             <div class="ordersummaryback" id=backsummary>
                 <form  action="javascript:void(0)">
                     <center>
+                        <h1 class=carddetailsheading >Order Summary</h1>
+                        <table class=ordersummary cellspacing=40px>
+                            <tr>
+                                <td>Item</td>
+                                <td>Price</td>
+                                <td>Quantity</td>
+                            </tr>
+                            <?php
+                                    $sql="SELECT i.name,quantity,price FROM cart c JOIN item i ON c.itemid=i.itemid where userid=?";
+                                    $stmt = mysqli_stmt_init($conn);
+                                    if(!mysqli_stmt_prepare($stmt,$sql))
+                                    {
+                                        header("Location: ./homepage.php?error=sqlerror");
+                                        exit();
+                                    }
+                                    else
+                                    {
+                                        mysqli_stmt_bind_param($stmt,"s",$_SESSION['userid']);
+                                        mysqli_stmt_execute($stmt);
+                                        $totalprice=0;
+                                        $result = mysqli_stmt_get_result($stmt);
+                                        while($row = mysqli_fetch_assoc($result))
+                                        {
+                                            $itemname=$row['name'];
+                                            $quantity=$row['quantity'];
+                                            $price=$row['price'];
+                                            $totalprice=$totalprice+$price;
+                                            echo"
+                                            <tr>
+                                            <div class='orderdesc'>
+                                                <td><span class='ordername'>$itemname </span></td>
+                                                <td><span class='cost'>₹ $price</span></td>
+                                                <td><span class='quantity'>$quantity</span><td>
+                                        </div>
+                                            </tr>";
+                                                    
+                                        }
+                                    }
+                                    echo"
+                                    </table>
+                                    <p class='cost'>Total:₹ $totalprice</p>";      
+                            ?>
+                        
                         <button class=back-btn onclick="goback('backpayment','backaddress','backsummary','backsuccess','backcredit','navpayment','navaddress','navsummary','navsuccess')">Back</button>
-
-                        <input type="submit" value="Confirm Order" class="next-btn"  onclick="confirmDetails()" action="javascript:void(0)"
-                        >
+                                <input type="submit" value="Confirm Order" class="next-btn"  onclick="confirmDetails()" action="">
                     </center>
                 </form>
 
             </div>
             <div class="ordersuccessback" id=backsuccess>
-                <h2 style="color:rgba(41, 156, 66, 0.747)">Your Order Placed Successfully!!!</h2>
+                <center>
+                    <h1 class=carddetailsheading >Order Placed</h1>
+                    <table class=ordersummary cellspacing=40px>
+                            <tr>
+                                <td>Item</td>
+                                <td>Price</td>
+                                <td>Quantity</td>
+                            </tr>
+                            <?php
+                                $sql="SELECT i.name,quantity,price FROM cart c JOIN item i ON c.itemid=i.itemid where userid=?";
+                                $stmt = mysqli_stmt_init($conn);
+                                if(!mysqli_stmt_prepare($stmt,$sql))
+                                {
+                                    header("Location: ./homepage.php?error=sqlerror");
+                                    exit();
+                                }
+                                else
+                                {
+                                    mysqli_stmt_bind_param($stmt,"s",$_SESSION['userid']);
+                                    mysqli_stmt_execute($stmt);
+                                    $result = mysqli_stmt_get_result($stmt);
+                                    while($row = mysqli_fetch_assoc($result))
+                                    {
+                                        $itemname=$row['name'];
+                                        $quantity=$row['quantity'];
+                                        $price=$row['price'];
+                                        echo"
+                                                <tr>
+                                                <div class='orderdesc'>
+                                                    <td><span class='ordername'>$itemname </span></td>
+                                                    <td><span class='cost'>₹ $price</span></td>
+                                                    <td><span class='quantity'>$quantity</span><td>
+                                            </div>
+                                                </tr>";
+                                    }
+                                }
+                            ?>
+                    </table>
+                    <h2 style="color:rgba(41, 156, 66, 0.747)">Order placed successfully!</h2>
+                    <button class=next-btn><a href="homepage.php">Continue Shopping</a></button>
+                </center>
             </div>
         </div>
     </div>

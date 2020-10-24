@@ -23,7 +23,7 @@
             {
                 mysqli_stmt_bind_param($stmt,"ssss",$userid,$itemid,$quantity,$price);
                 mysqli_stmt_execute($stmt);
-                $_SESSION['success-message'] = "Item succefully added to My Cart";
+                $_SESSION['success-message'] = "Item succefully added to Cart";
                 header("Location:../templates/cart.php?success=item&added&to&cart");
                 exit();
             }

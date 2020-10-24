@@ -18,7 +18,7 @@ else
 {
     mysqli_stmt_bind_param($stmt,"s",$recipientid);
     mysqli_stmt_execute($stmt);      
-    $_SESSION['success-message']="Item deleted successfully!";
+    $_SESSION['success-message']="Address deleted successfully!";
     header("Location: ../templates/profile.php");
     exit();
 }

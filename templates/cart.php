@@ -47,7 +47,6 @@
     <h1 class="order-heading"><img src="images/cart-icon.png" alt="" class=carticon>Your Cart </h1>
     <div class="orders">
         <?php
-        
             if(isset($_SESSION['userid']))
             {
                 if($_SESSION['email']!='admin@gmail.com')
@@ -100,7 +99,7 @@
                                             <div class='deliver-details'>
                                                 <form action='itempage.php?itemname=$itemname' method='POST'>
                                                     <button class='detail-btn' type='submit'>View Details</button>  
-                                                    <button class='cancelorder' type='submit' formaction='../includes/deletecartitem.php?cartid=$cartid' name=cancel-item>Cancel </button>
+                                                    <button class='cancelorder' type='submit' formaction='../includes/deletecartitem.php?cartid=$cartid' name=cancel-item>Remove</button>
                                                 </form>
                                             </div>
                                         </div>";
@@ -111,8 +110,9 @@
                         }
                         if ($flag==1)
                         {
+                            $set="pay";
                             echo "<div class=btn-div>
-                            <button class='proceed'><a href='payment.php'>Proceed to pay</a><i class='fas fa-coins'></i></button>
+                            <button class='proceed' name='proceedtopay-btn'><a href='payment.php?proceedtopay=$set'>Proceed to pay</a><i class='fas fa-coins'></i></button>
                             </div>";
                         }
                         else
