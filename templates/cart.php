@@ -55,6 +55,7 @@
                     $stmt= mysqli_stmt_init($conn);
                     if(!mysqli_stmt_prepare($stmt,$sql))
                     {
+                        $_SESSION['error-message'] = "Error!";
                         header("Location:./homepage.php?error=sqlerror");
                         exit();
                     }
@@ -72,6 +73,7 @@
                             $stmt= mysqli_stmt_init($conn);
                             if(!mysqli_stmt_prepare($stmt,$itemname))
                             {
+                                $_SESSION['error-message'] = "Error!";
                                 header("Location:./homepage.php?error=sqlerror");
                                 exit();
                             }
@@ -124,12 +126,14 @@
                 } 
                 else
                 {
+                    $_SESSION['error-message'] = "Admin doesn't have a cart";
                     header("Location:./homepage.php?error=Admin doesnt have a cart");
                     exit();
                 }
             }
             else
             {
+                $_SESSION['error-message'] = "Login Required";
                 header("Location:./homepage.php?error=Sign in or Sign up");
                 exit();
             }
