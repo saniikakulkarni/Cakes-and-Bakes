@@ -186,7 +186,7 @@
 {
     font-family:'Ubuntu', sans-serif;
     font-size:20px;
-    margin:5%;
+    margin:2% 0%;
     font-weight: 600;
     color:#6f3317e6;
 }
@@ -194,6 +194,11 @@
 .reviewcontent{
     padding:4% 2%;
     font-family: 'Roboto', sans-serif;
+    width:100%;
+    height:15vh;
+    word-wrap: break-word;
+    overflow-x: auto;
+    overflow-y:auto;
 }
 
 .alsolikeback
@@ -308,7 +313,7 @@
     font-size:16px;
     border:none;
     display:block;
-    margin:3% auto;
+    margin:5% auto;
     border-radius:5px;
     box-shadow:1px 1px 5px rgba(0,0,0,0.3);
     padding:2%;
@@ -319,3 +324,44 @@
     height:10vh;
 }
 
+
+/*  STAR RATINGS */
+
+
+.rating-section{
+    display: flex;
+    margin:1.5% 0%;
+    margin-top:4% ;
+}
+.ratestar{
+    color:lightgrey;
+    font-size: 20px;
+    /* space out the stars */
+  }
+.ratestar::before{
+  content: '\f005';    /* star outline */
+  cursor: pointer;
+}
+.ratestar.rated::before{
+  /* the style for a selected star */
+  content: '\f005';  /* filled star */
+}
+
+.rate-label{
+    font-size: 18px;
+    margin-right: 3%;
+    margin: 2%;
+    color:rgba(0,0,0,0.6);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.stars{
+    counter-reset: rateme 0;   
+    font-weight: 200;
+    padding:0;
+    margin:2%;
+}
+.ratestar.rated{
+    color:#ffd13ad3;
+    counter-increment: rateme 1;
+}

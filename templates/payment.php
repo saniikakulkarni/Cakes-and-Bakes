@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="cartcss.css">
     <link rel="stylesheet" href="ordercss.css">
      <!-- font -->
+     <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Roboto&display=swap" rel="stylesheet">
      <!-- Javascript -->
     <script src="mainjs.js"></script>
@@ -248,11 +249,20 @@
                                             $quantity=$row['quantity'];
                                             $price=$row['price'];
                                             echo"
+<<<<<<< Updated upstream
                                                     <tr class='orderdesc'>
                                                         <td><span class='ordername'>$itemname </span></td>
                                                         <td><span class='cost'>₹ $price</span></td>
                                                         <td><span class='quantity'>$quantity</span></td>
                                                     </tr>";
+=======
+                                            <tr class='orderdesc'>
+                                                <td><span class='ordername'>$itemname </span></td>
+                                                <td><span class='cost'>₹ $price</span></td>
+                                                <td><span class='quantity'>$quantity</span><td>
+                                            </tr>";
+                                                    
+>>>>>>> Stashed changes
                                         }
                                     }
                                 ?>
@@ -260,7 +270,53 @@
                         <h2 style="color:rgba(41, 156, 66, 0.747)">Order placed successfully!</h2>
                         <span class=next-btn><a href="homepage.php">View your Orders</a></span>
                     </center>
+<<<<<<< Updated upstream
                 </div>
+=======
+                </form>
+
+            </div>
+            <div class="ordersuccessback" id=backsuccess>
+                <center>
+                    <h1 class=carddetailsheading >Order Placed</h1>
+                    <table class=ordersummary cellspacing=40px>
+                            <tr>
+                                <td>Item</td>
+                                <td>Price</td>
+                                <td>Quantity</td>
+                            </tr>
+                            <?php
+                                $sql="SELECT i.name,quantity,price FROM cart c JOIN item i ON c.itemid=i.itemid where userid=?";
+                                $stmt = mysqli_stmt_init($conn);
+                                if(!mysqli_stmt_prepare($stmt,$sql))
+                                {
+                                    header("Location: ./homepage.php?error=sqlerror");
+                                    exit();
+                                }
+                                else
+                                {
+                                    mysqli_stmt_bind_param($stmt,"s",$_SESSION['userid']);
+                                    mysqli_stmt_execute($stmt);
+                                    $result = mysqli_stmt_get_result($stmt);
+                                    while($row = mysqli_fetch_assoc($result))
+                                    {
+                                        $itemname=$row['name'];
+                                        $quantity=$row['quantity'];
+                                        $price=$row['price'];
+                                        echo"
+                                                <tr class='orderdesc'>
+                                                    <td><span class='ordername'>$itemname </span></td>
+                                                    <td><span class='cost'>₹ $price</span></td>
+                                                    <td><span class='quantity'>$quantity</span><td>
+                                                </tr>";
+                                    }
+                                }
+                            ?>
+                    </table>
+                    <h2 style="color:rgba(0,0,0,0.6);"><i class="far fa-check-circle" style="color:rgba(41, 156, 66, 0.747)"></i>Order placed successfully!</h2>
+                    <button class=next-btn><a href="homepage.php">Continue Shopping</a></button>
+                </center>
+>>>>>>> Stashed changes
             </div>
         </div>
 </body>
