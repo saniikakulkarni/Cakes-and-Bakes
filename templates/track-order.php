@@ -23,7 +23,7 @@
     <style>
         .inline-data
         {
-            margin:2% 35%;
+            margin-top:2%;
         }
     </style>
 </head>
@@ -118,14 +118,13 @@
                                                     </div>
                                                 </div>
                                                 <div class='inlinedetails'>
-                                                    <div class='address'>
-                                                        <p class='label'>Address</p>
-                                                        $address 
-                                                    </div>
                                                     <div class='deliverto inline-data'>
                                                         <p class='label'>Contact:&nbsp;</p>
                                                         $contactnumber 
                                                     </div>
+                                                </div>
+                                                <div class='address'>
+                                                    $address
                                                 </div>   
                                             </div>
                                         </div>";
