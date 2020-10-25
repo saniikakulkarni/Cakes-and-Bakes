@@ -117,7 +117,7 @@ body{
     font-size:14px;
     color:rgb(207, 60, 40);
 }
-.deliverto{
+.deliverto,.orderedby{
     width:50%;
     font-size: 14px;
     color:rgb(18, 129, 219);
@@ -143,3 +143,22 @@ body{
     font-size:20px;
 }
 
+.changestatus
+{
+    margin:2%;
+    margin-left:0;
+    width:40%;
+    padding:2.5% 3%;
+    background:#ffa88e73;
+    border-radius:5px;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.3);
+    border:none;
+    font-size:15px;
+    color:#6f3317e6;
+    font-family: 'Roboto', sans-serif;
+}
+.status
+{
+    margin:2%;
+    font-weight: 600;
+}

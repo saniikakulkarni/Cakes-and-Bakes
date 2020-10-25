@@ -21,6 +21,19 @@
                 background-repeat: no-repeat;
                 background-size: cover; 
             }
+
+            .fa-star{
+                color:#ffb91ac2;
+                font-size:14px;
+                margin:0;
+                }
+
+            .star-null{
+                color:#ddd;
+                font-size:14px;
+                margin:0;
+            }
+
     </style>
 </head>
 <body>
@@ -70,7 +83,7 @@
                         <div class='recommends'>
                             <img src='./itemimages/$img1' class='item-img'>
                             <div class='itemdesc1'>
-                                <p class='item-name'>$name</p>
+                                <p class='itemname'>$name</p>
                                 <span class='item-price'>$price</span>
                                 <span class='quantity-sml'><span class='label'>Quantity :</span>$quantity</span>
                                 <p class='rating'>";

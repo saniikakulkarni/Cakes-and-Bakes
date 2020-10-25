@@ -177,9 +177,12 @@
                         
                     </div>  
                 </div>
+
                 <div class="reviews">
+                <?php if($rating>0):?>
                     <div class="reviewsback">
                         <center><h1 class=reviewsheading>Top Ratings and Reviews</h1></center>
+                        
                         <div class="review-container">
                             <?php
             
@@ -243,7 +246,10 @@
                             ?> 
                             <p style="float:right"><a href="reviews.php?itemid=<?php echo $itemid ?>">See all reviews</a></p>                   
                         </div>
+                        
                     </div>
+                    <?php endif;?>
+                           
                     <div><center><button class='addreview-btn' onclick=reviewpopup()>Give a Review</button></center></div>
                 </div>
             
@@ -277,7 +283,7 @@
                         <div class='recommends'>
                             <img src='./itemimages/$img1' class='item-img'>
                             <div class='itemdesc1'>
-                                <p class='item-name'>$name</p>
+                                <p class='itemname'>$name</p>
                                 <span class='item-price'>$price</span>
                                 <span class='quantity-sml'><span class='label'>Quantity :</span>$quantity</span>
                                 <p class='rating'>";

@@ -32,7 +32,7 @@
 
 .recommends{
     width:18%;
-    height:42vh;
+    height:45vh;
     margin:2% 1.5%;
     box-shadow:1px 1px 10px rgba(0,0,0,0.2);
     border-radius:10px;
@@ -65,7 +65,7 @@
     background-size:contain;
     border-radius:10px 10px 0 0;
 }
-.item-name{
+.itemname{
     color:rgb(105, 90, 90);
     font-size:16px;
     font-weight:700;
@@ -81,7 +81,7 @@
 }
 
 .quantity-sml{
-    font-size:18px;
+    font-size:15px;
     color:rgba(0,0,0,0.4)
 }
 
@@ -91,14 +91,3 @@
     color:#aaa;
 }
 
-.fa-star{
-    color:#ffb91ac2;
-    font-size:14px;
-    margin:0;
-}
-
-.star-null{
-    color:#ddd;
-    font-size:14px;
-    margin:0;
-}

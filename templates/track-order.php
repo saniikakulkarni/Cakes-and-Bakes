@@ -97,8 +97,20 @@
                                             <div class='orderdesc'>
                                                 <h2 class='ordername'>$itemname </h2>
                                                 <span class='cost'> ₹ $price</span>
-                                                <span class='quantity'><span class='label'>Quantity :</span>$quantity</span><br>
-                                                <div class='status'>$status</div>
+                                                <span class='quantity'><span class='label'>Quantity :</span>$quantity</span><br>";
+                                                if($status=='Order Cancelled')
+                                                {
+                                                    echo "<div class='status' style='color:red'>$status</div>";
+                                                }
+                                                else if($status=='Order Delivered')
+                                                {
+                                                    echo "<div class='status' style='color:green'>$status</div>";
+                                                }
+                                                else
+                                                {
+                                                    echo "<div class='status'>$status</div>";
+                                                }
+                                                echo "
                                                 <button class='detail-btn'><a href='itempage.php?itemname=$itemname'>View Details</a></button>";
                                                 if($status=='Order Placed')
                                                 {
@@ -144,7 +156,7 @@
                 } 
                 else
                 {
-                    header("Location:./homepage.php?error=Admin doesnt have a cart");
+                    header("Location:./homepage.php?error=Admin connot access this page!");
                     exit();
                 }
             }
