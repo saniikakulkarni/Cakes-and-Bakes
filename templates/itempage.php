@@ -280,48 +280,51 @@
                 mysqli_stmt_bind_param($stmt4,"s",$category);
                 mysqli_stmt_execute($stmt4);
                 $result4 = mysqli_stmt_get_result($stmt4);
-                while($row4 = mysqli_fetch_assoc($result4)){
-                $img1=$row4['img1'];
-                $name=$row4['name'];
-                $quantityprice=$row4['quantityprice'];
-                $qp=explode("\n",$quantityprice);
-                $qp=explode(":",$qp[0]);
-                $quantity=$qp[0];
-                $price=$qp[1];
-                $rating=$row4['rating'];
-                $star=$row4['star'];
-                echo "<a href='itempage.php?itemname=$name'>
-                        <div class='recommends'>
-                            <img src='./itemimages/$img1' class='item-img'>
-                            <div class='itemdesc1'>
-                                <p class='itemname'>$name</p>
-                                <span class='item-price'>$price</span>
-                                <span class='quantity-sml'><span class='label'>Quantity :</span>$quantity</span>
-                                <p class='rating'>";
-                                for($i=1;$i<=$star;$i++)
-                                {
-                                    echo "<i class='fa fa-star' aria-hidden='true'></i>";
-                                }
-                                for($i=1;$i<=5-$star;$i++)
-                                {
-                                    echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
-                                }
-                                echo "<span class='rate-space'>$rating</span>
-                                </p>
-                            </div>
-                        </div>
-                    </a>";
+                while($row4 = mysqli_fetch_assoc($result4))
+                {
+                    if($row4['itemid']!=$itemid)
+                    {
+                        $img1=$row4['img1'];
+                        $name=$row4['name'];
+                        $quantityprice=$row4['quantityprice'];
+                        $qp=explode("\n",$quantityprice);
+                        $qp=explode(":",$qp[0]);
+                        $quantity=$qp[0];
+                        $price=$qp[1];
+                        $rating=$row4['rating'];
+                        $star=$row4['star'];
+                        echo "<a href='itempage.php?itemname=$name'>
+                                <div class='recommends'>
+                                    <img src='./itemimages/$img1' class='item-img'>
+                                    <div class='itemdesc1'>
+                                        <p class='itemname'>$name</p>
+                                        <span class='item-price'>$price</span>
+                                        <span class='quantity-sml'><span class='label'>Quantity :</span>$quantity</span>
+                                        <p class='rating'>";
+                                        for($i=1;$i<=$star;$i++)
+                                        {
+                                            echo "<i class='fa fa-star' aria-hidden='true'></i>";
+                                        }
+                                        for($i=1;$i<=5-$star;$i++)
+                                        {
+                                            echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
+                                        }
+                                        echo "<span class='rate-space'>$rating</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>";
+                        }
+                    }
                 }
-            }
-            mysqli_stmt_close($stmt);
-            mysqli_close($conn);
+                    mysqli_stmt_close($stmt);
+                    mysqli_close($conn);
         ?>        
         </div>
         
         <div class=popupreviewdiv id=popupreview>
             <div class="reviewbox">
                 <form autocomplete="off" method="POST" action="../includes/addreviewinc.php?itemid=<?php echo $itemid; ?>&itemname=<?php echo $ItemName; ?>">
-
                     <h1 class="heading">Review</h1><span class="cross" onclick="popupreviewclose()">X</span>
                         <div class="rating-section">   
                             <label for="rate" class=rate-label>Rating:</label>

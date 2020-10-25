@@ -45,7 +45,7 @@ body
 }
 .items{
     width:21.6%;
-    height:45vh;
+    height:290px;
     margin:2% 1.5%;
     box-shadow:1px 1px 10px rgba(0,0,0,0.2);
     border-radius:10px;
@@ -69,7 +69,7 @@ body
 .itemdesc
 {
     background:#faf4f4;
-    height:30%;
+    height:100px;
     font-size:22px;
     padding:6% 4%;
     padding-top:4%;
