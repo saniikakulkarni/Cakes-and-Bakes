@@ -22,6 +22,15 @@
     body{
         background:white;
     }
+    
+    #big-rating{
+        font-size:20px;
+    }
+
+    .star-icon{
+        font-size:20px;
+    }
+
     </style>
 
     <script>
@@ -112,16 +121,16 @@
                             
                         echo "</div>
                             
-                            <p class='rating'>";
+                            <p class='rating' id=big-rating>";
                                 for($i=1;$i<=$star;$i++)
                                 {
-                                    echo "<i class='fa fa-star' aria-hidden='true'></i>";
+                                    echo "<i class='fa fa-star star-icon' aria-hidden='true'></i>";
                                 }
                                 for($i=1;$i<=5-$star;$i++)
                                 {
-                                    echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
+                                    echo "<i class='fa fa-star star-null star-icon'  aria-hidden='true'></i>";
                                 }
-                                echo "$rating
+                                echo "<span class='rate-space'>$rating</span>
                             </p>
                             <form class=orderform method='POST' action='addtocart.php?itemid=$itemid'>";
                             if($availability=='Accepting')
@@ -234,7 +243,7 @@
                                                             {
                                                                 echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
                                                             }
-                                                            echo "$rating
+                                                            echo "
                                                         </p>
                                                         <p class=reviewcontent>$review</p>
                                                     </div>
@@ -248,7 +257,9 @@
                         </div>
                         
                     </div>
-                    <?php endif;?>
+                <?php else: ?>
+                    <center><h2 class=reviewsheading style="font-size:28px;">No Reviews Yet. Be the first one to Review this Item</h2></center>
+                <?php endif;?>
                            
                     <div><center><button class='addreview-btn' onclick=reviewpopup()>Give a Review</button></center></div>
                 </div>
@@ -295,7 +306,7 @@
                                 {
                                     echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
                                 }
-                                echo "$rating
+                                echo "<span class='rate-space'>$rating</span>
                                 </p>
                             </div>
                         </div>

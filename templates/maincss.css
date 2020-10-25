@@ -246,7 +246,7 @@ a:active,a,a:visited{
     color:#865e17;
 }
 a:hover{
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 button[class=popup]{
@@ -338,3 +338,6 @@ button[class=popup]:hover{
 
 /* Message End */
 
+.rate-space{
+    margin:5px;
+}

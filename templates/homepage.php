@@ -95,7 +95,7 @@
                                 {
                                     echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
                                 }
-                                echo "$rating
+                                echo "<span class='rate-space'>$rating</span>
                                 </p>
                             </div>
                         </div>
