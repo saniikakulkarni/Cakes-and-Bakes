@@ -42,65 +42,6 @@ function picboxdisplay(smallpicid1,smallpicid2,smallpicid3,smallpicid4)
     document.getElementById('bigpicdiv').style.backgroundImage="url('"+sourceimg+"')";
 }
 
-function displaycontent(blockid1,blockid2,blockid3,blockid4,blockid5,navid1,navid2,navid3,navid4,select)
-{
-    if(document.querySelector('input["name="+CSS.escape(select) + "]:checked').value)
-    {
-        document.getElementById(navid1).style.borderBottom="3px solid rgb(235, 105, 127)";
-        document.getElementById(navid2).style.borderBottom="none";
-        document.getElementById(navid3).style.borderBottom="none";
-        document.getElementById(navid4).style.borderBottom="none";
-        document.getElementById(blockid1).style.display="block";
-        document.getElementById(blockid2).style.display="none";
-        document.getElementById(blockid3).style.display="none";
-        document.getElementById(blockid4).style.display="none";
-        document.getElementById(blockid5).style.display="none";
-    }  
-}
-
-function displaycredits(blockid1,blockid2,blockid3,blockid4,blockid5,navid1,navid2,navid3,navid4)
-{
-    var p = document.querySelector('input[name="Payment"]:checked').value;
-    
-    if(p=="Credit Card"|| p=="Debit Card")
-    {
-        console.log(p);
-        document.getElementById('backcredit').style.display="block";
-        document.getElementById('backpayment').style.display="none";
-        document.getElementById('backaddress').style.display="none";
-        document.getElementById('backsummary').style.display="none";
-        document.getElementById('backsuccess').style.display="none";
-    }
-    else{
-        console.log("success!");
-        displaycontent(blockid1,blockid2,blockid3,blockid4,blockid5,navid1,navid2,navid3,navid4);
-    } 
-}
-
-function goback(blockid1,blockid2,blockid3,blockid4,blockid5,navid1,navid2,navid3,navid4)
-{
-    document.getElementById(navid1).style.borderBottom="3px solid rgb(235, 105, 127)";
-    document.getElementById(navid2).style.borderBottom="none";
-    document.getElementById(navid3).style.borderBottom="none";
-    document.getElementById(navid4).style.borderBottom="none";
-    document.getElementById(blockid1).style.display="block";
-    document.getElementById(blockid2).style.display="none";
-    document.getElementById(blockid3).style.display="none";
-    document.getElementById(blockid4).style.display="none";
-    document.getElementById(blockid5).style.display="none";
-}
-
-function confirmDetails()
-{
-    var answer = confirm("Are you sure you want to place order?");
-    if(answer){
-        displaycontent('backsuccess','backaddress','backsummary','backpayment','backcredit','navsuccess','navaddress','navsummary','navpayment');
-    }
-    else{
-        displaycontent('backsummary','backsuccess','backaddress','backpayment','backcredit','navsummary','navsuccess','navaddress','navpayment');
-    }
-}
-
 function cleardata(){
     document.getElementById("creditform").reset();
 }

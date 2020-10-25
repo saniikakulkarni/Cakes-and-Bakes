@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +8,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="Images/logo.png">
     <!-- Stylesheet -->
+    <link rel="stylesheet" href="maincss.css">
     <link rel="stylesheet" type="text/css" href="cartcss.css">
     <link rel="stylesheet" href="ordercss.css">
      <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Roboto&display=swap" rel="stylesheet">
      <!-- Javascript -->
     <script src="mainjs.js"></script>
+        <script>
+            function displaycontent(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3,select)
+            {
+                if(document.querySelector("input[name='"+select+"']:checked").value!==null)
+                {
+                    document.getElementById(navid1).style.borderBottom="3px solid rgb(235, 105, 127)";
+                    document.getElementById(navid2).style.borderBottom="none";
+                    document.getElementById(navid3).style.borderBottom="none";
+                    document.getElementById(blockid1).style.display="block";
+                    document.getElementById(blockid2).style.display="none";
+                    document.getElementById(blockid3).style.display="none";
+                    document.getElementById(blockid4).style.display="none";
+                } 
+            }
+
+            function displaycredits(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3)
+            {
+                var p = document.querySelector('input[name="Payment"]:checked').value;
+                
+                if(p=="Credit Card"|| p=="Debit Card")
+                {
+                    console.log(p);
+                    document.getElementById('backcredit').style.display="block";
+                    document.getElementById('backpayment').style.display="none";
+                    document.getElementById('backaddress').style.display="none";
+                    document.getElementById('backsummary').style.display="none";
+                    document.getElementById('backsuccess').style.display="none";
+                }
+                else{
+                    var payment="Payment";
+                    displaycontent(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3,payment);
+                } 
+            }
+            function goback(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3)
+            {
+                document.getElementById(navid1).style.borderBottom="3px solid rgb(235, 105, 127)";
+                document.getElementById(navid2).style.borderBottom="none";
+                document.getElementById(navid3).style.borderBottom="none";
+                document.getElementById(blockid1).style.display="block";
+                document.getElementById(blockid2).style.display="none";
+                document.getElementById(blockid3).style.display="none";
+                document.getElementById(blockid4).style.display="none";
+            }
+
+            function displaycontent2(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3,select1,select2,select3,select4,select5)
+            {
+                if(document.querySelector("input[name='"+select1+"']").value!==null && document.querySelector("input[name='"+select2+"']").value!==null && document.querySelector("input[name='"+select3+"']").value!==null && document.querySelector("input[name='"+select4+"']:checked").value!==null && document.querySelector("input[name='"+select5+"']:checked").value!==null)
+                {
+                    document.getElementById(navid1).style.borderBottom="3px solid rgb(235, 105, 127)";
+                    document.getElementById(navid2).style.borderBottom="none";
+                    document.getElementById(navid3).style.borderBottom="none";
+                    document.getElementById(blockid1).style.display="block";
+                    document.getElementById(blockid2).style.display="none";
+                    document.getElementById(blockid3).style.display="none";
+                    document.getElementById(blockid4).style.display="none";
+                }
+            }
+    </script>
     <title>Cakes and Bakes | Payment</title>
 </head>
 <body>
@@ -25,9 +87,6 @@
             <div class=ordersummarynav id=navsummary>
                 Order Summary
             </div>
-            <div class=ordersuccessnav id=navsuccess>
-                Order Success
-            </div>
         </div>
         
         <div class="paymentcontent">
@@ -35,7 +94,6 @@
                 <div class=addressback id=backaddress>
                     <center><h1 class=addressheading>Select an Address</h1></center><hr>
                         <?php
-                            session_start();
                             require "../includes/dbhinc.php";
                             if(isset($_GET['proceedtopay']) && isset($_SESSION['email']) )
                             {
@@ -60,7 +118,7 @@
                                             $address=$row['address'];
                                             $recipientid=$row['recipientid'];
                                             echo "<div class=selectaddress>
-                                                    <div class=radioaddressdiv><center><input type='radio' id='$recipientid' name='address'></center></div>
+                                                    <div class=radioaddressdiv><center><input type='radio' id='$recipientid' value='$recipientid' name='address'></center></div>
                                                         <div class=paymentdiv>
                                                             <label for='$recipientid'>
                                                                 <h2 class=custname>$name</h2>
@@ -87,7 +145,7 @@
                             }
                         ?>
                         <div class=nextdiv>
-                            <center><span class=next-btn onclick="displaycontent('backpayment','backaddress','backsummary','backsuccess','backcredit','navpayment','navaddress','navsummary','navsuccess','address')">Next</span></center>
+                            <center><span class=next-btn onclick="displaycontent('backpayment','backaddress','backsummary','backcredit','navpayment','navaddress','navsummary','address')">Next</span></center>
                         </div>    
                 </div>
 
@@ -119,19 +177,19 @@
                         </div>
                         <div class=nextdiv>
                             <center>
-                                <span class=back-btn onclick="goback('backaddress','backsummary','backsuccess','backpayment','backcredit','navaddress','navsummary','navsuccess','navpayment');">Back</span>
+                                <span class=back-btn onclick="goback('backaddress','backsummary','backpayment','backcredit','navaddress','navsummary','navpayment');">Back</span>
 
-                                <span class=next-btn onclick="displaycredits('backsummary','backaddress','backsuccess','backpayment','backcredit','navsummary','navaddress','navsuccess','navpayment')">Next</span>
+                                <span class=next-btn onclick="displaycredits('backsummary','backaddress','backpayment','backcredit','navsummary','navaddress','navpayment')">Next</span>
                             </center>
                         </div>   
                 </div>
                 
                 <div class="carddetailsback" id=backcredit>
                         <h1 class=carddetailsheading >Enter Card Details</h1>
-                        <input class=textcarddetails type="text" placeholder="Name on card">
-                        <input class=textcarddetails type="text" placeholder="Card Number">
-                        <label class=textcarddetails for="">Expiry Date</label> 
-                        <select class=selectexpiry name=month id=month >
+                        <input class=textcarddetails type="text" placeholder="Name on card" name=name>
+                        <input class=textcarddetails type="text" placeholder="Card Number" name=cardno>
+                        <label class=textcarddetails>Expiry Date</label> 
+                        <select class=selectexpiry name=month id=month>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -159,12 +217,11 @@
                             <option value="2030">2030</option>
                             <option value="2031">2031</option>
                         </select>
-                        <input class=textcarddetails type="text" placeholder="CVV" name=cvv>
+                        <input class=textcarddetails type="text" placeholder="CVV" name="cvv">
                         <center>
-                            <span class=back-btn onclick="goback('backpayment','backcredit','backaddress','backsummary','backsuccess','navpayment','navaddress','navsummary','navsuccess');cleardata();">Back</span>
-                            <span onclick="displaycontent('backsummary','backaddress','backsuccess','backpayment','backcredit','navsummary','navaddress','navsuccess','navpayment','cvv')" class="next-btn">Proceed</span>
-                        </center>
-                    </form>   
+                            <span class=back-btn onclick="goback('backpayment','backcredit','backaddress','backsummary','navpayment','navaddress','navsummary');cleardata();">Back</span>
+                            <span onclick="displaycontent2('backsummary','backaddress','backpayment','backcredit','navsummary','navaddress','navpayment','cvv','name','cardno','year','month')" class="next-btn">Proceed</span>
+                        </center>  
                 </div>
 
                 <div class="ordersummaryback" id=backsummary>
@@ -215,53 +272,40 @@
                                         <p class='cost'>Total:₹ $totalprice</p>";
                                 ?>    
                             
-                            <span class=back-btn onclick="goback('backpayment','backaddress','backsummary','backsuccess','backcredit','navpayment','navaddress','navsummary','navsuccess')">Back</span>
-                            <input type="submit" value="Confirm Order" class="next-btn">
+                            <span class=back-btn onclick="goback('backpayment','backaddress','backsummary','backcredit','navpayment','navaddress','navsummary')">Back</span>
+                            <input type="submit" value="Confirm Order" class="next-btn" name=orderconfirm-btn>
                         </center>
                     </form>
                 </div>
-                <div class="ordersuccessback" id=backsuccess>
-                    <center>
-                        <h1 class=carddetailsheading >Order Placed</h1>
-                        <table class=ordersummary cellpadding=20px border=1px cellspacing=0>
-                                <tr>
-                                    <td>Item</td>
-                                    <td>Price</td>
-                                    <td>Quantity</td>
-                                </tr>
-                                <?php
-                                    $sql="SELECT i.name,quantity,price FROM cart c JOIN item i ON c.itemid=i.itemid where userid=?";
-                                    $stmt = mysqli_stmt_init($conn);
-                                    if(!mysqli_stmt_prepare($stmt,$sql))
-                                    {
-                                        header("Location: ./homepage.php?error=sqlerror");
-                                        exit();
-                                    }
-                                    else
-                                    {
-                                        mysqli_stmt_bind_param($stmt,"s",$_SESSION['userid']);
-                                        mysqli_stmt_execute($stmt);
-                                        $result = mysqli_stmt_get_result($stmt);
-                                        while($row = mysqli_fetch_assoc($result))
-                                        {
-                                            $itemname=$row['name'];
-                                            $quantity=$row['quantity'];
-                                            $price=$row['price'];
-                                            echo"
-                                                    <tr class='orderdesc'>
-                                                        <td><span class='ordername'>$itemname </span></td>
-                                                        <td><span class='cost'>₹ $price</span></td>
-                                                        <td><span class='quantity'>$quantity</span></td>
-                                                    </tr>";
-                                        }
-                                    }
-                                ?>
-                        </table>
-                        <h2 style="color:rgba(41, 156, 66, 0.747)">Order placed successfully!</h2>
-                        <span class=next-btn><a href="homepage.php">View your Orders</a></span>
-                    </center>
-                </div>
-            </div>
         </div>
+            <script>
+                setTimeout(() => {
+                    let msg = document.querySelector(".msg-outerbox");
+                    msg.remove();
+                }, 3000);
+            </script>
+        <!-- MESSAGE -->
+        <?php if(isset($_SESSION['error-message'])): ?>
+            <div class='msg-outerbox'>
+                <center><div class='msg-container danger'>
+                    <i class="fas fa-times-circle"></i>
+                    <?php 
+                        echo $_SESSION['error-message'];
+                        unset($_SESSION['error-message']);
+                    ?>
+                </div></center>
+            </div>
+            <?php elseif(isset($_SESSION['success-message'])): ?>
+                <div class='msg-outerbox'>
+                    <center><div class='msg-container success'>
+                        <i class="fas fa-check-circle"></i>
+                        <?php 
+                            echo $_SESSION['success-message'];
+                            unset($_SESSION['success-message']);
+                        ?>   
+                    </div></center>
+                </div> 
+            <?php endif; ?>
+    <!-- MESSAGE END -->    
 </body>
 </html>

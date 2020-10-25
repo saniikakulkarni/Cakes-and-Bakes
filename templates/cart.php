@@ -47,7 +47,7 @@
     <h1 class="order-heading"><img src="images/cart-icon.png" alt="" class=carticon>Your Cart </h1>
     <div class="orders">
         <?php
-            if(isset($_SESSION['userid']))
+            if(isset($_SESSION['email']))
             {
                 if($_SESSION['email']!='admin@gmail.com')
                 {
