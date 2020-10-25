@@ -42,7 +42,6 @@
         require "../includes/dbhinc.php";
     ?>
     <!-- Orders start -->
-    <h4 class="current-page">Profile > <span class="active">Your Orders</span></h4>
     <h1 class="order-heading">Your Orders</h1>
     <div class="orders">
         <?php

@@ -52,7 +52,7 @@
         else
         require "header.php";
         require "../includes/dbhinc.php";
-        $name=$_GET['itemname'];
+        $ItemName=$_GET['itemname'];
     ?>
     <!--Contents start-->
     <div class=itemcontents>
@@ -67,7 +67,7 @@
                     }
                     else
                     {
-                        mysqli_stmt_bind_param($stmt,"s",$name);
+                        mysqli_stmt_bind_param($stmt,"s",$ItemName);
                         mysqli_stmt_execute($stmt);
                         $result = mysqli_stmt_get_result($stmt);
                         if($row = mysqli_fetch_assoc($result)){
@@ -110,12 +110,12 @@
                             <div class='itemdescstart'>
                             <div class='inline-data'>
                         <?php
-                            echo "<h1 class=item-name>$name</h1>";
+                            echo "<h1 class=item-name>$ItemName</h1>";
                             if(isset($_SESSION['email']))
                             {
                                 if($_SESSION['email']=='admin@gmail.com')
                                 {
-                                    echo"<a href='adminmodifyitems.php?itemname=$name' class=editicon><i class='fas fa-edit'></i></a>";
+                                    echo"<a href='adminmodifyitems.php?itemname=$ItemName' class=editicon><i class='fas fa-edit'></i></a>";
                                 }
                             }
                             
@@ -195,7 +195,7 @@
                         <div class="review-container">
                             <?php
             
-                                $sql="SELECT * FROM review where itemid=?";
+                                $sql="SELECT * FROM review WHERE itemid=? ORDER BY rating DESC";
                                 $stmt = mysqli_stmt_init($conn);
                                 if(!mysqli_stmt_prepare($stmt,$sql))
                                 {
@@ -320,7 +320,7 @@
         
         <div class=popupreviewdiv id=popupreview>
             <div class="reviewbox">
-                <form autocomplete="off" method="POST" action="../includes/addreviewinc.php?itemid=<?php echo $itemid ?>&itemname=<?php echo $name ?>">
+                <form autocomplete="off" method="POST" action="../includes/addreviewinc.php?itemid=<?php echo $itemid; ?>&itemname=<?php echo $ItemName; ?>">
 
                     <h1 class="heading">Review</h1><span class="cross" onclick="popupreviewclose()">X</span>
                         <div class="rating-section">   

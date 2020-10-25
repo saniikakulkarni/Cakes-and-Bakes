@@ -9,7 +9,6 @@
     <link rel="shortcut icon" type="image/png" href="Images/logo.png">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="maincss.css">
-    <link rel="stylesheet" type="text/css" href="cartcss.css">
     <link rel="stylesheet" href="ordercss.css">
      <!-- font -->
      <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
@@ -19,7 +18,7 @@
         <script>
             function displaycontent(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3,select)
             {
-                if(document.querySelector("input[name='"+select+"']:checked").value!==null)
+                if(document.querySelector("input[name='"+select+"']:checked")!==null)
                 {
                     document.getElementById(navid1).style.borderBottom="3px solid rgb(235, 105, 127)";
                     document.getElementById(navid2).style.borderBottom="none";
@@ -29,25 +28,35 @@
                     document.getElementById(blockid3).style.display="none";
                     document.getElementById(blockid4).style.display="none";
                 } 
+                else{
+                    alert('Please enter all the fields');
+                }
             }
 
             function displaycredits(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3)
             {
-                var p = document.querySelector('input[name="Payment"]:checked').value;
-                
-                if(p=="Credit Card"|| p=="Debit Card")
-                {
-                    console.log(p);
-                    document.getElementById('backcredit').style.display="block";
-                    document.getElementById('backpayment').style.display="none";
-                    document.getElementById('backaddress').style.display="none";
-                    document.getElementById('backsummary').style.display="none";
-                    document.getElementById('backsuccess').style.display="none";
+                var p = document.querySelector('input[name="Payment"]:checked');
+                if(p!==null){
+                    p=p.value;
+                    if(p=="Credit Card"|| p=="Debit Card")
+                    {
+                        console.log(p);
+                        document.getElementById('backcredit').style.display="block";
+                        document.getElementById('backpayment').style.display="none";
+                        document.getElementById('backaddress').style.display="none";
+                        document.getElementById('backsummary').style.display="none";
+                        document.getElementById('backsuccess').style.display="none";
+                    }
+                    else{
+                        var payment="Payment";
+                        displaycontent(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3,payment);
+                    } 
                 }
                 else{
-                    var payment="Payment";
-                    displaycontent(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3,payment);
-                } 
+                    alert('Please enter all the fields');
+                }
+                
+                
             }
             function goback(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3)
             {
@@ -62,7 +71,11 @@
 
             function displaycontent2(blockid1,blockid2,blockid3,blockid4,navid1,navid2,navid3,select1,select2,select3,select4,select5)
             {
-                if(document.querySelector("input[name='"+select1+"']").value!==null && document.querySelector("input[name='"+select2+"']").value!==null && document.querySelector("input[name='"+select3+"']").value!==null && document.querySelector("input[name='"+select4+"']:checked").value!==null && document.querySelector("input[name='"+select5+"']:checked").value!==null)
+                if((document.querySelector("input[name='"+select1+"']").value!="") 
+                && (document.querySelector("input[name='"+select2+"']").value!="") 
+                && (document.querySelector("input[name='"+select3+"']").value!="") 
+                && (document.getElementById(select4).value!="") 
+                && (document.getElementById(select5).value!=""))
                 {
                     document.getElementById(navid1).style.borderBottom="3px solid rgb(235, 105, 127)";
                     document.getElementById(navid2).style.borderBottom="none";
@@ -71,6 +84,9 @@
                     document.getElementById(blockid2).style.display="none";
                     document.getElementById(blockid3).style.display="none";
                     document.getElementById(blockid4).style.display="none";
+                }
+                else{
+                    alert('Please enter all the fields');
                 }
             }
     </script>
@@ -228,11 +244,11 @@
                 <div class="ordersummaryback" id=backsummary>
                         <center>
                             <h1 class=carddetailsheading >Order Summary</h1>
-                            <table class=ordersummary cellpadding=15px border=1px cellspacing=0>
+                            <table class=ordersummary cellpadding=15px  cellspacing=0>
                                 <tr class=summary-thead>
                                     <td>Item</td>
-                                    <td>Price</td>
                                     <td>Quantity</td>
+                                    <td>Price</td>
                                 </tr>
                                 <?php
                                         $sql="SELECT i.name,quantity,price FROM cart c JOIN item i ON c.itemid=i.itemid where userid=?";
@@ -257,8 +273,8 @@
                                                 echo"
                                                 <tr class='orderdesc'>
                                                     <td><span class='ordername'>$itemname </span></td>
-                                                    <td><span class='cost'>₹ $price</span></td>
                                                     <td><span class='quantity'>$quantity</span></td>
+                                                    <td><span class='cost'>₹ $price</span></td>
                                                 </tr>";
                                                         
                                             }
@@ -267,10 +283,13 @@
                                         $maxdate=date("Y-m-d",strtotime("+8 day"));
                                         echo "
                                         </table>
-                                        <div class=datediv>
-                                            <h3 class=dateheading>Delivery Date</h3><input type='date' min=$todaydate max=$maxdate name='date' class='datebox' required>
+                                        <div class='inline-summary'>
+                                            <div class=datediv>
+                                                <h3 class=dateheading>Delivery Date</h3><input type='date' min=$todaydate max=$maxdate name='date' class='datebox' required>
+                                            </div>
+                                            <p class='totalcost'>Total:₹ $totalprice</p>
                                         </div>
-                                        <p class='cost'>Total:₹ $totalprice</p>";
+                                        ";
                                 ?>    
                             
                             <span class=back-btn onclick="goback('backpayment','backaddress','backsummary','backcredit','navpayment','navaddress','navsummary')">Back</span>

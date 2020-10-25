@@ -9,8 +9,10 @@ body{
     color:rgba(0,0,0,0.6)
 }
 
+
 .order-heading{
-    margin:1% 19%; 
+    margin:1% 15%;
+    margin-top:5%; 
     font-size:35px;
     color:#865d17c7;
     font-family: 'Satisfy', cursive;
