@@ -228,8 +228,8 @@
                 <div class="ordersummaryback" id=backsummary>
                         <center>
                             <h1 class=carddetailsheading >Order Summary</h1>
-                            <table class=ordersummary cellpadding=20px border=1px cellspacing=0>
-                                <tr>
+                            <table class=ordersummary cellpadding=15px border=1px cellspacing=0>
+                                <tr class=summary-thead>
                                     <td>Item</td>
                                     <td>Price</td>
                                     <td>Quantity</td>

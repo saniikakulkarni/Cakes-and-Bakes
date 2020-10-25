@@ -1,6 +1,6 @@
 body
 {
-    background:rgb(252, 237, 239);
+    background:#fcd5ca50;
 }
 
 /*heading*/
@@ -152,7 +152,7 @@ body
     width:55%;
     margin:auto;
     margin-top:1%;
-    background:whitesmoke;
+    background:white;
     padding:2%;
 }
 
@@ -175,7 +175,7 @@ body
     width:98%;
     margin:auto;
     margin-bottom:2%;
-    background:white;
+    border-radius: 5px;
     
 }
 .addressnav{
@@ -225,4 +225,21 @@ body
     border-radius:5px;
     box-shadow:1px 1px 5px rgba(0,0,0,0.3);
     padding:2%;
+}
+
+.ordersummary{
+    border-radius:10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    margin:4%;
+    text-align:center;
+}
+
+.summary-thead{
+    background:#c9b4b498;
+    color:#49373798;
+    font-size:18px;
+    font-weight: 600;
+    border-radius:10px;
+
 }
