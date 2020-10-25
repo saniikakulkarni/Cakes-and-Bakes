@@ -4,6 +4,11 @@
         require "../includes/dbhinc.php";
         $userid = $_SESSION['userid'];
     }
+    else{
+        $_SESSION['error-message'] = 'Login Required';
+        header("Location: ./homepage.php?error=sqlerror");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

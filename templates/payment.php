@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="cartcss.css">
     <link rel="stylesheet" href="ordercss.css">
      <!-- font -->
+     <script src="https://kit.fontawesome.com/a77f5500d1.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kufam&family=Roboto&display=swap" rel="stylesheet">
      <!-- Javascript -->
     <script src="mainjs.js"></script>
@@ -277,7 +278,6 @@
                         </center>
                     </form>
                 </div>
-        </div>
             <script>
                 setTimeout(() => {
                     let msg = document.querySelector(".msg-outerbox");

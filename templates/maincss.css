@@ -234,6 +234,7 @@ input[class=forminput]::placeholder{
 
 input[class=forminput]:focus{
     outline:none;
+    border-bottom:2px solid #8b5046b0;
 }
 
 input[class=forminput]::selection{

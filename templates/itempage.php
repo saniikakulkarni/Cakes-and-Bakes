@@ -180,19 +180,68 @@
                     <div class="reviewsback">
                         <center><h1 class=reviewsheading>Top Ratings and Reviews</h1></center>
                         <div class="review-container">
-                            <div class=reviewstile>
-                                <p class=reviewname>Sanika Kulkarni</p>
-                                <p class=reviewcontent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam accusantium magnam, ut commodi nemo totam voluptatibus aut debitis ipsam excepturi. </p>
-                            </div>
-                            <div class=reviewstile>
-                                <p class=reviewname>Sanika Kulkarni</p>
-                                <p class=reviewcontent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam accusantium magnam, ut commodi nemo totam voluptatibus aut debitis ipsam excepturi. </p>
-                            </div> 
-                            <div class=reviewstile>
-                                <p class=reviewname>Sanika Kulkarni</p>
-                                <p class=reviewcontent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam accusantium magnam, ut commodi nemo totam voluptatibus aut debitis ipsam excepturi. </p>
-                            </div>
-                            <p style="float:right"><a href=reviews.php>See all reviews</a></p>                   
+                            <?php
+            
+                                $sql="SELECT * FROM review where itemid=?";
+                                $stmt = mysqli_stmt_init($conn);
+                                if(!mysqli_stmt_prepare($stmt,$sql))
+                                {
+                                    $_SESSION['error-message'] = 'Error!';
+                                    header("Location: itempage.php?error=sqlerror");
+                                    exit();
+                                }
+                                else
+                                {
+                                    mysqli_stmt_bind_param($stmt,"s",$itemid);
+                                    mysqli_stmt_execute($stmt);
+                                    $result = mysqli_stmt_get_result($stmt);
+                                    $count=0;
+                                    while(($row = mysqli_fetch_assoc($result))&&($count<3)){
+                                        $count+=1;
+                                        $uid = $row['userid'];
+                                        $rating=$row['rating'];
+                                        $review=$row['review'];
+                                        $sql1="SELECT * FROM userdetails where userid=?";
+                                        $stmt1 = mysqli_stmt_init($conn);
+                                        if(!mysqli_stmt_prepare($stmt1,$sql1))
+                                        {
+                                            $_SESSION['error-message'] = 'Error!';
+                                            header("Location: itempage.php?error=sqlerror");
+                                            exit();
+                                        }
+                                        else
+                                        {
+                                            mysqli_stmt_bind_param($stmt1,"s",$uid);
+                                            mysqli_stmt_execute($stmt1);
+                                            $result1 = mysqli_stmt_get_result($stmt1);
+                                            if($row1 = mysqli_fetch_assoc($result1))
+                                            {
+                                                $username = $row1['fullname'];
+                                            }
+                                            echo "
+                                                    <div class=reviewstile>
+                                                        <p class=reviewname>$username</p>                          
+                                                        <p class='rating'>";
+                                                            for($i=1;$i<=$rating;$i++)
+                                                            {
+                                                                echo "<i class='fa fa-star' aria-hidden='true'></i>";
+                                                            }
+                                                            for($i=1;$i<=5-$rating;$i++)
+                                                            {
+                                                                echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
+                                                            }
+                                                            echo "$rating
+                                                        </p>
+                                                        <p class=reviewcontent>$review</p>
+                                                    </div>
+                                                ";
+                                        }                                           
+                                    }
+                                }
+                                mysqli_stmt_close($stmt);
+                                mysqli_close($conn);
+                            ?> 
+                            <p style="float:right"><a href="reviews.php?itemid=<?php echo $itemid ?>">See all reviews</a></p>                   
                         </div>
                     </div>
                     <div><center><button class='addreview-btn' onclick=reviewpopup()>Give a Review</button></center></div>
@@ -207,9 +256,22 @@
         
         <div class=popupreviewdiv id=popupreview>
             <div class="reviewbox">
-                <form autocomplete="off" method="POST" action="../includes/addreviewinc.php">
+                <form autocomplete="off" method="POST" action="../includes/addreviewinc.php?itemid=<?php echo $itemid ?>&itemname=<?php echo $name ?>">
 
                     <h1 class="heading">Review</h1><span class="cross" onclick="popupreviewclose()">X</span>
+                        <div class="rating-section">   
+                            <label for="rate" class=rate-label>Rating:</label>
+                            <div class="stars" data-rating="3">
+                                <span class="ratestar fas fa-star"></span>
+                                <span class="ratestar fas fa-star"></span>
+                                <span class="ratestar fas fa-star"></span>
+                                <span class="ratestar fas fa-star"></span>
+                                <span class="ratestar fas fa-star"></span>
+                            </div>
+                        </div>
+                        <div>    
+                            <input class="rate" type="hidden" name="rating" value="3">
+                        </div>
                     <textarea name="review" id="review" class=text-review  placeholder="Add Review"></textarea>
                     <br>
                     <button  type="submit" class=save-btn name="save-review">Add Review</button>
@@ -217,5 +279,40 @@
             </div>
         </div> 
     </div> 
+    <script>
+        
+        //initial setup
+        document.addEventListener('DOMContentLoaded', function(){
+            let stars = document.querySelectorAll('.ratestar');
+            stars.forEach(function(star){
+                star.addEventListener('click', setRating); 
+            });
+            
+            let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
+            let target = stars[rating - 1];
+            target.dispatchEvent(new MouseEvent('click'));
+        });
+
+        function setRating(ev){
+            let span = ev.currentTarget;
+            let stars = document.querySelectorAll('.ratestar');
+            let match = false;
+            let num = 0;
+            stars.forEach(function(star, index){
+                if(match){
+                    star.classList.remove('rated');
+                }else{
+                    star.classList.add('rated');
+                }
+                //are we currently looking at the span that was clicked
+                if(star === span){
+                    match = true;
+                    num = index + 1;
+                }
+            });
+            document.querySelector('.stars').setAttribute('data-rating', num);
+            document.querySelector('.rate').setAttribute('value', num);
+        }
+    </script>
 </body>
 </html>
