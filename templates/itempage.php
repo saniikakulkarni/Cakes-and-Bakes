@@ -67,6 +67,7 @@
                         $img3=$row['img3'];
                         $img4=$row['img4'];
                         $itemid = $row['itemid'];
+                        $category = $row['category'];
                         $name=$row['name'];
                         $quantityprice=$row['quantityprice'];
                         $description=$row['description'];
@@ -83,7 +84,7 @@
                         }
                         $n=sizeof($qp);
                         $rating=$row['rating'];
-                        $star=3;
+                        $star=$row['star'];
                     ?>
                     <div class='itempic'>
                         <div class='smallpicdiv'>
@@ -238,8 +239,7 @@
                                         }                                           
                                     }
                                 }
-                                mysqli_stmt_close($stmt);
-                                mysqli_close($conn);
+                                
                             ?> 
                             <p style="float:right"><a href="reviews.php?itemid=<?php echo $itemid ?>">See all reviews</a></p>                   
                         </div>
@@ -249,9 +249,56 @@
             
         <div class="alsolike">
             <center><h1 class=alsolikeheading>You May Also Like</h1></center>
-            <div class=alsolikeback>
-                <div class=alsoliketile></div>
-            </div>
+            <?php
+            
+            $sql4="SELECT * FROM item WHERE category=? ORDER BY star DESC";
+            $stmt4 = mysqli_stmt_init($conn);
+            if(!mysqli_stmt_prepare($stmt4,$sql4))
+            {
+                header("Location: ./homepage.php?error=sqlerror");
+                exit();
+            }
+            else
+            {
+                mysqli_stmt_bind_param($stmt4,"s",$category);
+                mysqli_stmt_execute($stmt4);
+                $result4 = mysqli_stmt_get_result($stmt4);
+                while($row4 = mysqli_fetch_assoc($result4)){
+                $img1=$row4['img1'];
+                $name=$row4['name'];
+                $quantityprice=$row4['quantityprice'];
+                $qp=explode("\n",$quantityprice);
+                $qp=explode(":",$qp[0]);
+                $quantity=$qp[0];
+                $price=$qp[1];
+                $rating=$row4['rating'];
+                $star=$row4['star'];
+                echo "<a href='itempage.php?itemname=$name'>
+                        <div class='recommends'>
+                            <img src='./itemimages/$img1' class='item-img'>
+                            <div class='itemdesc1'>
+                                <p class='item-name'>$name</p>
+                                <span class='item-price'>$price</span>
+                                <span class='quantity-sml'><span class='label'>Quantity :</span>$quantity</span>
+                                <p class='rating'>";
+                                for($i=1;$i<=$star;$i++)
+                                {
+                                    echo "<i class='fa fa-star' aria-hidden='true'></i>";
+                                }
+                                for($i=1;$i<=5-$star;$i++)
+                                {
+                                    echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
+                                }
+                                echo "$rating
+                                </p>
+                            </div>
+                        </div>
+                    </a>";
+                }
+            }
+            mysqli_stmt_close($stmt);
+            mysqli_close($conn);
+        ?>        
         </div>
         
         <div class=popupreviewdiv id=popupreview>

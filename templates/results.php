@@ -64,7 +64,7 @@
                 $quantity=$qp[0];
                 $price=$qp[1];
                 $rating=$row['rating'];
-                $star=3;
+                $star=$row['star'];
                 echo "<a href='itempage.php?itemname=$name'>
                         <div class='items'>
                             <img src='./itemimages/$img1' class='item-img'>

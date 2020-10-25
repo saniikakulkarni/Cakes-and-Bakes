@@ -52,11 +52,44 @@
             Top Sellers of Cakes and Bakes
         </div>
         <div class=tilesdiv>
-            <div class=tile></div>
-            <div class=tile></div>
-            <div class=tile></div>
-            <div class=tile></div>
-            <div class=tile></div>
+        <?php
+            
+            $sql4="SELECT * FROM item ORDER BY star DESC LIMIT 5";
+            $result4 = mysqli_query($conn,$sql4);
+            while($row4 = mysqli_fetch_assoc($result4)){
+                $img1=$row4['img1'];
+                $name=$row4['name'];
+                $quantityprice=$row4['quantityprice'];
+                $qp=explode("\n",$quantityprice);
+                $qp=explode(":",$qp[0]);
+                $quantity=$qp[0];
+                $price=$qp[1];
+                $rating=$row4['rating'];
+                $star=$row4['star'];
+                echo "<a href='itempage.php?itemname=$name'>
+                        <div class='recommends'>
+                            <img src='./itemimages/$img1' class='item-img'>
+                            <div class='itemdesc1'>
+                                <p class='item-name'>$name</p>
+                                <span class='item-price'>$price</span>
+                                <span class='quantity-sml'><span class='label'>Quantity :</span>$quantity</span>
+                                <p class='rating'>";
+                                for($i=1;$i<=$star;$i++)
+                                {
+                                    echo "<i class='fa fa-star' aria-hidden='true'></i>";
+                                }
+                                for($i=1;$i<=5-$star;$i++)
+                                {
+                                    echo "<i class='fa fa-star star-null'  aria-hidden='true'></i>";
+                                }
+                                echo "$rating
+                                </p>
+                            </div>
+                        </div>
+                    </a>";
+            }
+            mysqli_close($conn);
+        ?>        
             <hr>
         </div>
 </div>
