@@ -26,7 +26,7 @@
 
 .order{
     background:white;
-    width:70%;
+    width:80%;
     height:20vh;
     margin:2% auto;
     display:flex;
@@ -59,7 +59,7 @@
 
 .cancelorder,.detail-btn{
     display:block;
-    margin:10% 2%;
+    margin:5% 2%;
     width:90%;
     padding:5% 10%; 
 }
@@ -90,4 +90,10 @@
 
 .btn-div{
     margin:2%;
+}
+
+.noitems
+{
+    color:#865d17c7;
+    font-family: 'Satisfy', cursive;
 }

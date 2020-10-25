@@ -27,9 +27,9 @@ body{
 .order{
     background:white;
     width:90%;
-    height:24vh;
+    height:26vh;
     margin:2% auto;
-    padding:0.5%;
+    padding:0.8%;
     display:flex;
     border-radius: 15px;
     font-family: 'Noto Sans', sans-serif;

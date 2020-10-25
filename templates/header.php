@@ -14,7 +14,7 @@
         setTimeout(() => {
             let msg = document.querySelector(".msg-outerbox");
             msg.remove();
-        }, 3000);
+        }, 2000);
     </script>
 </head>
 <body>
@@ -37,11 +37,11 @@
                     <td class=headerlinks><a href="">Help</a></td>
                     <td class=headerlinks><a href="cart.php">Your Cart</a></td>
                 </tr>
-                <tr id=dropdownmenu class=dropdowntr>
-                    <td colspan=3 style="visibility:hidden"></td>
-                    <td id=dropdowncat colspan=1 onmouseenter="menushow()" onmouseleave="menuhide()"class=dropdowntd >
+            </table>
+                <div id=dropdownmenu class=dropdowntr>
+                    <div id=dropdowncat colspan=1 onmouseenter="menushow()" onmouseleave="menuhide()"class=dropdowntd >
                         <ul class=dropdownlist>
-                        <li class="drop-items"><a href="results.php?category=Cakes">Cakes</a></li>
+                            <li class="drop-items"><a href="results.php?category=Cakes">Cakes</a></li>
                             <li class="drop-items"><a href="results.php?category=Occasion Cakes">Occassion Cakes</a></li>
                             <li class="drop-items"><a href="results.php?category=Cupcakes">Cupcakes</a></li>
                             <li class="drop-items"><a href="results.php?category=Cookies">Cookies</a></li>
@@ -50,8 +50,8 @@
                             <li class="drop-items"><a href="results.php?category=Brownies">Brownies</a></li>
                             <li class="drop-items btm-border-none"><a href="results.php?category=Delights">Delights</a></li>
                         </ul>
-                    </td>
-                    <td id=dropdownprofile colspan=1 onmouseenter=profileshow() onmouseleave=profilehide() class=dropdowntd id=profileshift>
+                    </div>
+                    <div id=dropdownprofile colspan=1 onmouseenter=profileshow() onmouseleave=profilehide() class=dropdowntd id=profileshift>
                         <ul class=dropdownlist >
                             <?php 
                                 if(isset($_SESSION['userid']))
@@ -68,10 +68,8 @@
                                 }
                             ?>
                         </ul>
-                    </td>
-                    <td colspan=1 style="visibility:hidden"></td>
-                </tr>
-            </table>       
+                    </div>
+                </div>    
     </div>
     <!--Header end-->
 

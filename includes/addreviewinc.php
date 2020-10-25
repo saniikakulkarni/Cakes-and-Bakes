@@ -1,10 +1,10 @@
 <?php
     session_start();
-    if(isset($_POST['save-review']) && isset($_SESSION['userid']))
+    $itemname = $_GET['itemname'];
+    if(isset($_POST['save-review']) && isset($_SESSION['email']))
     {
         require "dbhinc.php";
         $itemid = $_GET['itemid'];
-        $itemname = $_GET['itemname'];
         $userid = $_SESSION['userid'];
         $rating = $_POST['rating'];
         $review = $_POST['review'];
@@ -62,7 +62,7 @@
     }
     else
     {
-        $_SESSION['error-message'] = "Login required";
+        $_SESSION['error-message'] ="Login required";
         header("Location:../templates/itempage.php?itemname=$itemname&error=login first");
         exit();
     }

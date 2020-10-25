@@ -18,19 +18,19 @@ function popupsignupclose()
 }
 function menushow()
 {
-    document.getElementById('dropdowncat').style.visibility="visible";
+    document.getElementById('dropdowncat').style.display="block";
 }
 function menuhide()
 {
-    document.getElementById('dropdowncat').style.visibility="hidden";
+    document.getElementById('dropdowncat').style.display="none";
 }
 function profileshow()
 {
-    document.getElementById('dropdownprofile').style.visibility="visible";
+    document.getElementById('dropdownprofile').style.display="block";
 }
 function profilehide()
 {
-    document.getElementById('dropdownprofile').style.visibility="hidden";
+    document.getElementById('dropdownprofile').style.display="none";
 }
 function picboxdisplay(smallpicid1,smallpicid2,smallpicid3,smallpicid4)
 {

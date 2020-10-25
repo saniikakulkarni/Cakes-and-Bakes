@@ -282,7 +282,7 @@
                 setTimeout(() => {
                     let msg = document.querySelector(".msg-outerbox");
                     msg.remove();
-                }, 3000);
+                }, 2000);
             </script>
         <!-- MESSAGE -->
         <?php if(isset($_SESSION['error-message'])): ?>

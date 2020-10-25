@@ -50,7 +50,7 @@
             {
                 if($_SESSION['email']!='admin@gmail.com')
                 {
-                    $sql="SELECT * FROM orderdetails o JOIN  recipientdetails r  ON o.recipientid=r.recipientid WHERE o.userid=?";
+                    $sql="SELECT * FROM orderdetails o JOIN  recipientdetails r  ON o.recipientid=r.recipientid WHERE o.userid=? order by deliverydate DESC";
                     $stmt= mysqli_stmt_init($conn);
                     if(!mysqli_stmt_prepare($stmt,$sql))
                     {

@@ -98,19 +98,17 @@ button:hover{
     font-size:24px;
     cursor:pointer;
 }
-
-.headerlinks>a:visited,.headerlinks>a:hover{
+.headerlinks>a:visited,.headerlinks>a:hover
+{
     color:#fcd5ca;
     text-decoration: none;
 }
-
 .dropdowntd
 {
-    visibility:hidden;
+    display:none;
 }
 .dropdownlist
 {
-    
     border-top:5px solid #fcd5ca;
     padding:0 12%;
     background:white;
@@ -142,21 +140,21 @@ button:hover{
 .btm-border-none{
     border-bottom:none;
 }
-
-#profileshift
-{
-    width:8%;
-    position:absolute;
-    top:60px;
-    right:12%;
-    padding:0 1%;
-}
-
 #dropdowncat{
     width:11%;
-    position :absolute;
+    position :fixed;
     top:60px;
     right:26%;
+    z-index:5;
+}
+
+#dropdownprofile
+{
+    width:9.5%;
+    position :fixed;
+    top:60px;
+    right:17.5%;
+    z-index:5;
 }
 /*Header end*/
 

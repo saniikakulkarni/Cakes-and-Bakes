@@ -15,7 +15,7 @@
         setTimeout(() => {
             let msg = document.querySelector(".msg-outerbox");
             msg.remove();
-        }, 3000);
+        }, 2000);
     </script>
 </head>
 <body>
@@ -38,23 +38,21 @@
                 <td class=headerlinks><a href="../includes/signoutinc.php">Logout</a></td>
                 <td class=headerlinks><a href="adminorders.php">Orders</a></td>
             </tr>
-            <tr id=dropdownmenu class=dropdowntr>
-                    <td colspan=3 style="visibility:hidden"></td>
-                    <td id=dropdowncat colspan=1 onmouseenter="menushow()" onmouseleave="menuhide()"class=dropdowntd >
-                        <ul class=dropdownlist>
-                            <li class="drop-items"><a href="results.php?category=Cakes">Cakes</a></li>
-                            <li class="drop-items"><a href="results.php?category=Occasion Cakes">Occassion Cakes</a></li>
-                            <li class="drop-items"><a href="results.php?category=Cupcakes">Cupcakes</a></li>
-                            <li class="drop-items"><a href="results.php?category=Cookies">Cookies</a></li>
-                            <li class="drop-items"><a href="results.php?category=Macaroons">Macaroons</a></li>
-                            <li class="drop-items"><a href="results.php?category=Snacks">Snacks</a></li>
-                            <li class="drop-items"><a href="results.php?category=Brownies">Brownies</a></li>
-                            <li class="drop-items btm-border-none"><a href="results.php?category=Delights">Delights</a></li>
-                        </ul>
-                    </td>
-                    <td colspan=3 style="visibility:hidden"></td>
-            </tr>
-        </table>       
+        </table>  
+            <div id=dropdownmenu class=dropdowntr>
+                <div id=dropdowncat colspan=1 onmouseenter="menushow()" onmouseleave="menuhide()"class=dropdowntd >
+                    <ul class=dropdownlist>
+                        <li class="drop-items"><a href="results.php?category=Cakes">Cakes</a></li>
+                        <li class="drop-items"><a href="results.php?category=Occasion Cakes">Occassion Cakes</a></li>
+                        <li class="drop-items"><a href="results.php?category=Cupcakes">Cupcakes</a></li>
+                        <li class="drop-items"><a href="results.php?category=Cookies">Cookies</a></li>
+                        <li class="drop-items"><a href="results.php?category=Macaroons">Macaroons</a></li>
+                        <li class="drop-items"><a href="results.php?category=Snacks">Snacks</a></li>
+                        <li class="drop-items"><a href="results.php?category=Brownies">Brownies</a></li>
+                        <li class="drop-items btm-border-none"><a href="results.php?category=Delights">Delights</a></li>
+                    </ul>
+                </div>
+            </div>     
     </div>
     <!--Header end-->
 

@@ -117,7 +117,7 @@
                         }
                         else
                         {
-                            echo "<h2>No Items Present In Cart</h2>";
+                            echo "<h2 class='noitems'>Your cart is empty</h2>";
                         }    
                     }
                     
