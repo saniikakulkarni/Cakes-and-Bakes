@@ -15,7 +15,7 @@ if(isset($_GET['orderid'])){
     {
         mysqli_stmt_bind_param($stmt,"s",$orderid);
         mysqli_stmt_execute($stmt);      
-        $_SESSION['success-message']="Item removed from you order successfully!";
+        $_SESSION['success-message']="Item removed from your order successfully!";
         header("Location: ../templates/track-order.php");
         exit();
     }

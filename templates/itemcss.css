@@ -128,11 +128,11 @@
     margin-left:0;
     width:50%;
     padding:3;
-    border:none;
+    border:1px solid #ccc;
 }
 #upgrade:focus{
     outline:none;
-    border:none;
+    border:1px solid #ccc;
 }
 .pindate
 {
